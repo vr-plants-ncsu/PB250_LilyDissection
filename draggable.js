@@ -1,10 +1,10 @@
-import AFRAME from "https://aframe.io/releases/1.2.0/aframe.min.js"
-
-AFRAME.registerComponent('cursorDraggable', {
-  init: function(){
+AFRAME.registerComponent('cursor-draggable', {
+  init: function () { 
+    console.log("draggable");
     var isDragging = false;
-    this.el.addEventListener('click', function (evt){
+    this.el.addEventListener('click', function (evt) {
       isDragging = !isDragging;
-    })
+      console.log(evt.detail.intersection.point);
+    });
   }
-})
+});
