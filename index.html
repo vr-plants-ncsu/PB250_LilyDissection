@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
   <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+  <script src="/draggable.js"></script>
 </head>
 <body>
   
@@ -55,7 +56,7 @@
     </a-entity>
   </a-entity>
 
-  <a-entity position="0 3 0" class="clickable" mixin="cube yellow"
+  <a-entity cursor-draggable class= "collidable" position="0 3 0" mixin="cube yellow"
             rotation="0 45 0" scale=".5 .5 .5"></a-entity>
 </a-scene>
 </body>

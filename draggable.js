@@ -1,10 +1,18 @@
 AFRAME.registerComponent('cursor-draggable', {
+  schema: {
+    isDragging: {default: false}
+  },
   init: function () { 
     console.log("draggable");
-    var isDragging = false;
+    
     this.el.addEventListener('click', function (evt) {
-      isDragging = !isDragging;
+      this.isDragging = !this.isDragging;
       console.log(evt.detail.intersection.point);
     });
+  },
+  tick: function(){
+  if(this.isDragging){
+    
   }
+}
 });
