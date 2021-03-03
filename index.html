@@ -1,19 +1,5 @@
 <!DOCTYPE html>
 <head>
-  <script>
-    navigator.xr.requestDevice = navigator.xr.requestDevice || function () {
-  return new Promise((resolve, reject) => {
-    resolve({
-      supportsSession: new Promise((resolve, reject) => {
-        resolve({
-          immersive: true,
-          exclusive: true
-        });
-      })
-    });
-  });
-};
-  </script>
   <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
 </head>
 <body>
