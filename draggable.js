@@ -12,7 +12,7 @@ AFRAME.registerComponent('cursor-draggable', {
   },
   tick: function(){
   if(this.isDragging){
-    
+    this.el.position = mouse.
   }
 }
 });
