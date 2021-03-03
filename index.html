@@ -15,6 +15,9 @@
     <a-mixin id="blue" material="color: blue"></a-mixin>
     <a-mixin id="yellow" material="color: yellow"></a-mixin>
     <a-mixin id="sphere" geometry="primitive: sphere"></a-mixin>
+    
+    <a-asset-item id="containerBox" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FGlowBox.gltf?v=1614803085794"></a-asset-item>
+
   </a-assets>
   
   <a-entity position="0 2.2 4">
@@ -40,9 +43,7 @@
   </a-entity>
 
   <a-entity position="0 1 0">
-    <a-entity mixin="cube green">
-      <a-animation begin="click" attribute="rotation" to="0 360 0"
-                   easing="linear" dur="2000" fill="backwards"></a-animation>
+    <a-entity gltf-model="#containerBox">
     </a-entity>
   </a-entity>
 
