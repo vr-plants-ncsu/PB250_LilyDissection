@@ -1,18 +1,36 @@
 AFRAME.registerComponent('cursor-draggable', {
-  schema: {
-    isDragging: {default: false}
+  init: function () {
+    this.DRAGGED_STATE = 'dragged';
+    this.DRAG_EVENT = 'drag-start';
+    this.UNDRAG_EVENT = 'drag-end';
+
+    this.dragStartBound = this.dragStart.bind(this);
+    this.dragEndBound = this.dragEnd.bind(this);
+
+    this.el.addEventListener(this.DRAG_EVENT, this.dragStartBound);
+    this.el.addEventListener(this.UNDRAG_EVENT, this.dragEndBound);
   },
-  init: function () { 
-    console.log("draggable");
-    
-    this.el.addEventListener('click', function (evt) {
-      this.isDragging = !this.isDragging;
-      console.log(evt.detail.intersection.point);
-    });
+  remove: function () {
+    this.el.removeEventListener(this.DRAG_EVENT, this.dragStart);
+    this.el.removeEventListener(this.UNDRAG_EVENT, this.dragEnd);
   },
-  tick: function(){
-  if(this.isDragging){
-    this.el.position = mouse.
+  dragStart: function (evt) {
+    if (evt.defaultPrevented || !this.startButtonOk(evt)) {
+      return;
+    }
+    this.el.addState(this.DRAGGED_STATE);
+    if (evt.preventDefault) {
+      evt.preventDefault();
+    }
+  },
+  dragEnd: function (evt) {
+    if (evt.defaultPrevented || !this.endButtonOk(evt)) {
+      return;
+    }
+    this.el.removeState(this.DRAGGED_STATE);
+    if (evt.preventDefault) {
+      evt.preventDefault();
+    }
   }
-}
+
 });
