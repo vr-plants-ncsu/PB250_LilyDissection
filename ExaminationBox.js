@@ -5,7 +5,8 @@ var canAssociate = true;
 
 AFRAME.registerComponent('exambox',{
   schema: {
-    snapedRotation: {type: 'vec3'}
+    snapedRotation: {type: 'vec3'},
+    snapedScale: {type: 'vec3'}
   },
   init: function (){
     //find the point we're going to cast from
@@ -38,7 +39,9 @@ AFRAME.registerComponent('exambox',{
 },
   associate: function(entity){
     //move the element to the point
-    entity.object3D.position = castPoint.object3D.position;
+    //entity.setAttribute('position', castPoint.components.position);
+    entity.setAttribute('rotation',this.snapedRotation);
+    entity.setAttribute('scale', this.snapedScale);
     //rotate to our ideal rotation
     storedObject = entity;
     //set to ideal scale
