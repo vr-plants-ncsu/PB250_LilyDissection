@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <head>
-  <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://unpkg.com/super-hands/dist/super-hands.min.js"></script>
-  <script src="/draggable.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>  
+  <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js"></script>
 </head>
 <body>
   
@@ -19,15 +20,17 @@
     <a-mixin id="sphere" geometry="primitive: sphere"></a-mixin>
     
     <a-asset-item id="containerBox" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FGlowBox.gltf?v=1614803085794"></a-asset-item>
-
   </a-assets>
   
   <a-entity position="0 2.2 4">
-    <a-entity camera look-controls wasd-controls>
+    <a-entity camera look-controls super-hands="colliderEvent: raycaster-intersection;
+                             colliderEventProperty: els;
+                             colliderEndEvent:raycaster-intersection-cleared;
+                             colliderEndEventProperty: clearedEls;">
       <a-entity position="0 0 -3"
                 geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
                 material="color: cyan; shader: flat"
-                cursor="fuse: true;"
+                cursor="rayOrigin: mouse; fuse: false;"
                 raycaster = "objects: .collidable;">
         <a-animation begin="click" easing="ease-in" attribute="scale"
              fill="forwards" from="0.2 0.2 0.2" to="1 1 1" dur="150"></a-animation>
@@ -37,27 +40,17 @@
     </a-entity>
   </a-entity>
   
-  <a-entity class= "collidable" position="-3.5 1 0">
-    <a-entity class= "collidable" mixin="cube red">
-      <a-animation begin="click" attribute="position" from="0 0 0"
-                   to="0 0 -10" dur="2000" fill="both"></a-animation>
-    </a-entity>
-  </a-entity>
 
-  <a-entity position="0 1 0">
-    <a-entity gltf-model="#containerBox">
+    <a-entity class= "collidable" mixin="cube red" position="0 3 0" hoverable grabbable stretchable draggable droppable
+                 shadow
+              event-set__dragdrop="_event: drag-drop"
+                 event-set__hoveron="_event: hover-start; rotation: 90 -180 0; scale: 1.2 1.2 0.6"
+                 event-set__click="_event: click; position: -0.1 1.2 -2"
+                 event-set__hoveroff="_event: hover-end; rotation: 0 90 0; scale: 0.4 0.4 0.4"
+                 event-set__dragon="_event: dragover-start"
+                 event-set__dragoff="_event: dragover-end">
     </a-entity>
-  </a-entity>
 
-  <a-entity position="3.5 1 0" rotation="0 45 0">
-    <a-entity mixin="cube blue">
-      <a-animation begin="click" fill="forwards" repeat="1"
-                   direction="alternate" attribute="position" from="0 0 0"
-                   to="15 0 0" dur="2000"></a-animation>
-    </a-entity>
-  </a-entity>
-
-  <a-entity cursor-draggable class= "collidable" position="0 3 0" mixin="cube yellow"
-            rotation="0 45 0" scale=".5 .5 .5"></a-entity>
+  
 </a-scene>
 </body>
