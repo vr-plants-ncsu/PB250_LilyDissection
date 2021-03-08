@@ -4,6 +4,7 @@
   <script src="https://unpkg.com/super-hands/dist/super-hands.min.js"></script>
   <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>  
   <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js"></script>
+  <script src="./ExaminationBox.js"></script>
 </head>
 <body>
   
@@ -54,7 +55,8 @@
              from="1.2 1.2 1.2" to="1 1 1" dur="50"></a-animation>
     </a-entity>
 
-  <a-entity gltf-model="#containerBox" position="0 0 0" rotation="0 90 0" scale="0.8 0.8 0.8">
+  <a-entity gltf-model="#containerBox" position="0 0 0" rotation="0 90 0" scale="0.8 0.8 0.8" exambox>
+    <a-entity id="castPoint" position="0 -1 0"></a-entity>
   </a-entity>
   
 </a-scene>
