@@ -1,5 +1,6 @@
 var castPoint;
 var trackedList;
+var storedObject;
 
 AFRAME.registerComponent('examBox',{
   schema: {},
@@ -15,11 +16,19 @@ AFRAME.registerComponent('examBox',{
   },
   tick: function(){
   //get the location of all the entities in our check list
-    foreach(var trackedObject in trackedList){
-      
-    }
+    trackedList.forEach(element =>{
+      if(element.object3D.position.distanceTo(castPoint.object3D.position) < 0.5){
+        this.associate(element);
+      }
+    });
   //if any of them are close enough to our cast point and the box is empty
     //make that object our stored object and require it be removed before 
     //adding any other new objects
-}
+},
+  associate: function(entity){
+    //move the element to the point
+    //rotate to our ideal rotation
+    //set to ideal scale
+    //make it impossible to associate other objects
+  }
 });
