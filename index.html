@@ -32,11 +32,9 @@
                 material="color: cyan; shader: flat"
                 cursor="rayOrigin: mouse; fuse: false;"
                 raycaster = "objects: .collidable;"
-                event-set__click="_event:click; position: 0 0 -5;">
+                event-set__click="_event:click;">
         <a-animation begin="click" easing="ease-in" attribute="scale"
              fill="forwards" from="0.2 0.2 0.2" to="1 1 1" dur="150"></a-animation>
-        <a-animation begin="fusing" easing="ease-in" attribute="scale"
-             fill="backwards" from="1 1 1" to="0.2 0.2 0.2" dur="1500"></a-animation>
       </a-entity>
     </a-entity>
   </a-entity>
@@ -45,11 +43,15 @@
     <a-entity class= "collidable" mixin="cube red" position="0 3 0" hoverable grabbable stretchable draggable droppable
                  shadow
               event-set__dragdrop="_event: drag-drop"
-                 event-set__hoveron="_event: hover-start; rotation: 90 -180 0; scale: 1.2 1.2 1.2"
+                 event-set__hoveron="_event: hover-start;"
                  event-set__click="_event: click;"
                  event-set__hoveroff="_event: hover-end; rotation: 0 90 0; scale: 1.0 1.0 1.0"
                  event-set__dragon="_event: dragover-start"
                  event-set__dragoff="_event: dragover-end">
+      <a-animation begin="hover-start" easing="ease-in" attribute="scale"
+             from="1 1 1" to="1.2 1.2 1.2" dur="50"></a-animation>
+      <a-animation begin="hover-end" easing="ease-in" attribute="scale"
+             from="1.2 1.2 1.2" to="1 1 1" dur="50"></a-animation>
     </a-entity>
 
   <a-entity gltf-model="#containerBox" position="0 0 0" rotation="0 90 0" scale="0.8 0.8 0.8">
