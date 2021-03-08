@@ -26,7 +26,9 @@ AFRAME.registerComponent('exambox',{
       return;
     }
     trackedList.forEach(element =>{
+      //console.log("checking " + element.id);
       if(element.object3D.position.distanceTo(castPoint.object3D.position) < 0.5){
+        console.log(element.id + " is " + element.object3D.position.distanceTo(castPoint.object3D.position));
         this.associate(element);
       }
     });
@@ -38,11 +40,14 @@ AFRAME.registerComponent('exambox',{
     //move the element to the point
     entity.object3D.position = castPoint.object3D.position;
     //rotate to our ideal rotation
+    storedObject = entity;
     //set to ideal scale
     //make it impossible to associate other objects
     canAssociate = false;
+    console.log(storedObject.id + " is added");
   },
   disassociate: function(){
+    console.log(storedObject.id + " is removed");
     storedObject = null;
     canAssociate = true;
   }
