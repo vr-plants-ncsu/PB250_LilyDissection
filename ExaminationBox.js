@@ -40,8 +40,8 @@ AFRAME.registerComponent('exambox',{
   associate: function(entity){
     //move the element to the point
     //entity.setAttribute('position', castPoint.components.position);
-    entity.setAttribute('rotation',this.snapedRotation);
-    entity.setAttribute('scale', this.snapedScale);
+    entity.object3D.rotation.set(0, 45, 0);
+    //entity.setAttribute('scale', this.snapedScale);
     //rotate to our ideal rotation
     storedObject = entity;
     //set to ideal scale
@@ -51,6 +51,7 @@ AFRAME.registerComponent('exambox',{
   },
   disassociate: function(){
     console.log(storedObject.id + " is removed");
+    storedObject.object3D.rotation.set(0, 0, 0);
     storedObject = null;
     canAssociate = true;
   }
