@@ -40,8 +40,8 @@ AFRAME.registerComponent('exambox',{
   associate: function(entity){
     //move the element to the point
     //entity.setAttribute('position', castPoint.components.position);
-    TweenMax.to(entity.object3D, 0.3, {three:{rotationX:0, rotationY:45, rotationZ:0}, ease:Sine.easeIn});
-    entity.object3D.rotation.set(0, 45, 0);
+    TweenMax.to(entity.object3D, 3, {three:{rotationX:0, rotationY:45, rotationZ:0}, ease:Sine.easeIn});
+    //entity.object3D.rotation.set(0, 45, 0);
     //entity.setAttribute('scale', this.snapedScale);
     //rotate to our ideal rotation
     storedObject = entity;
