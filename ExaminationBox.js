@@ -3,6 +3,8 @@ var trackedList;
 var storedObject;
 var canAssociate = true;
 
+import ThreePlugin from 
+
 AFRAME.registerComponent('exambox',{
   schema: {
     snapedRotation: {type: 'vec3'},
