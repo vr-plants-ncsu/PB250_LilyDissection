@@ -41,6 +41,7 @@ AFRAME.registerComponent('exambox',{
     //move the element to the point
     //entity.setAttribute('position', castPoint.components.position);
     TweenMax.to(entity.object3D, 0.3, {three:{rotationX:0, rotationY:45, rotationZ:0}, ease:Sine.easeIn});
+    //TweenMax.to(entity.object3D, 0.3, {three:{opacity: 0.7}, ease:Sine.easeIn});
     //entity.object3D.rotation.set(0, 45, 0);
     //entity.setAttribute('scale', this.snapedScale);
     //rotate to our ideal rotation
@@ -53,6 +54,7 @@ AFRAME.registerComponent('exambox',{
   disassociate: function(){
     console.log(storedObject.id + " is removed");
     TweenMax.to(storedObject.object3D, 0.3, {three:{rotationX:0, rotationY:0, rotationZ:0}, ease:Sine.easeOut});
+    //TweenMax.to(storedObject.object3D, 0.3, {three:{opacity: 1.0}, ease:Sine.easeIn});
     //storedObject.object3D.rotation.set(0, 0, 0);
     storedObject = null;
     canAssociate = true;
