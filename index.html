@@ -16,13 +16,7 @@
 <a-scene display = "block">
   <a-assets>
     <a-mixin id="cube" geometry="primitive: box"></a-mixin>
-    <a-mixin id="cube-hovered" material="color: magenta"></a-mixin>
-    <a-mixin id="cube-selected" material="color: cyan"></a-mixin>
-    <a-mixin id="red" material="color: red"></a-mixin>
-    <a-mixin id="green" material="color: green"></a-mixin>
-    <a-mixin id="blue" material="color: blue"></a-mixin>
-    <a-mixin id="yellow" material="color: yellow"></a-mixin>
-    <a-mixin id="sphere" geometry="primitive: sphere"></a-mixin>
+    <a-mixin id="plane" geometry="primative: plane" height="50" width="1"></a-mixin>
     
     <a-asset-item id="containerBox" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fscene.gltf?v=1615220299205"></a-asset-item>
   </a-assets>
@@ -59,6 +53,9 @@
              from="1.2 1.2 1.2" to="1 1 1" dur="50"></a-animation>
     </a-entity>
 
+  <a-plane id="proto-callout" >
+  </a-plane>
+  
   <a-entity gltf-model="#containerBox" position="0 0 0" rotation="0 90 0" scale="0.8 0.8 0.8" exambox="snapedRotation: 45 0 0; snapedScale: 1.2 1.2 1.2" >
     <a-entity id="castPoint" position="0 1.68 0"></a-entity>
   </a-entity>
