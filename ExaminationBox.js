@@ -16,7 +16,7 @@ AFRAME.registerComponent('exambox',{
       console.log("No cast point found! Add one to the entity that has the exam box");
     }
     //check for tagged entries and add them to our check list
-    trackedList = document.querySelectorAll('.collidable');
+    trackedList = document.querySelectorAll('.examible');
   },
   tick: function(){
   //get the location of all the entities in our check list
