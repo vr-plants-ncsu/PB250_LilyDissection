@@ -4,12 +4,12 @@ AFRAME.registerComponent('examinable',{
     snapedScale: {type: 'vec3'}
   },
  init: function(){
-   var entity = this.el;
-   this.el.addEventListener('click', function(evt){
+   let entity = this.el;
+   entity.addEventListener('click', function(evt){
      //find our examination box
-     var examBoxComp = document.querySelector('[ExamBox]').components.exambox;
+     let examBoxComp = document.querySelector('[ExamBox]').components.exambox;
      //associate it
-     examBoxComp.associate(this.el);
+     examBoxComp.associate(entity);
    })
  } 
 });
