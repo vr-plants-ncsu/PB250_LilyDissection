@@ -9,6 +9,7 @@
     import "./GreenSockThree.js";
   </script>
   <script src="./ExaminationBox.js"></script>
+  <script src="./Examinable.js"></script>
 </head>
 <body>
   
@@ -40,7 +41,7 @@
   
 
     <a-entity id="specimin" class= "collidable" geometry="primitive: box" position="0 2 2" scale="0.2 0.2 0.2" hoverable grabbable stretchable draggable droppable
-                 shadow
+                 shadow examinable
               event-set__dragdrop="_event: drag-drop"
                  event-set__hoveron="_event: hover-start;"
                  event-set__click="_event: click;"
