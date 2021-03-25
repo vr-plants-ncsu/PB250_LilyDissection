@@ -12,6 +12,7 @@ AFRAME.registerComponent('examinable',{
      let examBoxComp = document.querySelector('[ExamBox]').components.exambox;
      if(associated){
        examBoxComp.unassociate();
+       exa
        associated = false;
      }
      if(!associated){
@@ -20,5 +21,11 @@ AFRAME.registerComponent('examinable',{
        associated = true;
      }
    })
- } 
+ },
+  whenAssociated: function(){
+    
+  },
+  whenDisassociated: function(){
+    
+  }
 });

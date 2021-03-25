@@ -1,7 +1,6 @@
 var storedObject;
 var canAssociate = true;
-const examinableAssociated = new Event('associate');
-const examinableDisassociated = new Event('disassociate');
+
 AFRAME.registerComponent('exambox',{
   schema: {
     snapedRotation: {type: 'vec3'},
@@ -29,7 +28,12 @@ AFRAME.registerComponent('exambox',{
     //make it impossible to associate other objects
     canAssociate = false;
     
+    //if we already have a stored entity, dissassocite first
+    if(storedObject !== null){
+      this.disassociate();
+    }
     
+    this.el.emit('associated',{associatedEntity: entity},false);
     console.log(storedObject.id + " is added");
   },
   disassociate: function(){
@@ -37,6 +41,7 @@ AFRAME.registerComponent('exambox',{
     TweenMax.to(storedObject.object3D, 0.3, {three:{rotationX:0, rotationY:0, rotationZ:0}, ease:Sine.easeOut});
     //TweenMax.to(storedObject.object3D, 0.3, {three:{opacity: 1.0}, ease:Sine.easeIn});
     //storedObject.object3D.rotation.set(0, 0, 0);
+    this.el.emit('disassociated',{disassociatedEntity: storedObject},false);
     storedObject = null;
     canAssociate = true;
   }
