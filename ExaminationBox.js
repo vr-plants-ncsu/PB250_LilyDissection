@@ -1,4 +1,4 @@
-var storedObject;
+var storedObject = null;
 var canAssociate = true;
 
 AFRAME.registerComponent('exambox',{
@@ -16,6 +16,10 @@ AFRAME.registerComponent('exambox',{
     //adding any other new objects
 },
   associate: function(entity){
+        //if we already have a stored entity, dissassocite first
+    if(storedObject !== null){
+      this.dissassociate();
+    }
     //move the element to the point
     //entity.setAttribute('position', castPoint.components.position);
     TweenMax.to(entity.object3D, 0.3, {three:{rotationX:0, rotationY:45, rotationZ:0}, ease:Sine.easeIn});
@@ -28,10 +32,7 @@ AFRAME.registerComponent('exambox',{
     //make it impossible to associate other objects
     canAssociate = false;
     
-    //if we already have a stored entity, dissassocite first
-    if(storedObject !== null){
-      this.disassociate();
-    }
+
     
     this.el.emit('associated',{associatedEntity: entity},false);
     console.log(storedObject.id + " is added");

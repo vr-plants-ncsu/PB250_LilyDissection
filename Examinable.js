@@ -10,22 +10,35 @@ AFRAME.registerComponent('examinable',{
    entity.addEventListener('click', function(evt){
      //find our examination box
      let examBoxComp = document.querySelector('[ExamBox]').components.exambox;
-     if(associated){
-       examBoxComp.unassociate();
-       exa
+     
+     examBoxComp.el.addEventListener('associated', this.whenAssociated);
+     examBoxComp.el.addEventListener('disassociated', this.whenDisassociated);
+     
+     if(associated === true){
+       examBoxComp.disassociate();
        associated = false;
+       return;
      }
-     if(!associated){
+     if(associated === false){
      //associate it
      examBoxComp.associate(entity);
        associated = true;
+       return;
      }
    })
  },
-  whenAssociated: function(){
-    
+  whenAssociated: function(event){
+    //if the detail entity is this entity we react locally
+    if(event.detail.associatedEntity === this.el){
+      return;
+    }
+    //if not we can use this event to react to a different entity being examined
   },
-  whenDisassociated: function(){
-    
+  whenDisassociated: function(event){
+    //if the detail entity is this entity we react locally
+    if(event.detail.disassociatedEntity === this.el){
+      return;
+    }
+    //if not we can use this event to react to a different entity being removed
   }
 });
