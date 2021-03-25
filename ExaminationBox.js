@@ -1,22 +1,13 @@
-var castPoint;
-var trackedList;
 var storedObject;
 var canAssociate = true;
-
+const examinableAssociated = new Event('associate');
+const examinableDisassociated = new Event('disassociate');
 AFRAME.registerComponent('exambox',{
   schema: {
     snapedRotation: {type: 'vec3'},
     snapedScale: {type: 'vec3'}
   },
   init: function (){
-    //find the point we're going to cast from
-    castPoint = document.querySelector('#castPoint');
-    //if we don't have it log it
-    if(castPoint === null){
-      console.log("No cast point found! Add one to the entity that has the exam box");
-    }
-    //check for tagged entries and add them to our check list
-    //trackedList = document.querySelectorAll('.examible');
   },
   tick: function(){
   //get the location of all the entities in our check list
