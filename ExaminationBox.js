@@ -28,6 +28,8 @@ AFRAME.registerComponent('exambox',{
     //set to ideal scale
     //make it impossible to associate other objects
     canAssociate = false;
+    
+    
     console.log(storedObject.id + " is added");
   },
   disassociate: function(){
