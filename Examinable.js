@@ -1,13 +1,16 @@
 var associated = false;
+var clickCooldownCounter = 0;
 
 AFRAME.registerComponent('examinable',{
   schema: {
     snapedRotation: {type: 'vec3'},
-    snapedScale: {type: 'vec3'}
+    snapedScale: {type: 'vec3'},
+    clickCooldown: 100
   },
  init: function(){
    let entity = this.el;
    entity.addEventListener('click', function(evt){
+     if(clickCooldownCounter != 0)
      //find our examination box
      let examBoxComp = document.querySelector('[ExamBox]').components.exambox;
      
@@ -27,6 +30,12 @@ AFRAME.registerComponent('examinable',{
      }
    })
  },
+  tick: function(){
+    
+  },
+  resetCounter: function(){
+    clickCooldownCounter = this.data.clickCooldown;
+  },
   whenAssociated: function(event){
     //if the detail entity is this entity we react locally
     if(event.detail.associatedEntity === this.el){
