@@ -1,21 +1,20 @@
 var associated = false;
-var clickCooldownCounter = 100;
+var clickCooldownCounter = 0;
 
 AFRAME.registerComponent('examinable',{
   schema: {
     snapedRotation: {type: 'vec3'},
     snapedScale: {type: 'vec3'},
-    clickCooldown: {type: 'float', default: 100}
+    clickCooldown: {type: 'float', default: 0.2}
   },
  init: function(){
-   this.resetCounter;
+   this.resetCounter();
    let entity = this.el;
    entity.addEventListener('click', function(evt){
      if(clickCooldownCounter > 0){
-       console.log("Too early");
        return;
      }
-     this.resetCounter;
+     this.components.examinable.resetCounter();
      //find our examination box
      let examBoxComp = document.querySelector('[ExamBox]').components.exambox;
      
@@ -37,11 +36,11 @@ AFRAME.registerComponent('examinable',{
  },
   tick: function(time, timeDelta){
     if(clickCooldownCounter > 0){
-    clickCooldownCounter -= timeDelta;
+    clickCooldownCounter -= timeDelta/1000;
+      
     }
   },
   resetCounter: function(){
-    debug.log("counterreset");
     clickCooldownCounter = this.data.clickCooldown;
   },
   whenAssociated: function(event){
