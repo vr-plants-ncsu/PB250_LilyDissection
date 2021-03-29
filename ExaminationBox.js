@@ -1,5 +1,6 @@
 var storedObject = null;
 var canAssociate = true;
+var storedRotation = new THREE.Vector3(0,0,0);
 var storedPosition = new THREE.Vector3(0,0,0);
 var storedScale = new THREE.Vector3(0,0,0);
 
@@ -25,13 +26,14 @@ AFRAME.registerComponent('exambox',{
     }
     //move the element to the point
     //entity.setAttribute('position', castPoint.components.position);
-    TweenMax.to(entity.object3D, 0.3, {three:{rotationX:this.data.snapedRotationX, rotationY:this.data.snapedRotationY, rotationZ:this.data.snapedRotationZ}, ease:Sine.easeIn});
+    storedRotation = entity.object3D.rotation;
+    TweenMax.to(entity.object3D, 0.3, {three:{rotationX:this.data.snapedRotation.x, rotationY:this.data.snapedRotation.y, rotationZ:this.data.snapedRotation.z}, ease:Sine.easeIn});
     entity.object3D.getWorldPosition(storedPosition);
     let offsetLocation = new THREE.Vector3(0,0,0);
     offsetLocation.addVectors(this.el.object3D.position, this.data.snapedOffset);
     TweenMax.to(entity.object3D, 0.3, {three:{positionX: offsetLocation.x, positionY: offsetLocation.y,positionZ: offsetLocation.z}, ease:Sine.easeIn});
     storedScale = entity.object3D.scale;
-    TweenMax.to(entity.object3D, 0.3, {three:{scaleX:this.data.snapedScale.x, scaleY:this.data.snapedScale.Y, scaleZ:this.data.snapedScale.z}, ease:Sine.easeIn});
+    TweenMax.to(entity.object3D, 0.3, {three:{scaleX:this.data.snapedScale.x, scaleY:this.data.snapedScale.y, scaleZ:this.data.snapedScale.z}, ease:Sine.easeIn});
     //rotate to our ideal rotation
     storedObject = entity;
     //set to ideal scale
@@ -45,9 +47,9 @@ AFRAME.registerComponent('exambox',{
   },
   disassociate: function(){
     console.log(storedObject.id + " is removed");
-    TweenMax.to(storedObject.object3D, 0.3, {three:{rotationX:0, rotationY:0, rotationZ:0}, ease:Sine.easeOut});
-    TweenMax.to(storedObject.object3D, 0.3, {three:{positionX: storedPosition.x, positionY: storedPosition.y,positionZ: storedPosition.z}, ease:Sine.easeIn});
-    TweenMax.to(entity.object3D, 0.3, {three:{scaleX:storedScale.x, scaleY:storedScale.Y, scaleZ:storedScale.z}, ease:Sine.easeOut});
+    TweenMax.to(storedObject.object3D, 0.3, {three:{rotationX:storedRotation.x, rotationY:storedRotation.y, rotationZ:storedRotation.z}, ease:Sine.easeOut});
+    TweenMax.to(storedObject.object3D, 0.3, {three:{positionX: storedPosition.x, positionY: storedPosition.y,positionZ: storedPosition.z}, ease:Sine.easeOut});
+    TweenMax.to(storedObject.object3D, 0.3, {three:{scaleX:storedScale.x, scaleY:storedScale.y, scaleZ:storedScale.z}, ease:Sine.easeOut});
     //TweenMax.to(storedObject.object3D, 0.3, {three:{opacity: 1.0}, ease:Sine.easeIn});
     //storedObject.object3D.rotation.set(0, 0, 0);
     this.el.emit('disassociated',{disassociatedEntity: storedObject},false);
