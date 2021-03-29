@@ -5,7 +5,8 @@ var storedPosition;
 AFRAME.registerComponent('exambox',{
   schema: {
     snapedRotation: {type: 'vec3'},
-    snapedScale: {type: 'vec3'}
+    snapedScale: {type: 'vec3'},
+    snapedOffset: {type: 'vec3', default: {x:0, y:0, z:0}}
   },
   init: function (){
   },
@@ -24,7 +25,9 @@ AFRAME.registerComponent('exambox',{
     //move the element to the point
     //entity.setAttribute('position', castPoint.components.position);
     TweenMax.to(entity.object3D, 0.3, {three:{rotationX:0, rotationY:45, rotationZ:0}, ease:Sine.easeIn});
-    TweenMax.to(entity.object3D, 0.3, {three:{positionX: this.el.object3D.position.x, positionY: this.el.object3D.position.y,positionZ: this.el.object3D.position.z}}, ease:Sine.easeIn);
+    entity.object3D.getWorldPosition(storedPosition);
+    let offsetLocation = this.el.position.add(this.data.snapedOffset);
+    TweenMax.to(entity.object3D, 0.3, {three:{positionX: offsetLocation.x, positionY: offsetLocation.y,positionZ: offsetLocation.z}, ease:Sine.easeIn});
     //TweenMax.to(entity.object3D, 0.3, {three:{opacity: 0.7}, ease:Sine.easeIn});
     //entity.object3D.rotation.set(0, 45, 0);
     //entity.setAttribute('scale', this.snapedScale);
@@ -42,6 +45,7 @@ AFRAME.registerComponent('exambox',{
   disassociate: function(){
     console.log(storedObject.id + " is removed");
     TweenMax.to(storedObject.object3D, 0.3, {three:{rotationX:0, rotationY:0, rotationZ:0}, ease:Sine.easeOut});
+    TweenMax.to(storedObject.object3D, 0.3, {three:{positionX: storedPosition.x, positionY: storedPosition.y,positionZ: storedPosition.z}, ease:Sine.easeIn});
     //TweenMax.to(storedObject.object3D, 0.3, {three:{opacity: 1.0}, ease:Sine.easeIn});
     //storedObject.object3D.rotation.set(0, 0, 0);
     this.el.emit('disassociated',{disassociatedEntity: storedObject},false);
