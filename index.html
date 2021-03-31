@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <head>
+  <meta charset="utf-8">
+  <title>Lily Dissection • A-Frame</title>
+  <meta name="description" content="Lily Dissection • A-Frame">
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://unpkg.com/super-hands/dist/super-hands.min.js"></script>
   <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>  
@@ -14,29 +17,45 @@
 <body>
   
 
-<a-scene display = "block">
+<a-scene 
+      background="color: #212"
+      webxr="referenceSpaceType: local"
+      environment
+      cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
+      event-set__click="_event:click;"
+         >
   <a-assets>
-    <a-mixin id="cube" geometry="primitive: box"></a-mixin>
-    <a-mixin id="plane" geometry="primative: plane" height="50" width="1"></a-mixin>
+    
     <a-asset-item id="table" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FTableOpen.glb?v=1616683384876"></a-asset-item>
     <a-asset-item id="containerBox" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fscene.gltf?v=1615220299205"></a-asset-item>
+    <a-asset-item id="lilyhemisphere"
+      src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Full_Half.gltf?v=1615965211555"
+      response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
   </a-assets>
   
-  <a-entity position="0 2.2 4">
-    <a-entity camera look-controls super-hands="colliderEvent: raycaster-intersection;
+  <a-entity
+        id="background"
+        position="0 0 0"
+        geometry="primitive: sphere; radius: 2.0"
+        material="color: red; side: back; shader: flat"
+        scale="0.001 0.001 0.001"
+        visible="false" class="raycastable">
+      </a-entity>
+  
+  <a-entity position="0 1.6 -0.8">
+    <a-entity camera look-controls
+              raycaster="objects: .dissect; direction: -24 -3 0;" cursor="rayOrigin:mouse"
+              static-body="shape: sphere; sphereRadius: 0.001"
+              super-hands="colliderEvent: raycaster-intersection;
                              colliderEventProperty: els;
                              colliderEndEvent:raycaster-intersection-cleared;
                              colliderEndEventProperty: clearedEls;">
-      <a-entity position="0 0 -3"
-                geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
-                material="color: cyan; shader: flat"
-                cursor="rayOrigin: mouse; fuse: false;"
-                raycaster = "objects: .collidable;"
-                event-set__click="_event:click;">
-        <a-animation begin="click" easing="ease-in" attribute="scale"
-             fill="forwards" from="0.2 0.2 0.2" to="1 1 1" dur="150"></a-animation>
-      </a-entity>
-    </a-entity>
+        <a-entity
+          id="fadeBackground"
+          geometry="primitive: sphere; radius: 2.5"
+          material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
+        </a-entity>
+      </a-entity> 
   </a-entity>
   
 
