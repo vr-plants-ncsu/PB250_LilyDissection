@@ -17,7 +17,8 @@
 </head>
 <body>
   
-
+<!-- 03/31/21 - Combination of environment is done but there's still work to be done to make everything work well together -->
+  
 <a-scene 
       webxr="referenceSpaceType: local"
       environment
@@ -53,9 +54,6 @@
          
          position= "-0.089 1.24 -1.7"
           rotation="0 0 0" >
-          
-        
-      
       <a-entity id="stamens">    
       
        <a-entity id="lilystamen1" 
@@ -265,7 +263,7 @@
    </a-entity>
   
 
-    <a-entity id="specimin" class= "collidable" geometry="primitive: box" position="0 2 2" scale="0.1 0.1 0.1" hoverable grabbable stretchable draggable droppable
+    <a-entity id="specimin" class= "dissect collidable" geometry="primitive: box" position="0 2 2" scale="0.1 0.1 0.1" hoverable grabbable stretchable draggable droppable
                  shadow examinable
               event-set__dragdrop="_event: drag-drop"
                  event-set__hoveron="_event: hover-start;"
@@ -323,9 +321,9 @@
         </a-entity>
   </a-entity>
   
-  <a-entity gltf-model="#table" position="0 0 -0.466" rotation="0 90 0"></a-entity>
+  <a-entity gltf-model="#table" scale = "0.7 0.7 0.7" position="0 0 -0.466" rotation="0 90 0"></a-entity>
   
-  <a-entity id="ExamBox" gltf-model="#containerBox" position="1.355 1.629 3.76" rotation="0 11.705 0" scale="0.4 0.4 0.4" exambox="snapedRotation: 45 0 0; snapedScale: 0.8 0.8 0.8; snapedOffset:0 1 0" >
+  <a-entity id="ExamBox" gltf-model="#containerBox" position="0.945 1.125 -1.200" rotation="0 11.705 0" scale="0.4 0.4 0.4" exambox="snapedRotation: 45 0 0; snapedScale: 0.8 0.8 0.8; snapedOffset:0 1 0" >
   </a-entity>
   
 </a-scene>
