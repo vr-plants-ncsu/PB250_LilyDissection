@@ -40,8 +40,6 @@ AFRAME.registerComponent('exambox',{
     //make it impossible to associate other objects
     canAssociate = false;
     
-
-    
     this.el.emit('associated',{associatedEntity: entity},false);
     console.log(storedObject.id + " is added");
   },
