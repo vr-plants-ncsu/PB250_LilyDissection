@@ -24,8 +24,8 @@ AFRAME.registerComponent('exambox',{
     if(storedObject !== null){
       this.dissassociate();
     }
-    //move the element to the point
-    //entity.setAttribute('position', castPoint.components.position);
+    //clone the entity
+    
     
     storedRotation = entity.object3D.rotation;
     TweenMax.to(entity.object3D, 0.3, {three:{rotationX:this.data.snapedRotation.x, rotationY:this.data.snapedRotation.y, rotationZ:this.data.snapedRotation.z}, ease:Sine.easeIn});
