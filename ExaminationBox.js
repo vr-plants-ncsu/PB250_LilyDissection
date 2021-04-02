@@ -26,6 +26,10 @@ AFRAME.registerComponent('exambox',{
     }
     //clone the entity
     
+    var newEntity = document.createElement('a-entity');
+    var scene = document.querySelector('a-scene');
+    scene.appendChild(newEntity);
+    newEntity.setObject3D();
     
     storedRotation = entity.object3D.rotation;
     TweenMax.to(entity.object3D, 0.3, {three:{rotationX:this.data.snapedRotation.x, rotationY:this.data.snapedRotation.y, rotationZ:this.data.snapedRotation.z}, ease:Sine.easeIn});
