@@ -31,15 +31,16 @@ AFRAME.registerComponent('exambox',{
     var scene = document.querySelector('a-scene');
     scene.appendChild(newEntity);
     newEntity.setObject3D('gltf-model',clone3d);
-    entity.object3D.getWorldPosition(newEntity.object3D.position);
-    entity.object3D.getWorldQuaternion(newEntity.object3D.quaternion);
-    entity.object3D.getWorldScale(newEntity.object3D.scale);
+    //entity.object3D.getWorldPosition(newEntity.object3D.position);
+    //entity.object3D.getWorldQuaternion(newEntity.object3D.quaternion);
+    //entity.object3D.getWorldScale(newEntity.object3D.scale);
     
-    storedRotation = newEntity.object3D.rotation;
     TweenMax.to(newEntity.object3D, 0.3, {three:{rotationX:this.data.snapedRotation.x, rotationY:this.data.snapedRotation.y, rotationZ:this.data.snapedRotation.z}, ease:Sine.easeIn});
-    entity.object3D.getWorldPosition(storedPosition);
     let offsetLocation = new THREE.Vector3(0,0,0);
     offsetLocation.addVectors(this.el.object3D.position, this.data.snapedOffset);
+    newEntity.object3D.position = offsetLocation;
+    newEntity.object3D.rotation = 
+    
     TweenMax.to(newEntity.object3D, 0.3, {three:{positionX: offsetLocation.x, positionY: offsetLocation.y,positionZ: offsetLocation.z}, ease:Sine.easeIn});
     storedScale = entity.object3D.scale;
     TweenMax.to(newEntity.object3D, 0.3, {three:{scaleX:this.data.snapedScale.x, scaleY:this.data.snapedScale.y, scaleZ:this.data.snapedScale.z}, ease:Sine.easeIn});
