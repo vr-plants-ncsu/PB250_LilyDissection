@@ -196,21 +196,6 @@
       </a-entity>
    </a-entity>
   
-
-    <a-entity id="specimin" class= "dissect collidable" geometry="primitive: box" position="0 2 2" scale="0.1 0.1 0.1" hoverable grabbable stretchable draggable droppable
-                 shadow examinable
-              event-set__dragdrop="_event: drag-drop"
-                 event-set__hoveron="_event: hover-start;"
-                 event-set__click="_event: click;"
-                 event-set__hoveroff="_event: hover-end; scale: 1.0 1.0 1.0"
-                 event-set__dragon="_event: dragover-start"
-                 event-set__dragoff="_event: dragover-end">
-      <a-animation begin="hover-start" easing="ease-in" attribute="scale"
-             from="1 1 1" to="1.2 1.2 1.2" dur="50"></a-animation>
-      <a-animation begin="hover-end" easing="ease-in" attribute="scale"
-             from="1.2 1.2 1.2" to="1 1 1" dur="50"></a-animation>
-    </a-entity>
-  
   <a-entity light="type: hemisphere; intensity: 0.51; castShadow: false"></a-entity>      
       
       <!-- Hand controls -->
