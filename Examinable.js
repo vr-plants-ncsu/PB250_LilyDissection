@@ -1,4 +1,3 @@
-var associated = false;
 var clickCooldownCounter = 0;
 
 AFRAME.registerComponent('examinable',{
@@ -8,6 +7,9 @@ AFRAME.registerComponent('examinable',{
  init: function(){
    this.resetCounter();
    let entity = this.el;
+   let examBoxComp = document.querySelector('[ExamBox]').components.exambox;
+   examBoxComp.el.addEventListener('associated', this.whenAssociated);
+   examBoxComp.el.addEventListener('disassociated', this.whenDisassociated);
    entity.addEventListener('click', function(evt){
      if(clickCooldownCounter > 0){
        return;
@@ -15,21 +17,7 @@ AFRAME.registerComponent('examinable',{
      this.components.examinable.resetCounter();
      //find our examination box
      let examBoxComp = document.querySelector('[ExamBox]').components.exambox;
-     
-     examBoxComp.el.addEventListener('associated', this.whenAssociated);
-     examBoxComp.el.addEventListener('disassociated', this.whenDisassociated);
-     
-     if(associated === true){
-       examBoxComp.disassociate();
-       associated = false;
-       return;
-     }
-     if(associated === false){
-     //associate it
      examBoxComp.associate(entity);
-       associated = true;
-       return;
-     }
    })
  },
   tick: function(time, timeDelta){
