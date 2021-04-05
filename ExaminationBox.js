@@ -31,9 +31,9 @@ AFRAME.registerComponent('exambox',{
     var scene = document.querySelector('a-scene');
     scene.appendChild(newEntity);
     newEntity.setObject3D('gltf-model',clone3d);
-    newEntity.object3D.position = entity.object3D.position;
-    newEntity.object3D.rotation = entity.object3D.rotation;
-    newEntity.object3D.scale = entity.object3D.scale;
+    newEntity.object3D.position.set(entity.object3D.position);
+    newEntity.object3D.rotation.set(entity.object3D.rotation);
+    newEntity.object3D.scale.set(entity.object3D.scale);
     
     storedRotation = newEntity.object3D.rotation;
     TweenMax.to(newEntity.object3D, 0.3, {three:{rotationX:this.data.snapedRotation.x, rotationY:this.data.snapedRotation.y, rotationZ:this.data.snapedRotation.z}, ease:Sine.easeIn});

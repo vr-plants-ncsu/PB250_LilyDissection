@@ -3,8 +3,6 @@ var clickCooldownCounter = 0;
 
 AFRAME.registerComponent('examinable',{
   schema: {
-    snapedRotation: {type: 'vec3'},
-    snapedScale: {type: 'vec3'},
     clickCooldown: {type: 'float', default: 0.2}
   },
  init: function(){
