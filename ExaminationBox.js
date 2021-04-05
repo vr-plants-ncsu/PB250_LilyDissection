@@ -22,7 +22,7 @@ AFRAME.registerComponent('exambox',{
   associate: function(entity){
         //if we already have a stored entity, dissassocite first
     if(storedObject !== null){
-      this.dissassociate();
+      this.disassociate();
     }
     //clone the entity
     var clone3d = new THREE.Object3D();
@@ -48,10 +48,8 @@ AFRAME.registerComponent('exambox',{
     canAssociate = false;
     
     this.el.emit('associated',{associatedEntity: newEntity},false);
-    console.log(storedObject.id + " is added");
   },
   disassociate: function(){
-    console.log(storedObject.id + " is removed");
     //TweenMax.to(storedObject.object3D, 0.3, {three:{rotationX:storedRotation.x, rotationY:storedRotation.y, rotationZ:storedRotation.z}, ease:Sine.easeOut});
     //TweenMax.to(storedObject.object3D, 0.3, {three:{positionX: storedPosition.x, positionY: storedPosition.y,positionZ: storedPosition.z}, ease:Sine.easeOut});
     TweenMax.to(storedObject.object3D, 0.3, {three:{scaleX:0, scaleY:0, scaleZ:0}, ease:Sine.easeOut});

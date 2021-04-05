@@ -7,9 +7,9 @@ AFRAME.registerComponent('examinable',{
  init: function(){
    this.resetCounter();
    let entity = this.el;
-   let examBoxComp = document.querySelector('[ExamBox]').components.exambox;
-   examBoxComp.el.addEventListener('associated', this.whenAssociated);
-   examBoxComp.el.addEventListener('disassociated', this.whenDisassociated);
+   let examBoxComp = document.querySelector('[ExamBox]');
+   examBoxComp.addEventListener('associated', this.whenAssociated);
+   examBoxComp.addEventListener('disassociated', this.whenDisassociated);
    entity.addEventListener('click', function(evt){
      if(clickCooldownCounter > 0){
        return;
