@@ -31,7 +31,8 @@ AFRAME.registerComponent('exambox',{
     var scene = document.querySelector('a-scene');
     scene.appendChild(newEntity);
     newEntity.setObject3D('gltf-model',clone3d);
-    newEntity.setAttribute('event-set__click',{"_event: click;"});
+    newEntity.setAttribute('event-set__click',"_event: click;");
+    newEntity.setAttribute('rotatable');
     entity.object3D.getWorldPosition(newEntity.object3D.position);
     entity.object3D.getWorldQuaternion(newEntity.object3D.quaternion);
     entity.object3D.getWorldScale(newEntity.object3D.scale);
