@@ -10,7 +10,7 @@ AFRAME.registerComponent('examinable',{
    let examBoxComp = document.querySelector('[ExamBox]');
    examBoxComp.addEventListener('associated', this.whenAssociated);
    examBoxComp.addEventListener('disassociated', this.whenDisassociated);
-   entity.addEventListener('click', function(evt){
+   entity.addEventListener('mousedown', function(evt){
      if(clickCooldownCounter > 0){
        return;
      }

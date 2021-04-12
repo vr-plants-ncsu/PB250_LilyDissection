@@ -28,6 +28,7 @@ AFRAME.registerComponent('exambox',{
     var clone3d = new THREE.Object3D();
     clone3d = entity.object3D.clone();
     var newEntity = document.createElement('a-entity');
+    //todo create an empty to make the pivot the center
     var scene = document.querySelector('a-scene');
     scene.appendChild(newEntity);
     newEntity.setObject3D('gltf-model',clone3d);
