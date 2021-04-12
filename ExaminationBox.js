@@ -55,7 +55,7 @@ AFRAME.registerComponent('exambox',{
     //make it impossible to associate other objects
     canAssociate = false;
     
-    this.el.emit('associated',{associatedEntity: newEntity},false);
+    this.el.emit('associated',{associatedEntity: entity},false);
   },
   disassociate: function(){
     //TweenMax.to(storedObject.object3D, 0.3, {three:{rotationX:storedRotation.x, rotationY:storedRotation.y, rotationZ:storedRotation.z}, ease:Sine.easeOut});

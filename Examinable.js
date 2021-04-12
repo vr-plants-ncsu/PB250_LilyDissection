@@ -4,7 +4,7 @@ AFRAME.registerComponent('examinable',{
   schema: {
     clickCooldown: {type: 'float', default: 0.2},
     headerText: {type:'string', default: "Welcome",
-    conentText: {type:'string', default: "Test content"}}
+    contentText: {type:'string', default: "Test content"}}
   },
  init: function(){
    this.resetCounter();

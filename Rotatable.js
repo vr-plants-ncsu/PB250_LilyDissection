@@ -13,7 +13,6 @@ AFRAME.registerComponent('rotatable',{
     element = this.el;
   },
   startRotation: function(){
-    console.log("start");
     isRotating = true;
   },
   onMouseDown: function (evt) {
@@ -21,7 +20,6 @@ AFRAME.registerComponent('rotatable',{
     this.oldClientY = evt.clientY;
   },
   onMouseUp: function(){
-    console.log("stop")
     isRotating = false;
   },
   onMouseMove: function(evt){
