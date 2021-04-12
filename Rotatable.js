@@ -36,10 +36,10 @@ AFRAME.registerComponent('rotatable',{
     dY = this.oldClientY - evt.clientY;
     //we can tweak these as speeds
     element.object3D.rotation.y -= dX / 100;
-    element.object3D.rotation.x -= dY / 200;
+    element.object3D.rotation.z -= dY / 200;
 
     // Clamp x rotation to [-90,90]
-    element.object3D.rotation.x = Math.min(Math.max(-Math.PI / 2, element.object3D.rotation.x), Math.PI / 2);
+    element.object3D.rotation.z = Math.min(Math.max(-Math.PI / 2, element.object3D.rotation.z), Math.PI / 2);
 
     this.oldClientX = evt.clientX;
     this.oldClientY = evt.clientY;
