@@ -36,7 +36,9 @@ AFRAME.registerComponent('exambox',{
     childEn.setObject3D('gltf-model',clone3d);
     newEntity.setAttribute('class',"dissect");
     newEntity.setAttribute('rotatable',"");
-    newEntity.setAttribute('mixin',"invisible cube");
+    newEntity.setAttribute('geometry',{primative:"sphere"});
+    newEntity.setAttribute('scale',{x: 0.3, y: 0.3, z: 0.3});
+    newEntity.setAttribute('material',{opacity:0});
     entity.object3D.getWorldPosition(newEntity.object3D.position);
     //entity.object3D.getWorldQuaternion(newEntity.object3D.quaternion);
     entity.object3D.getWorldScale(newEntity.object3D.scale);
