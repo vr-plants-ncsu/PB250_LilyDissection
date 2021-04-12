@@ -2,9 +2,9 @@ AFRAME.registerComponent('rotatable',{
   schema: {
   },
   init: function(){
-    this.addEventListener('click', this.startRotation);
+    this.el.addEventListener('click', this.startRotation);
   },
   startRotation: function(){
-    
+    console.log("click get");
   }
 });
