@@ -12,7 +12,7 @@ AFRAME.registerComponent('examinecallout',{
     let ref = this.el.components.examinecallout;
     let exambox = document.querySelector('[ExamBox]');
     exambox.addEventListener('associated', function(event){
-      header.value = "WHHHHHHHYYYYY?";
+      header.setAttribute('value', event.detail.associatedEntity.components.examinable.data.headerText);
       content.value = event.detail.associatedEntity.components.examinable.data.contentText;
     });
     exambox.addEventListener('disassociated', function(){
