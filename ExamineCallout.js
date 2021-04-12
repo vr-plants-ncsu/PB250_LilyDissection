@@ -8,16 +8,16 @@ AFRAME.registerComponent('examinecallout',{
   },
   init: function(){
     header = document.querySelector('#examinetextheader').components.text;
-    context = document.querySelector('#examinetextbody').components.text;
-    
+    content = document.querySelector('#examinetextbody').components.text;
+    let ref = this.el.components.examinecallout;
     let exambox = document.querySelector('[ExamBox]');
     exambox.addEventListener('associated', function(event){
-      header.value = event.detail.associatedEntity.components.examinable.data.headerText;
-      context.value = event.detail.associatedEntity.components.examinable.data.contentText;
+      header.value = "WHHHHHHHYYYYY?";
+      content.value = event.detail.associatedEntity.components.examinable.data.contentText;
     });
     exambox.addEventListener('disassociated', function(){
-      header.value = this.data.defHeader;
-      content.value = this.data.defContent;
+      header.value = ref.data.defHeader;
+      content.value = ref.data.defContent;
     });
   },
   whenAssociated: function(event){
