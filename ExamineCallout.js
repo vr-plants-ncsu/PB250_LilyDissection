@@ -1,4 +1,4 @@
-AFRAME.registerComponent('examin_callout',{
+AFRAME.registerComponent('examinecallout',{
   schema: {
     clickCooldown: {type: 'float', default: 0.2}
   }

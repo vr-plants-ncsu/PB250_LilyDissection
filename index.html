@@ -66,9 +66,7 @@
                  shadow examinable
                 scale="0.14 0.14 0.14"
                  gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_1.gltf?v=1615974819978">
-         <a-entity id="lilystamen1callout"
-                     geometry="primitive: plane"
-                     ></a-entity>
+
           </a-entity>
       
              <a-entity id="lilystamen2" 
@@ -249,6 +247,15 @@
   <a-entity gltf-model="#table" scale = "0.7 0.7 0.7" position="0 0 -0.466" rotation="0 90 0"></a-entity>
   
   <a-entity id="ExamBox" gltf-model="#containerBox" position="0.945 1.125 -1.200" rotation="0 11.705 0" scale="0.4 0.4 0.4" exambox="snapedRotation: 45 0 0; snapedScale: 0.6 0.6 0.6; snapedOffset:0 0.6 0" >
+             <a-entity id="examinecallout"
+                     geometry="primitive: plane; height: 0.5"
+                       position="-0.5 0.5 0.2"
+                       rotation="0 -66 0"
+                       material="src: #calloutBg"
+                       examinecallout>
+               <a-entity id="examinetextheader" text="value: Hello World;"></a-entity>
+               <a-entity id="examinetextbody" text="value: Hello World;"></a-entity>
+    </a-entity>
   </a-entity>
   
 </a-scene>
