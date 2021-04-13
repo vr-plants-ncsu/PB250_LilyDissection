@@ -66,5 +66,10 @@ AFRAME.registerComponent('exambox',{
     this.el.emit('disassociated',{disassociatedEntity: storedObject},false);
     storedObject = null;
     canAssociate = true;
+  },
+  centerLocalChild: function(parent, child){
+    //draw a box around the parent
+    //get the center of that box
+    //set the child's position to the world position of that center
   }
 });
