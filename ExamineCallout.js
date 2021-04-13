@@ -12,12 +12,12 @@ AFRAME.registerComponent('examinecallout',{
     let ref = this.el.components.examinecallout;
     let exambox = document.querySelector('[ExamBox]');
     exambox.addEventListener('associated', function(event){
-      header.setAttribute('value', event.detail.associatedEntity.components.examinable.data.headerText);
-      content.value = event.detail.associatedEntity.components.examinable.data.contentText;
+      header.data.value = event.detail.associatedEntity.components.examinable.data.headerText;
+      content.data.value = event.detail.associatedEntity.components.examinable.data.contentText;
     });
     exambox.addEventListener('disassociated', function(){
-      header.value = ref.data.defHeader;
-      content.value = ref.data.defContent;
+      header.data.value = ref.data.defHeader;
+      content.data.value = ref.data.defContent;
     });
   },
   whenAssociated: function(event){
