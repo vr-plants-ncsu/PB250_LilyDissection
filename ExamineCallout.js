@@ -14,12 +14,14 @@ AFRAME.registerComponent('examinecallout',{
     content.data.value = ref.data.defContent;
     let exambox = document.querySelector('[ExamBox]');
     exambox.addEventListener('associated', function(event){
-      ref.header.data.value = event.detail.associatedEntity.components.examinable.data.headerText;
-      ref.content.data.value = event.detail.associatedEntity.components.examinable.data.contentText;
+      //header.data.value = event.detail.associatedEntity.components.examinable.data.headerText;
+      header.el.setAttribute('text','value',event.detail.associatedEntity.components.examinable.data.headerText);
+      //content.data.value = event.detail.associatedEntity.components.examinable.data.contentText;
+      content.el.setAttribute('text','value',event.detail.associatedEntity.components.examinable.data.contentText);
     });
     exambox.addEventListener('disassociated', function(){
-      ref.header.data.value = ref.data.defHeader;
-      ref.content.data.value = ref.data.defContent;
+      header.el.setAttribute('text','value',ref.data.defHeader);
+      content.el.setAttribute('text', 'value', ref.data.defContent);
     });
   }
 });
