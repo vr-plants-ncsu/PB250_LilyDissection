@@ -36,8 +36,11 @@
     <img id="calloutBg" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FCallout_BG.png?v=1618246490561"></img>
   </a-assets>
   
-  <a-entity position="0 1.6 -0.8">
-    <a-entity camera look-controls
+  <a-entity position="0 1.55 0.115" rotation="0 -19.1 0" >
+    <a-entity camera
+              look-controls="mouseEnabled: false"
+              position="-0.11 0 -0.66"
+              rotation="0 -23.4 0"
               raycaster="objects: .dissect; direction: -24 -3 0;" cursor="rayOrigin:mouse"
               static-body="shape: sphere; sphereRadius: 0.001"
               super-hands="colliderEvent: raycaster-intersection;
@@ -246,7 +249,7 @@
   
   <a-entity gltf-model="#table" scale = "0.7 0.7 0.7" position="0 0 -0.466" rotation="0 90 0"></a-entity>
   
-  <a-entity id="ExamBox" gltf-model="#containerBox" position="0.945 1.125 -1.200" rotation="0 11.705 0" scale="0.4 0.4 0.4" exambox="snapedRotation: 45 0 0; snapedScale: 0.6 0.6 0.6; snapedOffset:0 0.6 0" >
+  <a-entity id="ExamBox" gltf-model="#containerBox" position="0.945 1.125 -1.200" rotation="0 11.705 0" scale="0.4 0.4 0.4" exambox="snapedRotation: 45 0 0; snapedScale: 10 10 10; snapedOffset:0 0.6 0" >
              <a-entity id="examinecallout"
                      geometry="primitive: plane; height: 0.5"
                        position="-0.5 0.5 0.2"
