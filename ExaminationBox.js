@@ -33,6 +33,7 @@ AFRAME.registerComponent('exambox',{
     var scene = document.querySelector('a-scene');
     scene.appendChild(newEntity);
     newEntity.appendChild(childEn);
+    clone3d.position = new THREE.Vector3(0,0,0);
     childEn.setObject3D('gltf-model',clone3d);
     newEntity.setAttribute('class',"dissect");
     newEntity.setAttribute('rotatable',"");
