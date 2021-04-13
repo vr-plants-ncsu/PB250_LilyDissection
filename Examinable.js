@@ -3,7 +3,7 @@ var clickCooldownCounter = 0;
 AFRAME.registerComponent('examinable',{
   schema: {
     clickCooldown: {type: 'float', default: 0.2},
-    headerText: {type:'string', default: "Welcome",
+    headerText: {type:'string', default: "Henlo",
     contentText: {type:'string', default: "Test content"}}
   },
  init: function(){

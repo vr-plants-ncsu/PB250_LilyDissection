@@ -10,6 +10,8 @@ AFRAME.registerComponent('examinecallout',{
     header = document.querySelector('#examinetextheader').components.text;
     content = document.querySelector('#examinetextbody').components.text;
     let ref = this.el.components.examinecallout;
+    header.data.value = ref.data.defHeader;
+    content.data.value = ref.data.defContent;
     let exambox = document.querySelector('[ExamBox]');
     exambox.addEventListener('associated', function(event){
       header.data.value = event.detail.associatedEntity.components.examinable.data.headerText;
@@ -19,13 +21,5 @@ AFRAME.registerComponent('examinecallout',{
       header.data.value = ref.data.defHeader;
       content.data.value = ref.data.defContent;
     });
-  },
-  whenAssociated: function(event){
-    console.log("Yo");
-    
-  },
-  whenDisassociated: function(event){
-    console.log("Yo2");
-    
   }
 });
