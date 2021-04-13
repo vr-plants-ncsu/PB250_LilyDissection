@@ -33,7 +33,7 @@
     <a-asset-item id="lilyhemisphere"
       src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Full_Half.gltf?v=1615965211555"
       response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-    <img id="calloutBg" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FCallout_BG.png?v=1618246490561"></img>
+    <a-image id="calloutBg" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FCallout_BG.png?v=1618246490561"></a-image>
   </a-assets>
   
   <a-entity position="0 1.55 0.115" rotation="0 -19.1 0" >
@@ -202,7 +202,7 @@
                  class="dissect collidable"
                 hoverable grabbable stretchable draggable droppable
                 shadow                 
-                examinable="headerText: Ovary; contentText: The lily ovary is composed of three locules (chambers) separated from each other by septa (walls; singular = septum). Each locule contains two rows of ovules attached to a central placental structure that nourishes them.;"
+                examinable="headerText: Pistil; contentText: The pistil consists of an ovary, style, and stigma. Ovules are produced inside the ovary and mature into seeds following fertilization. The stigma functions as a landing pad to catch pollen while the style is a stalk to project the stigma outward."
                 scale="0.14 0.14 0.14"
                gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Center_Longitudinal.gltf?v=1616119609612"
                  >
@@ -264,7 +264,7 @@
                        material="src: #calloutBg"
                        examinecallout>
                <a-entity id="examinetextheader" text="value: W;" position="0.138 0.166 0.006" scale="1.2 1.2 1.2"></a-entity>
-               <a-entity id="examinetextbody" text="value: C;" position="0.046 0.044 0"></a-entity>
+               <a-entity id="examinetextbody" text="value: C;" position="0.046 -0.045 0"></a-entity>
     </a-entity>
   </a-entity>
   
