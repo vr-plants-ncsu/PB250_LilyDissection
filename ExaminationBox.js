@@ -30,6 +30,7 @@ AFRAME.registerComponent('exambox',{
     var newEntity = document.createElement('a-entity');
     var childEn = document.createElement('a-entity');
     
+    
     //todo create an empty to make the pivot the center
     var scene = document.querySelector('a-scene');
     scene.appendChild(newEntity);
@@ -45,16 +46,14 @@ AFRAME.registerComponent('exambox',{
     entity.object3D.getWorldPosition(newEntity.object3D.position);
     //entity.object3D.getWorldQuaternion(newEntity.object3D.quaternion);
     entity.object3D.getWorldScale(newEntity.object3D.scale);
-    
-    console.log(newEntity.object3D.position);
-    console.log(childEn.object3D.position);
 
     //TweenMax.to(newEntity.object3D, 0.3, {three:{rotationX:this.data.snapedRotation.x, rotationY:this.data.snapedRotation.y, rotationZ:this.data.snapedRotation.z}, ease:Sine.easeIn});
     let offsetLocation = new THREE.Vector3(0,0,0);    
     let worldPos = new THREE.Vector3(0,0,0);
     
-    offsetLocation.addVectors(this.el.object3D.position, this.data.snapedOffset);
+    offsetLocation.addVectors(worldPos, this.data.snapedOffset);
     offsetLocation.subVectors(offsetLocation, newEntity.object3D.position);
+    offsetLocation.addVectors(offsetLocation, this.el.object3D.position);
     console.log(offsetLocation);
     
     TweenMax.to(newEntity.object3D, 0.3, {three:{positionX: offsetLocation.x, positionY: offsetLocation.y,positionZ: offsetLocation.z}, ease:Sine.easeIn});
