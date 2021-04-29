@@ -52,9 +52,9 @@ AFRAME.registerComponent('exambox',{
     //TweenMax.to(newEntity.object3D, 0.3, {three:{rotationX:this.data.snapedRotation.x, rotationY:this.data.snapedRotation.y, rotationZ:this.data.snapedRotation.z}, ease:Sine.easeIn});
     let offsetLocation = new THREE.Vector3(0,0,0);    
     let worldPos = new THREE.Vector3(0,0,0);
-    this.el.object3D.getWorldPosition(worldPos);
     
-    offsetLocation.addVectors(newEntity.object3D.worldToLocal(worldPos), this.data.snapedOffset);
+    offsetLocation.addVectors(this.el.object3D.position, this.data.snapedOffset);
+    offsetLocation.subVectors(offsetLocation, newEntity.object3D.position);
     console.log(offsetLocation);
     
     TweenMax.to(newEntity.object3D, 0.3, {three:{positionX: offsetLocation.x, positionY: offsetLocation.y,positionZ: offsetLocation.z}, ease:Sine.easeIn});
