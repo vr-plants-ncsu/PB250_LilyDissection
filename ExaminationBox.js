@@ -49,13 +49,11 @@ AFRAME.registerComponent('exambox',{
     console.log(newEntity.object3D.position);
 
     //TweenMax.to(newEntity.object3D, 0.3, {three:{rotationX:this.data.snapedRotation.x, rotationY:this.data.snapedRotation.y, rotationZ:this.data.snapedRotation.z}, ease:Sine.easeIn});
-    let offsetLocation = new THREE.Vector3(0,0,0);
-    
-    let testPosition = new THREE.Vector3(0,0,0);
-    newEntity.object3D.getWorldPosition(testPosition);
-    
-    offsetLocation = new THREE.Vector3(0,0,0);
-    offsetLocation.addVectors(newEntity.worldToLocal(this.el.object3D.getWorldPosition), this.data.snapedOffset);
+    let offsetLocation = new THREE.Vector3(0,0,0);    
+    let worldPos = new THREE.Vector3(0,0,0);
+    this.el.object3D.getWorldPosition(worldPos);
+    console.log(newEntity.object3D.worldToLocal(worldPos));
+    offsetLocation.addVectors(newEntity.object3D.worldToLocal(worldPos), this.data.snapedOffset);
     
     TweenMax.to(newEntity.object3D, 0.3, {three:{positionX: offsetLocation.x, positionY: offsetLocation.y,positionZ: offsetLocation.z}, ease:Sine.easeIn});
     //TODO have a look here for positioning
