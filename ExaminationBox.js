@@ -34,7 +34,7 @@ AFRAME.registerComponent('exambox',{
     //todo create an empty to make the pivot the center
     var scene = document.querySelector('a-scene');
     scene.appendChild(newEntity);
-    newEntity.appendChild(childEn);
+    //newEntity.appendChild(childEn);
     
     childEn.setObject3D('gltf-model',clone3d);
     childEn.setAttribute('id',"child");
@@ -43,24 +43,21 @@ AFRAME.registerComponent('exambox',{
     newEntity.setAttribute('geometry',{primitive:"sphere"});
     newEntity.setAttribute('scale',{x: 0.3, y: 0.3, z: 0.3});
     newEntity.setAttribute('material',{opacity:0});
-    entity.object3D.getWorldPosition(newEntity.object3D.position);
+    this.el.object3D.getWorldPosition(newEntity.object3D.position);
     //entity.object3D.getWorldQuaternion(newEntity.object3D.quaternion);
-    entity.object3D.getWorldScale(newEntity.object3D.scale);
+    this.el.object3D.getWorldScale(newEntity.object3D.scale);
 
     //TweenMax.to(newEntity.object3D, 0.3, {three:{rotationX:this.data.snapedRotation.x, rotationY:this.data.snapedRotation.y, rotationZ:this.data.snapedRotation.z}, ease:Sine.easeIn});
     let offsetLocation = new THREE.Vector3(0,0,0);    
     let worldPos = new THREE.Vector3(0,0,0);
     
-    offsetLocation.addVectors(worldPos, this.data.snapedOffset);
-    offsetLocation.subVectors(offsetLocation, newEntity.object3D.position);
-    offsetLocation.addVectors(offsetLocation, this.el.object3D.position);
-    console.log(offsetLocation);
+    offsetLocation.addVectors(this.el.object3D.position, this.data.snapedOffset);
     
-    TweenMax.to(newEntity.object3D, 0.3, {three:{positionX: offsetLocation.x, positionY: offsetLocation.y,positionZ: offsetLocation.z}, ease:Sine.easeIn});
+    TweenMax.to(childEn.object3D, 0.3, {three:{positionX: offsetLocation.x, positionY: offsetLocation.y,positionZ: offsetLocation.z}, ease:Sine.easeIn});
     //TODO have a look here for positioning
     //childEn.setAttribute('position',{x: 1, y: 0, z:0});
     storedScale = entity.object3D.scale;
-    TweenMax.to(newEntity.object3D, 0.3, {three:{scaleX:this.data.snapedScale.x, scaleY:this.data.snapedScale.y, scaleZ:this.data.snapedScale.z}, ease:Sine.easeIn});
+    TweenMax.to(childEn.object3D, 0.3, {three:{scaleX:this.data.snapedScale.x, scaleY:this.data.snapedScale.y, scaleZ:this.data.snapedScale.z}, ease:Sine.easeIn});
     //rotate to our ideal rotation
     storedObject = newEntity;
     //set to ideal scale
