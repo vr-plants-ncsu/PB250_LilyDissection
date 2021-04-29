@@ -47,6 +47,7 @@ AFRAME.registerComponent('exambox',{
     entity.object3D.getWorldScale(newEntity.object3D.scale);
     
     console.log(newEntity.object3D.position);
+    console.log(childEn.object3D.position);
 
     //TweenMax.to(newEntity.object3D, 0.3, {three:{rotationX:this.data.snapedRotation.x, rotationY:this.data.snapedRotation.y, rotationZ:this.data.snapedRotation.z}, ease:Sine.easeIn});
     let offsetLocation = new THREE.Vector3(0,0,0);    
