@@ -37,7 +37,7 @@ AFRAME.registerComponent('exambox',{
     newEntity.appendChild(childEn);
     
     childEn.setAttribute('gltf-model',gltfstring);
-    childEn.setAttribute('scale',entity.)
+    childEn.setAttribute('scale',entity.object3D.scale);
     childEn.setAttribute('id',"child");
     newEntity.setAttribute('class',"dissect");
     newEntity.setAttribute('rotatable',"");
