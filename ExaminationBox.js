@@ -29,13 +29,7 @@ AFRAME.registerComponent('exambox',{
     clone3d = entity.object3D.clone();
     var newEntity = document.createElement('a-entity');
     var childEn = document.createElement('a-entity');
-    //let childPivotM = childEn.object3D.matrixWorld.clone();
-    //let childPivotMI = new THREE.Matrix4();
-    //childPivotMI.copy(childPivotM.invert());
-    //let targetPivotM = entity.object3D.matrixWorld.clone();
-    //childEn.object3D.applyMatrix4(childPivotMI);
-    //childEn.object3D.applyMatrix4(targetPivotM);
-    //childEn.object3D.applyMatrix4(childPivotM);
+    var gltfstring = entity.components.gltf-model.string;
     
     //todo create an empty to make the pivot the center
     var scene = document.querySelector('a-scene');
