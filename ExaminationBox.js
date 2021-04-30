@@ -34,7 +34,7 @@ AFRAME.registerComponent('exambox',{
     //todo create an empty to make the pivot the center
     var scene = document.querySelector('a-scene');
     scene.appendChild(newEntity);
-    //newEntity.appendChild(childEn);
+    scene.appendChild(childEn);
     
     childEn.setObject3D('gltf-model',clone3d);
     childEn.setAttribute('id',"child");
