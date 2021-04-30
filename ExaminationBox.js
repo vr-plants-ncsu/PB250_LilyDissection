@@ -34,7 +34,7 @@ AFRAME.registerComponent('exambox',{
     //todo create an empty to make the pivot the center
     var scene = document.querySelector('a-scene');
     scene.appendChild(newEntity);
-    scene.appendChild(childEn);
+    newEntity.appendChild(childEn);
     
     childEn.setObject3D('gltf-model',clone3d);
     childEn.setAttribute('id',"child");
@@ -52,12 +52,11 @@ AFRAME.registerComponent('exambox',{
     let worldPos = new THREE.Vector3(0,0,0);
     
     offsetLocation.addVectors(this.el.object3D.position, this.data.snapedOffset);
-    console.log(childEn.object3D.position.x + " " + childEn.object3D.position.y + " " + childEn.object3D.position.z + " " + offsetLocation.x + " " + offsetLocation.y + " " + offsetLocation.z);
-    TweenMax.to(childEn.object3D, 0.3, {three:{positionX: offsetLocation.x, positionY: offsetLocation.y,positionZ: offsetLocation.z}, ease:Sine.easeIn});
+    TweenMax.to(newEntity.object3D, 0.3, {three:{positionX: offsetLocation.x, positionY: offsetLocation.y,positionZ: offsetLocation.z}, ease:Sine.easeIn});
     //TODO have a look here for positioning
     //childEn.setAttribute('position',{x: 1, y: 0, z:0});
     storedScale = entity.object3D.scale;
-    TweenMax.to(childEn.object3D, 0.3, {three:{scaleX:this.data.snapedScale.x, scaleY:this.data.snapedScale.y, scaleZ:this.data.snapedScale.z}, ease:Sine.easeIn});
+    TweenMax.to(newEntity.object3D, 0.3, {three:{scaleX:this.data.snapedScale.x, scaleY:this.data.snapedScale.y, scaleZ:this.data.snapedScale.z}, ease:Sine.easeIn});
     //rotate to our ideal rotation
     storedObject = newEntity;
     //set to ideal scale
