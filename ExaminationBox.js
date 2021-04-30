@@ -29,14 +29,14 @@ AFRAME.registerComponent('exambox',{
     clone3d = entity.object3D.clone();
     var newEntity = document.createElement('a-entity');
     var childEn = document.createElement('a-entity');
-    var gltfstring = entity.components.gltf-model.string;
+    var gltfstring = entity.components.gltfmodel.string;
     
     //todo create an empty to make the pivot the center
     var scene = document.querySelector('a-scene');
     scene.appendChild(newEntity);
     newEntity.appendChild(childEn);
     
-    childEn.setObject3D('gltf-model',clone3d);
+    childEn.setAttribute('gltf-model',gltfstring);
     childEn.setAttribute('id',"child");
     newEntity.setAttribute('class',"dissect");
     newEntity.setAttribute('rotatable',"");
