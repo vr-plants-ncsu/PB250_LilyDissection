@@ -29,7 +29,12 @@ AFRAME.registerComponent('exambox',{
     clone3d = entity.object3D.clone();
     var newEntity = document.createElement('a-entity');
     var childEn = document.createElement('a-entity');
-    
+    let childPivotM = childEn.object3D.matrixWorld;
+    childPivotM.invert();
+    let targetPivotM = childPivotM * entity.object3D.matrix;
+    childPivotM.invert();
+    targetPivotM *= childPivotM;
+    childEn.object3D.applyMatrix4(targetPivotM);
     
     //todo create an empty to make the pivot the center
     var scene = document.querySelector('a-scene');
@@ -43,9 +48,9 @@ AFRAME.registerComponent('exambox',{
     newEntity.setAttribute('geometry',{primitive:"sphere"});
     newEntity.setAttribute('scale',{x: 0.3, y: 0.3, z: 0.3});
     newEntity.setAttribute('material',{opacity:0});
-    this.el.object3D.getWorldPosition(newEntity.object3D.position);
+    entity.object3D.getWorldPosition(newEntity.object3D.position);
     //entity.object3D.getWorldQuaternion(newEntity.object3D.quaternion);
-    this.el.object3D.getWorldScale(newEntity.object3D.scale);
+    entity.object3D.getWorldScale(newEntity.object3D.scale);
 
     //TweenMax.to(newEntity.object3D, 0.3, {three:{rotationX:this.data.snapedRotation.x, rotationY:this.data.snapedRotation.y, rotationZ:this.data.snapedRotation.z}, ease:Sine.easeIn});
     let offsetLocation = new THREE.Vector3(0,0,0);    
