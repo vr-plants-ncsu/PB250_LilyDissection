@@ -52,7 +52,7 @@ AFRAME.registerComponent('exambox',{
     let worldPos = new THREE.Vector3(0,0,0);
     
     offsetLocation.addVectors(this.el.object3D.position, this.data.snapedOffset);
-    
+    console.log(childEn.object3D.position.x + " " + childEn.object3D.position.y + " " + childEn.object3D.position.z + " " + offsetLocation.x + " " + offsetLocation.y + " " + offsetLocation.z);
     TweenMax.to(childEn.object3D, 0.3, {three:{positionX: offsetLocation.x, positionY: offsetLocation.y,positionZ: offsetLocation.z}, ease:Sine.easeIn});
     //TODO have a look here for positioning
     //childEn.setAttribute('position',{x: 1, y: 0, z:0});
