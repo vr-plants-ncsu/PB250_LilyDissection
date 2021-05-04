@@ -42,9 +42,7 @@
     <a-asset-item id="totemfull" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full.gltf?v=1620104063136"></a-asset-item>
     <a-asset-item id="totemhalf" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full_Half.gltf?v=1620104064377"></a-asset-item>
     
-    <a-text id="#tepaltext" value="Tepal"></a-text>
-    <a-text value="Hello, World!"></a-text>
-    <a-text value="Hello, World!"></a-text>
+
     
     
   </a-assets>
@@ -138,18 +136,22 @@
   
 </a-entity>
       
-      <a-entity id="petals" 
+<!--    Petals/Tepals -->
+    <a-text id="tepaltext" text="color: #000000; value: Tepal; opacity: 0" position="-0.731 3 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
+    
+   
+    <a-entity id="petals" 
                 event-set__hoveredtepal = "
                 _event : hover-start;
-                _target : #livetext;
-                animation.property : text.value;
-                animation.to:Tepal"
+                _target : #tepaltext;
+                animation.property : text.visible;
+                animation.to: True"
 
 event-set__hoveredofftepal = "
                 _event : hover-end;
                 _target : #livetext;
                 animation.property : text.value;
-                animation.to: test">
+                animation.to: False">
       
              <a-entity id="lilypetalA1" 
                 mixin="frame" 
@@ -393,7 +395,7 @@ event-set__hoveredofftepal = "
     </a-cylinder>
   </a-entity> 
   
-<a-text id="livetext" text="color: #000000; value: test" position="-0.731 3 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
+
 </a-scene>
 </body>
 
