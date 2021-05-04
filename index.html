@@ -331,13 +331,13 @@
     </a-box>
 </a-entity>
   
-<a-entity id="ExaminationToggleUI" layout="margin: 1; angle: NaN; columns: 3" scale="0.075 0.05 0.05" position="0.610 1.17 -1.139" rotation="0 -55 0">
-  <a-box id="scale1button" class="dissect" position="" material="color: #ff0000" geometry=""
-         event-set__scaled1 = "
+<a-entity id="ExaminationToggleUI" layout="margin: 1; angle: NaN; columns: 2" scale="0.075 0.05 0.05" position="0.610 1.17 -1.139" rotation="0 -55 0">
+  <a-box id="toggle1button" class="dissect" position="" material="color: #ff8000" geometry=""
+         event-set__toggled1 = "
                 _event : click;
                 _target : #totem;
-                animation.property : scale;
-                animation.to: 0.01 0.01 0.01;"
+                animation.property : gltf-model.src;
+                animation.to: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full_Half.gltf?v=1620104064377;"
         
          event-set__lightscale1light = "
                 _event : click;
@@ -356,10 +356,36 @@
                 _target : #scale3light;
                 animation.property : light.intensity;
                 animation.to: 0;">
-    <a-entity id="scale1light" light="type:  point;  color:  #ff0000;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
-    
-<a-image id="scale1image" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fzoom-out.png?v=1620102923166" material="" geometry="" position="0.033 0.315 0.520" scale="0.9 0.9 0.9"></a-image>
+    <a-entity id="toggle1light" light="type:  point;  color:  #ff8000;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
     </a-box>
+  <a-box id="toggle2button" class="dissect" position="" material="color: #0000ff" geometry=""
+         event-set__toggled2 = "
+                _event : click;
+                _target : #totem;
+                animation.property : gltf-model.src;
+                animation.to: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full.gltf?v=1620104063136;"
+        
+         event-set__lightscale1light = "
+                _event : click;
+                _target : #scale1light;
+                animation.property : light.intensity;
+                animation.to: 20;"
+         
+         event-set__dimscale2light = "
+                _event : click;
+                _target : #scale2light;
+                animation.property : light.intensity;
+                animation.to: 0;"
+        
+         event-set__dimscale3light = "
+                _event : click;
+                _target : #scale3light;
+                animation.property : light.intensity;
+                animation.to: 0;">
+    <a-entity id="toggle2light" light="type:  point;  color:  #0000ff;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
+    </a-box>
+  </a-entity>
+  
   
 </a-scene>
 </body>
