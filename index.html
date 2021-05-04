@@ -242,81 +242,86 @@
       <a-entity id="totem" geometry="" position="0.91 1.303 -0.838" scale="0.1 0.1 0.1" material="color: #808040; emissive: #000000; emissiveIntensity: 2.03; metalness: 0.13; roughness: 0.9"></a-entity>
 <!--   UI system buttons to emit proxy events -->
 <a-entity id="Examination2DUI" layout="margin: 1; angle: NaN; columns: 3" scale="0.075 0.05 0.05" position="0.745 1.17 -1.2" rotation="0 -55 0">
-  <a-box id="scale1" class="dissect" position="" material="color: #ff0000" geometry=""
+  <a-box id="scale1button" class="dissect" position="" material="color: #ff0000" geometry=""
          event-set__scaled1 = "
                 _event : click;
                 _target : #totem;
                 animation.property : scale;
                 animation.to: 0.1 0.1 0.1;"
         
-         event-set__lowered1 = "
+         event-set__lightscale1light = "
                 _event : click;
-                _target : #scale1;
-                animation.property : position;
-                animation.to: 0.0 -0.1 0.0;"
+                _target : #scale1light;
+                animation.property : intensity;
+                animation.to: 10;"
          
-         event-set__defaulted2 = "
+         event-set__dimscale2light = "
                 _event : click;
-                _target : #scale2;
-                animation.property : position;
-                animation.to: 0.0 0 0.0;"
+                _target : #scale2light;
+                animation.property : intensity;
+                animation.to: 0;"
         
-         event-set__defaulted3 = "
+         event-set__dimscale3light = "
                 _event : click;
-                _target : #scale3;
-                animation.property : position;
-                animation.to: 0.0 0 0.0;"
-         ><a-entity light="type: point; color: #ff0000"></a-entity></a-box>
-  <a-box id="scale2" class="dissect" position="2 0 0" material="color: #ffff00" geometry=""
+                _target : #scale3light;
+                animation.property : intensity;
+                animation.to: 0;">
+    <a-entity id="scale1light" light="type:  point;  color:  #ff0000;  decay:  1.5;  distance:  0.2;  intensity:  10"></a-entity></a-box>
+  
+  <a-box id="scale2button" class="dissect" position="2 0 0" material="color: #ffff00" geometry=""
          event-set__scaled2 = "
                 _event : click;
                 _target : #totem;
                 animation.property : scale;
                 animation.to: 0.15 0.15 0.15;"
          
-        event-set__lowered2 = "
+        event-set__lightscale2light = "
                 _event : click;
-                _target : #scale2;
-                animation.property : position;
-                animation.to: 0.0 -0.1 0.0;"
+                _target : #scale2light;
+                animation.property : intensity;
+                animation.to: 10;"
          
-         event-set__defaulted1 = "
+         event-set__dimscale1light = "
                 _event : click;
-                _target : #scale1;
-                animation.property : position;
-                animation.to: 0.0 0 0.0;"
+                _target : #scale1light;
+                animation.property : intensity;
+                animation.to: 0;"
         
-         event-set__defaulted3 = "
+         event-set__dimscale3light = "
                 _event : click;
-                _target : #scale3;
-                animation.property : position;
-                animation.to: 0.0 0 0.0;" ></a-box>
+                _target : #scale3light;
+                animation.property : intensity;
+                animation.to: 0;" >
+    
+    <a-entity id="scale2light" light="type:  point;  color:  #ffff00;  decay:  1.5;  distance:  0.2;  intensity:  0"></a-entity></a-box>
   
-  <a-box id="scale3" class="dissect" position="4 0 0" material="color: #008000" geometry=""
+  <a-box id="scale3button" class="dissect" position="4 0 0" material="color: #008000" geometry=""
          event-set__scaled3 = "
                 _event : click;
                 _target : #totem;
                 animation.property : scale;
                 animation.to: 0.2 0.2 0.2;"
          
-        event-set__lowered3 = "
+        event-set__lightscale3light = "
                 _event : click;
-                _target : #scale3;
-                animation.property : position;
-                animation.to: 0.0 -0.1 0.0;"
+                _target : #scale3light;
+                animation.property : intensity;
+                animation.to: 10;"
          
-         event-set__defaulted1 = "
+         event-set__dimscale1light = "
                 _event : click;
-                _target : #scale1;
-                animation.property : position;
-                animation.to: 0.0 0 0.0;"
+                _target : #scale1light;
+                animation.property : intensity;
+                animation.to: 0;"
         
-         event-set__defaulted2 = "
+         event-set__dimscale2light = "
                 _event : click;
-                _target : #scale2;
-                animation.property : position;
-                animation.to: 0.0 0 0.0;" 
-         ></a-box>
+                _target : #scale2light;
+                animation.property : intensity;
+                animation.to: 0;" 
+         >
+  <a-entity id="scale3light" light="type:  point;  color:  #008000;  decay:  1.5;  distance:  0.2;  intensity:  0"></a-entity>
+  </a-box>
 </a-entity>
   
 </a-scene>
