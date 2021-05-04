@@ -272,7 +272,7 @@
                 _target : #scale3light;
                 animation.property : light.intensity;
                 animation.to: 0;">
-    <a-entity id="scale1light" light="type:  point;  color:  #ebe7e0;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
+    <a-entity id="scale1light" light="type:  point;  color:  #ebe7e0;  decay:  1.5;  distance:  0.075;  intensity:  0"></a-entity>
     
 <a-image id="scale1image" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fzoom-out.png?v=1620102923166" material="" geometry="" position="0.033 1.33461 0.52" scale="1.1 1.1 1.1"></a-image>
     </a-box>
@@ -302,7 +302,7 @@
                 animation.property : light.intensity;
                 animation.to: 0;" >
     
-    <a-entity id="scale2light" light="type:  point;  color:  #56b4e9;  decay:  1.5;  distance:  0.1;  intensity:  20"></a-entity></a-box>
+    <a-entity id="scale2light" light="type:  point;  color:  #56b4e9;  decay:  1.5;  distance:  0.075;  intensity:  20"></a-entity></a-box>
   
   <a-box id="scale3button" scale="1.1 1.1 1.1" class="dissect" position="4 0 0" material="color: #0072b2; opacity: 0.65" geometry=""
          event-set__scaled3 = "
@@ -329,13 +329,13 @@
                 animation.property : light.intensity;
                 animation.to: 0;" 
          >
-  <a-entity id="scale3light" light="type:  point;  color:  #0072b2;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
+  <a-entity id="scale3light" light="type:  point;  color:  #0072b2;  decay:  1.5;  distance:  0.075;  intensity:  0"></a-entity>
 
     <a-image id="scale3image" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fzoom-in.png?v=1620102920512" material="" geometry="" position="0.033 1.33461 0.520" scale="0.9 0.9 0.9"></a-image>
     </a-box>
 </a-entity>
   
-<a-entity id="ExaminationToggleUI" layout="margin: 1.35; angle: NaN; columns: 2" scale="0.025 0.05 0.05" position="0.79 1.17 -0.88" rotation="0 37.26 0">
+<a-entity id="ExaminationToggleUI" layout="margin: 3; angle: NaN; columns: 2" scale="0.025 0.05 0.025" position="0.908 1.17 -0.88" rotation="0 130.5 0">
   <a-cylinder id="toggle1button" class="dissect" position="" material="color: #55D142; opacity: 0.65" geometry=""
          event-set__toggled1 = "
                 _event : click;
@@ -354,7 +354,7 @@
                 _target : #toggle2light;
                 animation.property : light.intensity;
                 animation.to: 0;">
-    <a-entity id="toggle1light" light="type:  point;  color:  #55D142;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
+    <a-entity id="toggle1light" light="type:  point;  color:  #55D142;  decay:  1.5;  distance:  0.075;  intensity:  0"></a-entity>
     </a-cylinder>
   <a-cylinder id="toggle2button" class="dissect" position="" material="color: #F0E442; opacity: 0.65" geometry=""
          event-set__toggled2 = "
@@ -374,7 +374,7 @@
                 _target : #toggle1light;
                 animation.property : light.intensity;
                 animation.to: 0;">
-    <a-entity id="toggle2light" position="0 .1 0" light="type:  point;  color:  #F0E442;  decay:  1.5;  distance:  0.1;  intensity:  20"></a-entity>
+    <a-entity id="toggle2light" position="0 0.5 0" light="type:  point;  color:  #F0E442;  decay:  1.5;  distance:  0.075;  intensity:  20"></a-entity>
     </a-cylinder>
   </a-entity> 
   
