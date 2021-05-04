@@ -239,11 +239,11 @@
   
   
 <!--   UI system test object-->
-      <a-entity id="totem" geometry="" position="0.91 1.303 -0.838" scale="0.1 0.1 0.1" material="color: #808040; emissive: #000000; emissiveIntensity: 2.03; metalness: 0.13; roughness: 0.9"></a-entity>
+      <a-entity id="totem" geometry="" position="0.91 1.303 -0.838" scale="0.15 0.15 0.15" material="color: #808040; emissive: #000000; emissiveIntensity: 2.03; metalness: 0.13; roughness: 0.9"></a-entity>
 <!--   UI system buttons to emit proxy events -->
-<a-entity text__scale="align: center; value: - Scale +; alphaTest: 0.56; width: 1.55; color: #ffffff" id="Scaletext" rotation="0 -54.96212241351448 0" position="0.75739 1.18947 -1.11573"></a-entity>
+<!-- <a-entity text__scale="align: center; value: - Scale +; alphaTest: 0.56; width: 1.55; color: #ffffff" id="Scaletext" rotation="0 -54.96212241351448 0" position="0.75739 1.18947 -1.11573"></a-entity> -->
   
-  <a-entity id="ExaminationScaleUI" layout="margin: 1; angle: NaN; columns: 3" scale="0.075 0.05 0.05" position="0.745 1.17 -1.2" rotation="0 -55 0">
+  <a-entity id="ExaminationScaleUI" layout="margin: 1; angle: NaN; columns: 3" scale="0.075 0.05 0.05" position="0.610 1.17 -1.139" rotation="0 -55 0">
   <a-box id="scale1button" class="dissect" position="" material="color: #ff0000" geometry=""
          event-set__scaled1 = "
                 _event : click;
@@ -268,9 +268,9 @@
                 _target : #scale3light;
                 animation.property : light.intensity;
                 animation.to: 0;">
-    <a-entity id="scale1light" light="type:  point;  color:  #ff0000;  decay:  1.5;  distance:  0.1;  intensity:  20"></a-entity>
+    <a-entity id="scale1light" light="type:  point;  color:  #ff0000;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
     
-    <a-image id="scale1image" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fzoom-out.png?v=1620102923166"></a-image>
+<a-image id="scale1image" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fzoom-out.png?v=1620102923166" material="" geometry="" position="0.033 0.315 0.520" scale="0.9 0.9 0.9"></a-image>
     </a-box>
   
   <a-box id="scale2button" class="dissect" position="2 0 0" material="color: #ffff00" geometry=""
@@ -298,7 +298,7 @@
                 animation.property : light.intensity;
                 animation.to: 0;" >
     
-    <a-entity id="scale2light" light="type:  point;  color:  #ffff00;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity></a-box>
+    <a-entity id="scale2light" light="type:  point;  color:  #ffff00;  decay:  1.5;  distance:  0.1;  intensity:  20"></a-entity></a-box>
   
   <a-box id="scale3button" class="dissect" position="4 0 0" material="color: #008000" geometry=""
          event-set__scaled3 = "
@@ -326,8 +326,9 @@
                 animation.to: 0;" 
          >
   <a-entity id="scale3light" light="type:  point;  color:  #008000;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
-        <a-image id="scale3image" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fzoom-in.png?v=1620102920512"></a-image>
-  </a-box>
+
+    <a-image id="scale3image" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fzoom-in.png?v=1620102920512" material="" geometry="" position="0.033 0.315 0.520" scale="0.9 0.9 0.9"></a-image>
+    </a-box>
 </a-entity>
   
 </a-scene>
