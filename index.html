@@ -42,6 +42,9 @@
     <a-asset-item id="totemfull" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full.gltf?v=1620104063136"></a-asset-item>
     <a-asset-item id="totemhalf" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full_Half.gltf?v=1620104064377"></a-asset-item>
     
+    <a-text id="#tepaltext" value="Tepal"></a-text>
+    <a-text value="Hello, World!"></a-text>
+    <a-text value="Hello, World!"></a-text>
     
     
   </a-assets>
@@ -135,7 +138,18 @@
   
 </a-entity>
       
-      <a-entity id="petals">
+      <a-entity id="petals" 
+                event-set__hoveredtepal = "
+                _event : hover-start;
+                _target : #livetext;
+                animation.property : text.value;
+                animation.to:Tepal"
+
+event-set__hoveredofftepal = "
+                _event : hover-end;
+                _target : #livetext;
+                animation.property : text.value;
+                animation.to: test">
       
              <a-entity id="lilypetalA1" 
                 mixin="frame" 
@@ -385,15 +399,14 @@
 
 
 
-
 event-set__hoveredtepal = "
-                _event : _event: hover-start;
+                _event : hover-start;
                 _target : #livetext;
-                animation.property : text;
-                animation.to: tepal;"
+                animation.property : text.value;
+                animation.to: tepal ;"
 
 event-set__hoveredofftepal = "
-                _event : _event: hover-start;
+                _event : hover-end;
                 _target : #livetext;
-                animation.property : text;
-                animation.to: tepal;"
+                animation.property : text.value;
+                animation.to: text ;"
