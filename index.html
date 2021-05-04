@@ -71,7 +71,22 @@
          
          position= "-0.089 1.24 -1.7"
           rotation="0 0 0" >
-      <a-entity id="stamens">    
+    
+<!--   Stamens -->
+    <a-text id="stamentext" text="color: #000000; value: Stamen; opacity: 0" position="-0.731 3 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
+    
+      <a-entity id="stamens"
+event-set__hoveredstamen = "
+                _event : hover-start;
+                _target : #stamentext;
+                animation.property : text.opacity;
+                animation.to: 1"
+
+event-set__hoveredoffstamen = "
+                _event : hover-end;
+                _target : #stamentext;
+                animation.property : text.opacity;
+                animation.to: 0">    
       
        <a-entity id="lilystamen1" 
                 mixin="frame" 
@@ -137,21 +152,21 @@
 </a-entity>
       
 <!--    Petals/Tepals -->
-    <a-text id="tepaltext" text="color: #000000; value: Tepal; opacity: 0" position="-0.731 3 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
+    <a-text id="tepaltext" text="color: #000000; value: Tepal; opacity: 0" position="-0.731 3.2 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
     
    
     <a-entity id="petals" 
                 event-set__hoveredtepal = "
                 _event : hover-start;
                 _target : #tepaltext;
-                animation.property : text.visible;
-                animation.to: True"
+                animation.property : text.opacity;
+                animation.to: 1"
 
 event-set__hoveredofftepal = "
                 _event : hover-end;
-                _target : #livetext;
-                animation.property : text.value;
-                animation.to: False">
+                _target : #tepaltext;
+                animation.property : text.opacity;
+                animation.to: 0">
       
              <a-entity id="lilypetalA1" 
                 mixin="frame" 
@@ -221,9 +236,23 @@ event-set__hoveredofftepal = "
       
       </a-entity>
       
-       <a-entity id="lilycenter">
+<!--  Pistil -->
+        <a-text id="pistiltext" text="color: #000000; value: Pistil; opacity: 0" position="-0.731 2.8 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
+    
+       <a-entity id="lilypistil"
+event-set__hoveredpistil = "
+                _event : hover-start;
+                _target : #pistiltext;
+                animation.property : text.opacity;
+                animation.to: 1"
+
+event-set__hoveredoffpistil = "
+                _event : hover-end;
+                _target : #pistiltext;
+                animation.property : text.opacity;
+                animation.to: 0">
       
-             <a-entity id="lilycenterwhole" 
+             <a-entity id="lilypistilwhole" 
                 mixin="frame" 
                  class="dissect collidable"
                 hoverable grabbable stretchable draggable droppable
