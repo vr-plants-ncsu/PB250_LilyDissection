@@ -239,12 +239,13 @@
   
   
 <!--   UI system test object-->
-      <a-entity geometry="" position="0.91 1.303 -0.838" scale="0.1 0.1 0.1" material="color: #808040; emissive: #000000; emissiveIntensity: 2.03; metalness: 0.13; roughness: 0.9"></a-entity>
+      <a-entity id="" geometry="" position="0.91 1.303 -0.838" scale="0.1 0.1 0.1" material="color: #808040; emissive: #000000; emissiveIntensity: 2.03; metalness: 0.13; roughness: 0.9"></a-entity>
 <!--   UI system buttons to emit proxy events -->
-<a-entity id="Examination2DUI" layout="margin: 2; angle: NaN; columns: 3" scale="0.05 0.05 0.05" position="0.745 1.125 -1.2" rotation="0 -66 0">
-  <a-box position="" material="color: #ff0000" geometry="" id="scale1" text__red="align: center; side: double; value: size1"></a-box>
-  <a-box position="2 0 0" material="color: #ffff00" geometry=""></a-box>
-  <a-box position="4 0 0" material="color: #008000" geometry=""></a-box>
+<a-entity id="Examination2DUI" layout="margin: 1; angle: NaN; columns: 3" scale="0.075 0.05 0.05" position="0.745 1.17 -1.2" rotation="0 -55 0">
+  <a-box id="scale1" position="" material="color: #ff0000" geometry=""
+         ></a-box>
+  <a-box id="scale2" position="2 0 0" material="color: #ffff00" geometry=""></a-box>
+  <a-box id="scale3" position="4 0 0" material="color: #008000" geometry=""></a-box>
 </a-entity>
   
 </a-scene>
