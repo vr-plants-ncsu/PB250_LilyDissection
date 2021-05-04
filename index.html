@@ -38,6 +38,9 @@
       response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
     <a-image id="calloutBg" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FCallout_BG.png?v=1618246490561"></a-image>
     
+    <a-asset-item id="totemfull" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full.gltf?v=1620104063136"></a-asset-item>
+    <a-asset-item id="totemhalf" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full_Half.gltf?v=1620104064377"></a-asset-item>
+    
     
     
   </a-assets>
@@ -239,7 +242,7 @@
   
   
 <!--   UI system test object-->
-      <a-entity id="totem" gltf-model="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full.gltf?v=1620104063136" geometry="" rotation="0 0 0" position="0.91 1.303 -0.838" scale="0.03 0.03 0.03"></a-entity>
+      <a-gltf-model id="totem" src="#totemfull" rotation="0 0 0" position="0.91 1.303 -0.838" scale="0.03 0.03 0.03"></a-gltf-model>
 <!--   UI system buttons to emit proxy events -->
 <!-- <a-entity text__scale="align: center; value: - Scale +; alphaTest: 0.56; width: 1.55; color: #ffffff" id="Scaletext" rotation="0 -54.96212241351448 0" position="0.75739 1.18947 -1.11573"></a-entity> -->
   
@@ -331,13 +334,13 @@
     </a-box>
 </a-entity>
   
-<a-entity id="ExaminationToggleUI" layout="margin: 1; angle: NaN; columns: 2" scale="0.075 0.05 0.05" position="0.610 1.17 -1.139" rotation="0 -55 0">
+<a-entity id="ExaminationToggleUI" layout="margin: 2; angle: NaN; columns: 2" scale="0.025 0.05 0.05" position="0.827 1.17 -0.88" rotation="0 83 0">
   <a-box id="toggle1button" class="dissect" position="" material="color: #ff8000" geometry=""
          event-set__toggled1 = "
                 _event : click;
                 _target : #totem;
-                animation.property : gltf-model.src;
-                animation.to: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full_Half.gltf?v=1620104064377;"
+                animation.property : src;
+                animation.to: #totemfull;"
         
          event-set__lightscale1light = "
                 _event : click;
@@ -356,13 +359,13 @@
                 _target : #scale3light;
                 animation.property : light.intensity;
                 animation.to: 0;">
-    <a-entity id="toggle1light" light="type:  point;  color:  #ff8000;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
+    <a-entity id="toggle1light" light="type:  point;  color:  #ff8000;  decay:  1.5;  distance:  0.1;  intensity:  20"></a-entity>
     </a-box>
   <a-box id="toggle2button" class="dissect" position="" material="color: #0000ff" geometry=""
          event-set__toggled2 = "
                 _event : click;
                 _target : #totem;
-                animation.property : gltf-model.src;
+                animation.property : src;
                 animation.to: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full.gltf?v=1620104063136;"
         
          event-set__lightscale1light = "
@@ -385,6 +388,7 @@
     <a-entity id="toggle2light" light="type:  point;  color:  #0000ff;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
     </a-box>
   </a-entity>
+  
   
   
 </a-scene>
