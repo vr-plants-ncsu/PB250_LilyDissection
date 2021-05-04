@@ -247,8 +247,8 @@
 <!--   UI system buttons to emit proxy events -->
 <!-- <a-entity text__scale="align: center; value: - Scale +; alphaTest: 0.56; width: 1.55; color: #ffffff" id="Scaletext" rotation="0 -54.96212241351448 0" position="0.75739 1.18947 -1.11573"></a-entity> -->
   
-  <a-entity id="ExaminationScaleUI" layout="margin: 1.25; angle: NaN; columns: 3" scale="0.075 0.05 0.05" position="0.610 1.17 -1.139" rotation="0 -55 0">
-  <a-box id="scale1button" class="dissect" position="" material="color: #ff0000; opacity: 0.65" geometry=""
+  <a-entity id="ExaminationScaleUI" layout="margin: 1.35; angle: NaN; columns: 3" scale="0.075 0.05 0.05" position="0.610 1.17 -1.139" rotation="0 -55 0">
+  <a-box id="scale1button" scale="0.75 0.75 0.75" class="dissect" position="" material="color: #ebe7e0; opacity: 0.65" geometry=""
          event-set__scaled1 = "
                 _event : click;
                 _target : #totem;
@@ -272,12 +272,12 @@
                 _target : #scale3light;
                 animation.property : light.intensity;
                 animation.to: 0;">
-    <a-entity id="scale1light" light="type:  point;  color:  #ff0000;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
+    <a-entity id="scale1light" light="type:  point;  color:  #ebe7e0;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
     
-<a-image id="scale1image" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fzoom-out.png?v=1620102923166" material="" geometry="" position="0.033 1.33461 0.52" scale="0.9 0.9 0.9"></a-image>
+<a-image id="scale1image" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fzoom-out.png?v=1620102923166" material="" geometry="" position="0.033 1.33461 0.52" scale="1.5 1.5 1.5"></a-image>
     </a-box>
   
-  <a-box id="scale2button" class="dissect" position="2 0 0" material="color: #ffff00; opacity: 0.65" geometry=""
+  <a-box id="scale2button" class="dissect" position="2 0 0" material="color: #c6d4e1; opacity: 0.65" geometry=""
          event-set__scaled2 = "
                 _event : click;
                 _target : #totem;
@@ -302,9 +302,9 @@
                 animation.property : light.intensity;
                 animation.to: 0;" >
     
-    <a-entity id="scale2light" light="type:  point;  color:  #ffff00;  decay:  1.5;  distance:  0.1;  intensity:  20"></a-entity></a-box>
+    <a-entity id="scale2light" light="type:  point;  color:  #c6d4e1;  decay:  1.5;  distance:  0.1;  intensity:  20"></a-entity></a-box>
   
-  <a-box id="scale3button" class="dissect" position="4 0 0" material="color: #008000; opacity: 0.65" geometry=""
+  <a-box id="scale3button" scale="1.25 1.25 1.25" class="dissect" position="4 0 0" material="color: #44749d; opacity: 0.65" geometry=""
          event-set__scaled3 = "
                 _event : click;
                 _target : #totem;
@@ -329,14 +329,14 @@
                 animation.property : light.intensity;
                 animation.to: 0;" 
          >
-  <a-entity id="scale3light" light="type:  point;  color:  #008000;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
+  <a-entity id="scale3light" light="type:  point;  color:  #44749d;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
 
     <a-image id="scale3image" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fzoom-in.png?v=1620102920512" material="" geometry="" position="0.033 1.33461 0.520" scale="0.9 0.9 0.9"></a-image>
     </a-box>
 </a-entity>
   
 <a-entity id="ExaminationToggleUI" layout="margin: 2; angle: NaN; columns: 2" scale="0.025 0.05 0.05" position="0.827 1.17 -0.88" rotation="0 83 0">
-  <a-box id="toggle1button" class="dissect" position="" material="color: #ff8000; opacity: 0.65" geometry=""
+  <a-box id="toggle1button" class="dissect" position="" material="color: #55D142; opacity: 0.65" geometry=""
          event-set__toggled1 = "
                 _event : click;
                 _target : #totemphantom;
@@ -354,9 +354,9 @@
                 _target : #toggle2light;
                 animation.property : light.intensity;
                 animation.to: 0;">
-    <a-entity id="toggle1light" light="type:  point;  color:  #ff8000;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
+    <a-entity id="toggle1light" light="type:  point;  color:  #55D142;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
     </a-box>
-  <a-box id="toggle2button" class="dissect" position="" material="color: #0000ff; opacity: 0.65" geometry=""
+  <a-box id="toggle2button" class="dissect" position="" material="color: #FF6451; opacity: 0.65" geometry=""
          event-set__toggled2 = "
                 _event : click;
                 _target : #totemphantom;
@@ -374,7 +374,7 @@
                 _target : #toggle1light;
                 animation.property : light.intensity;
                 animation.to: 0;">
-    <a-entity id="toggle2light" light="type:  point;  color:  #0000ff;  decay:  1.5;  distance:  0.1;  intensity:  20"></a-entity>
+    <a-entity id="toggle2light" light="type:  point;  color:  #FF6451;  decay:  1.5;  distance:  0.1;  intensity:  20"></a-entity>
     </a-box>
   </a-entity> 
   
