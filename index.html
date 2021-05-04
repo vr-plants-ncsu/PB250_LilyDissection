@@ -239,13 +239,30 @@
   
   
 <!--   UI system test object-->
-      <a-entity id="" geometry="" position="0.91 1.303 -0.838" scale="0.1 0.1 0.1" material="color: #808040; emissive: #000000; emissiveIntensity: 2.03; metalness: 0.13; roughness: 0.9"></a-entity>
+      <a-entity id="totem" geometry="" position="0.91 1.303 -0.838" scale="0.1 0.1 0.1" material="color: #808040; emissive: #000000; emissiveIntensity: 2.03; metalness: 0.13; roughness: 0.9"></a-entity>
 <!--   UI system buttons to emit proxy events -->
 <a-entity id="Examination2DUI" layout="margin: 1; angle: NaN; columns: 3" scale="0.075 0.05 0.05" position="0.745 1.17 -1.2" rotation="0 -55 0">
-  <a-box id="scale1" position="" material="color: #ff0000" geometry=""
+  <a-box id="scale1" class="dissect" position="" material="color: #ff0000" geometry=""
+         event-set__scaled1 = "
+                _event : click;
+                _target : #totem;
+                animation.property : scale;
+                animation.to: 0.1 0.1 0.1;"
          ></a-box>
-  <a-box id="scale2" position="2 0 0" material="color: #ffff00" geometry=""></a-box>
-  <a-box id="scale3" position="4 0 0" material="color: #008000" geometry=""></a-box>
+  <a-box id="scale2" class="dissect" position="2 0 0" material="color: #ffff00" geometry=""
+         event-set__scaled2 = "
+                _event : click;
+                _target : #totem;
+                animation.property : scale;
+                animation.to: 0.15 0.15 0.15;"
+         ></a-box>
+  <a-box id="scale3" class="dissect" position="4 0 0" material="color: #008000" geometry=""
+         event-set__scaled3 = "
+                _event : click;
+                _target : #totem;
+                animation.property : scale;
+                animation.to: 0.2 0.2 0.2;"
+         ></a-box>
 </a-entity>
   
 </a-scene>
