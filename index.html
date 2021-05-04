@@ -379,13 +379,21 @@
     </a-cylinder>
   </a-entity> 
   
-  <a-text text="" id="livetext"></a-text>
-  
+<a-text id="livetext" text="color: #000000; value: test" position="-0.731 3 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
 </a-scene>
 </body>
 
+
+
+
 event-set__hoveredtepal = "
-                _event : hover;
+                _event : _event: hover-start;
+                _target : #livetext;
+                animation.property : text;
+                animation.to: tepal;"
+
+event-set__hoveredofftepal = "
+                _event : _event: hover-start;
                 _target : #livetext;
                 animation.property : text;
                 animation.to: tepal;"
