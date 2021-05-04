@@ -9,6 +9,7 @@
   <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>  
   <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@4.3.1/dist/aframe-layout-component.min.js"></script> 
   <script type="module">
     import "./GreenSockThree.js";
   </script>
@@ -36,6 +37,9 @@
       src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Full_Half.gltf?v=1615965211555"
       response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
     <a-image id="calloutBg" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FCallout_BG.png?v=1618246490561"></a-image>
+    
+    
+    
   </a-assets>
   
   <a-entity position="0 1.55 0.115" rotation="0 -19.1 0" >
@@ -218,19 +222,7 @@
       <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
       <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
 
-      <a-entity id="ui" position="0 1.6 -2.5">
-        <!-- Poster menu -->
-        <a-entity id="menu" highlight>
-
-          
-        
-       
-
-
- 
-        </a-entity>
-  </a-entity>
-  
+            
   <a-entity gltf-model="#table" scale = "0.7 0.7 0.7" position="0 0 -0.466" rotation="0 90 0"></a-entity>
   
   <a-entity id="ExamBox" gltf-model="#containerBox" position="0.945 1.125 -1.200" rotation="0 11.705 0" scale="0.4 0.4 0.4" exambox="snapedRotation: 45 0 0; snapedScale: 0.6 0.6 0.6; snapedOffset:0 0.6 0" >
@@ -244,6 +236,9 @@
                <a-entity id="examinetextbody" text="value: C;" position="0.008 -0.045 0.004"></a-entity>
     </a-entity>
   </a-entity>
+  
+      <a-entity geometry="" position="0.91 1.303 -0.838" scale="0.1 0.1 0.1" material="color: #808040; emissive: #000000; emissiveIntensity: 2.03; metalness: 0.13; roughness: 0.9"></a-entity>
+  
   
 </a-scene>
 </body>
