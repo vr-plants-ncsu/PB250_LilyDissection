@@ -239,7 +239,7 @@
   
   
 <!--   UI system test object-->
-      <a-entity id="totem" geometry="" position="0.91 1.303 -0.838" scale="0.15 0.15 0.15" material="color: #808040; emissive: #000000; emissiveIntensity: 2.03; metalness: 0.13; roughness: 0.9"></a-entity>
+      <a-entity id="totem" gltf-model="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full.gltf?v=1620104063136" geometry="" rotation="0 0 0" position="0.91 1.303 -0.838" scale="0.03 0.03 0.03"></a-entity>
 <!--   UI system buttons to emit proxy events -->
 <!-- <a-entity text__scale="align: center; value: - Scale +; alphaTest: 0.56; width: 1.55; color: #ffffff" id="Scaletext" rotation="0 -54.96212241351448 0" position="0.75739 1.18947 -1.11573"></a-entity> -->
   
@@ -249,7 +249,7 @@
                 _event : click;
                 _target : #totem;
                 animation.property : scale;
-                animation.to: 0.1 0.1 0.1;"
+                animation.to: 0.01 0.01 0.01;"
         
          event-set__lightscale1light = "
                 _event : click;
@@ -278,7 +278,7 @@
                 _event : click;
                 _target : #totem;
                 animation.property : scale;
-                animation.to: 0.15 0.15 0.15;"
+                animation.to: 0.03 0.03 0.03;"
          
         event-set__lightscale2light = "
                 _event : click;
@@ -305,7 +305,7 @@
                 _event : click;
                 _target : #totem;
                 animation.property : scale;
-                animation.to: 0.2 0.2 0.2;"
+                animation.to: 0.05 0.05 0.05;"
          
         event-set__lightscale3light = "
                 _event : click;
@@ -330,6 +330,36 @@
     <a-image id="scale3image" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fzoom-in.png?v=1620102920512" material="" geometry="" position="0.033 0.315 0.520" scale="0.9 0.9 0.9"></a-image>
     </a-box>
 </a-entity>
+  
+<a-entity id="ExaminationToggleUI" layout="margin: 1; angle: NaN; columns: 3" scale="0.075 0.05 0.05" position="0.610 1.17 -1.139" rotation="0 -55 0">
+  <a-box id="scale1button" class="dissect" position="" material="color: #ff0000" geometry=""
+         event-set__scaled1 = "
+                _event : click;
+                _target : #totem;
+                animation.property : scale;
+                animation.to: 0.01 0.01 0.01;"
+        
+         event-set__lightscale1light = "
+                _event : click;
+                _target : #scale1light;
+                animation.property : light.intensity;
+                animation.to: 20;"
+         
+         event-set__dimscale2light = "
+                _event : click;
+                _target : #scale2light;
+                animation.property : light.intensity;
+                animation.to: 0;"
+        
+         event-set__dimscale3light = "
+                _event : click;
+                _target : #scale3light;
+                animation.property : light.intensity;
+                animation.to: 0;">
+    <a-entity id="scale1light" light="type:  point;  color:  #ff0000;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
+    
+<a-image id="scale1image" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fzoom-out.png?v=1620102923166" material="" geometry="" position="0.033 0.315 0.520" scale="0.9 0.9 0.9"></a-image>
+    </a-box>
   
 </a-scene>
 </body>
