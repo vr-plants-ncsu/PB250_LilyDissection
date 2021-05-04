@@ -242,8 +242,8 @@
   
   
 <!--   UI system test object-->
-      <a-entity id="totem" gltf-model="#totemhalf" rotation="0 0 0" position="0.91 1.303 -0.838" scale="0.03 0.03 0.03">
-  <a-entity id="totemphantom" gltf-model="#totemfull" visible="false"></a-entity></a-entity>
+      <a-entity  id="totem" class="dissect" rotatable gltf-model="#totemhalf" position="0.91 1.303 -0.838" scale="0.03 0.03 0.03" rotation="0 125 0">
+  <a-entity  id="totemphantom" rotatable class="dissect" gltf-model="#totemfull" visible="false"></a-entity></a-entity>
 <!--   UI system buttons to emit proxy events -->
 <!-- <a-entity text__scale="align: center; value: - Scale +; alphaTest: 0.56; width: 1.55; color: #ffffff" id="Scaletext" rotation="0 -54.96212241351448 0" position="0.75739 1.18947 -1.11573"></a-entity> -->
   
@@ -253,7 +253,7 @@
                 _event : click;
                 _target : #totem;
                 animation.property : scale;
-                animation.to: 0.01 0.01 0.01;"
+                animation.to: 0.015 0.015 0.015;"
         
          event-set__lightscale1light = "
                 _event : click;
@@ -309,7 +309,7 @@
                 _event : click;
                 _target : #totem;
                 animation.property : scale;
-                animation.to: 0.05 0.05 0.05;"
+                animation.to: 0.06 0.06 0.06;"
          
         event-set__lightscale3light = "
                 _event : click;
@@ -361,7 +361,7 @@
                 _event : click;
                 _target : #totemphantom;
                 animation.property : visible;
-                animation.to: #totemhalf;"
+                animation.to: false;"
         
          event-set__lighttoggle1light = "
                 _event : click;
@@ -374,7 +374,7 @@
                 _target : #toggle1light;
                 animation.property : light.intensity;
                 animation.to: 0;">
-    <a-entity id="toggle2light" light="type:  point;  color:  #0000ff;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
+    <a-entity id="toggle2light" light="type:  point;  color:  #0000ff;  decay:  1.5;  distance:  0.1;  intensity:  20"></a-entity>
     </a-box>
   </a-entity>
   
