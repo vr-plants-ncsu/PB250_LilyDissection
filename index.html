@@ -222,8 +222,7 @@
       <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
       <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
 
-            
-  <a-entity gltf-model="#table" scale = "0.7 0.7 0.7" position="0 0 -0.466" rotation="0 90 0"></a-entity>
+    <a-entity gltf-model="#table" scale = "0.7 0.7 0.7" position="0 0 -0.466" rotation="0 90 0"></a-entity>
   
   <a-entity id="ExamBox" gltf-model="#containerBox" position="0.945 1.125 -1.200" rotation="0 11.705 0" scale="0.4 0.4 0.4" exambox="snapedRotation: 45 0 0; snapedScale: 0.6 0.6 0.6; snapedOffset:0 0.6 0" >
              <a-entity id="examinecallout"
@@ -237,8 +236,16 @@
     </a-entity>
   </a-entity>
   
-      <a-entity geometry="" position="0.91 1.303 -0.838" scale="0.1 0.1 0.1" material="color: #808040; emissive: #000000; emissiveIntensity: 2.03; metalness: 0.13; roughness: 0.9"></a-entity>
   
+  
+<!--   UI system test object-->
+      <a-entity geometry="" position="0.91 1.303 -0.838" scale="0.1 0.1 0.1" material="color: #808040; emissive: #000000; emissiveIntensity: 2.03; metalness: 0.13; roughness: 0.9"></a-entity>
+<!--   UI system buttons to emit proxy events -->
+  <a-entity layout="type: line; margin: 2">
+  <a-box position="0 0 0"></a-box>
+  <a-box position="2 0 0"></a-box>
+  <a-box position="4 0 0"></a-box>
+</a-entity>
   
 </a-scene>
 </body>
