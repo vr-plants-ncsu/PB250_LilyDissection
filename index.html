@@ -339,50 +339,38 @@
          event-set__toggled1 = "
                 _event : click;
                 _target : #totem;
-                animation.property : src;
+                animation.property : gltf-model.src;
                 animation.to: #totemfull;"
         
-         event-set__lightscale1light = "
+         event-set__lighttoggle1light = "
                 _event : click;
-                _target : #scale1light;
+                _target : #toggle1light;
                 animation.property : light.intensity;
                 animation.to: 20;"
          
-         event-set__dimscale2light = "
+         event-set__dimtoggle2light = "
                 _event : click;
-                _target : #scale2light;
-                animation.property : light.intensity;
-                animation.to: 0;"
-        
-         event-set__dimscale3light = "
-                _event : click;
-                _target : #scale3light;
+                _target : #toggle2light;
                 animation.property : light.intensity;
                 animation.to: 0;">
-    <a-entity id="toggle1light" light="type:  point;  color:  #ff8000;  decay:  1.5;  distance:  0.1;  intensity:  20"></a-entity>
+    <a-entity id="toggle1light" light="type:  point;  color:  #ff8000;  decay:  1.5;  distance:  0.1;  intensity:  00"></a-entity>
     </a-box>
   <a-box id="toggle2button" class="dissect" position="" material="color: #0000ff" geometry=""
          event-set__toggled2 = "
                 _event : click;
                 _target : #totem;
-                animation.property : src;
-                animation.to: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full.gltf?v=1620104063136;"
+                animation.property : gltf-model.src;
+                animation.to: #totemhalf;"
         
-         event-set__lightscale1light = "
+         event-set__lighttoggle1light = "
                 _event : click;
-                _target : #scale1light;
+                _target : #toggle2light;
                 animation.property : light.intensity;
                 animation.to: 20;"
          
-         event-set__dimscale2light = "
+         event-set__dimtoggle2light = "
                 _event : click;
-                _target : #scale2light;
-                animation.property : light.intensity;
-                animation.to: 0;"
-        
-         event-set__dimscale3light = "
-                _event : click;
-                _target : #scale3light;
+                _target : #toggle1light;
                 animation.property : light.intensity;
                 animation.to: 0;">
     <a-entity id="toggle2light" light="type:  point;  color:  #0000ff;  decay:  1.5;  distance:  0.1;  intensity:  0"></a-entity>
