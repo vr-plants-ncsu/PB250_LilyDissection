@@ -42,10 +42,12 @@
       cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
       event-set__click="_event:click;"
       environment
+      info-message="htmlSrc: #messageText"
          >
   
 <!-- Media assets used throughout experience    -->
   <a-assets>
+            <a-asset-item id="messageText" src="message.html"></a-asset-item>
 <!-- White table seen beneath interactions      -->
     <a-asset-item id="table" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FTableOpen.glb?v=1616683384876"></a-asset-item>
 <!--   Globe-like observation 'container box' -->
