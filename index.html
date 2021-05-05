@@ -39,6 +39,7 @@
       webxr="referenceSpaceType: local"
       cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
       event-set__click="_event:click;"
+      environment
          >
   
 <!-- Media assets used throughout experience    -->
@@ -66,8 +67,9 @@
 <a-sound id="clickyes" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fclickyes.mp3?v=1620233212534"></a-sound>  
 <a-sound id="clickno" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fclickno.mp3?v=1620233212660"></a-sound>    
   </a-assets>
-  
-  <a-sky id="sky" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fnoon_grass_1k.png?v=1620244426480"></a-sky>
+
+<!-- At the minimum we'd also want to setup an environment light, although we might also need to explore background options -->
+<a-sky id="sky" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fnoon_grass_1k.png?v=1620244426480"></a-sky>
 
          
 <!-- Camera rig serves as user perspective. User cannot pivot camera and raycast emits from this view-->
@@ -96,7 +98,7 @@
          position= "-0.089 1.24 -1.7"
           rotation="0 0 0" >
     
-<!--   Stamens have a text field for when they're hovered. Each stamen is then defined as an entity with raycast collision and events-->
+<!--   Stamens have a text field for when they're hovered. Each stamen is then defined as an entity with raycast collision and events.-->
     <a-text id="stamentext" text="color: #000000; value: Stamen; opacity: 0" position="-0.731 3 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
     
       <a-entity id="stamens"
@@ -174,8 +176,8 @@ event-set__hoveredoffstamen = "
           </a-entity>
   
 </a-entity>
-      
-<!--    Petals/Tepals -->
+    
+<!--   Petals/Tepals have a text field for when they're hovered. Each is then defined as an entity with raycast collision and events.-->
     <a-text id="tepaltext" text="color: #000000; value: Tepal; opacity: 0" position="-0.731 3.2 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
     
    
@@ -260,7 +262,7 @@ event-set__hoveredofftepal = "
       
       </a-entity>
       
-<!--  Pistil -->
+<!--   Pistil a text field for when they're hovered. Pistil is then defined as an entity with raycast collision and events.-->
         <a-text id="pistiltext" text="color: #000000; value: Pistil; opacity: 0" position="-0.731 2.8 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
     
        <a-entity id="lilypistil"
@@ -289,14 +291,17 @@ event-set__hoveredoffpistil = "
       </a-entity>
    </a-entity>
   
+<!--This is a random light    -->
   <a-entity light="type: hemisphere; intensity: 0.51; castShadow: false"></a-entity>      
       
-      <!-- Hand controls -->
+      <!-- Hand controls are defined to get raycast capability to allow button interaction while using them -->
       <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
       <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
 
+<!--The table asset is put in place    -->
     <a-entity gltf-model="#table" scale = "0.7 0.7 0.7" position="0 0 -0.466" rotation="0 90 0"></a-entity>
-  
+
+<!--Exambox is put in scene. Some of these fields are specific to the examinationBox.js file. Text fields are established with examinetextheader and examinetextbody occupying spaces on #calloutBg  -->
   <a-entity id="ExamBox" gltf-model="#containerBox" position="0.945 1.125 -1.200" rotation="0 11.705 0" scale="0.4 0.4 0.4" exambox="snapedRotation: 45 0 0; snapedScale: 0.6 0.6 0.6; snapedOffset:0 0.6 0" >
              <a-entity id="examinecallout"
                      geometry="primitive: plane; height: 0.5"
@@ -314,9 +319,9 @@ event-set__hoveredoffpistil = "
 <!--   UI system test object-->
       <a-entity  id="totem" class="dissect" rotatable gltf-model="#totemhalf" position="0.91 1.303 -0.838" scale="0.03 0.03 0.03" rotation="0 125 0">
   <a-entity  id="totemphantom" rotatable class="dissect" gltf-model="#totemfull" visible="false"></a-entity></a-entity>
-<!--   UI system buttons to emit proxy events -->
-<!-- <a-entity text__scale="align: center; value: - Scale +; alphaTest: 0.56; width: 1.55; color: #ffffff" id="Scaletext" rotation="0 -54.96212241351448 0" position="0.75739 1.18947 -1.11573"></a-entity> -->
-  
+
+  <!--   UI system buttons to emit proxy events -->
+ 
   <a-entity id="ExaminationScaleUI" layout="margin: 1.35; angle: NaN; columns: 3" scale="0.075 0.05 0.05" position="0.610 1.17 -1.139" rotation="0 -55 0">
   <a-box id="scale1button" scale="0.9 0.9 0.9" class="dissect" position="" material="color: #ebe7e0; opacity: 0.65" geometry=""
          sound="src: #click1; on: click"
