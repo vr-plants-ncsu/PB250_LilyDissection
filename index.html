@@ -41,8 +41,8 @@
     
     <a-asset-item id="totemfull" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full.gltf?v=1620104063136"></a-asset-item>
     <a-asset-item id="totemhalf" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full_Half.gltf?v=1620104064377"></a-asset-item>
-    
-
+    <a-sound id="shortclick" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttonshort.wav?v=1620231125899"></a-sound>
+<a-sound id="longclick" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttonlong.wav?v=1620231150691"></a-sound>
     
     
   </a-assets>
@@ -295,7 +295,7 @@ event-set__hoveredoffpistil = "
   
   <a-entity id="ExaminationScaleUI" layout="margin: 1.35; angle: NaN; columns: 3" scale="0.075 0.05 0.05" position="0.610 1.17 -1.139" rotation="0 -55 0">
   <a-box id="scale1button" scale="0.9 0.9 0.9" class="dissect" position="" material="color: #ebe7e0; opacity: 0.65" geometry=""
-         sound="src: url(ticklelaugh.mp3); on: click"
+         sound="src: #shortclick; on: click"
          
          event-set__scaled1 = "
                 _event : click;
@@ -326,6 +326,8 @@ event-set__hoveredoffpistil = "
     </a-box>
   
   <a-box id="scale2button" class="dissect" position="2 0 0" material="color: #56b4e9; opacity: 0.65" geometry=""
+         sound="src: #shortclick; on: click"
+         
          event-set__scaled2 = "
                 _event : click;
                 _target : #totem;
@@ -353,6 +355,8 @@ event-set__hoveredoffpistil = "
     <a-entity id="scale2light" light="type:  point;  color:  #56b4e9;  decay:  1.5;  distance:  0.075;  intensity:  20"></a-entity></a-box>
   
   <a-box id="scale3button" scale="1.1 1.1 1.1" class="dissect" position="4 0 0" material="color: #0072b2; opacity: 0.65" geometry=""
+         sound="src: #shortclick; on: click"
+         
          event-set__scaled3 = "
                 _event : click;
                 _target : #totem;
@@ -385,6 +389,7 @@ event-set__hoveredoffpistil = "
   
 <a-entity id="ExaminationToggleUI" layout="margin: 3; angle: NaN; columns: 2" scale="0.025 0.05 0.025" position="0.908 1.17 -0.88" rotation="0 130.5 0">
   <a-cylinder id="toggle1button" class="dissect" position="" material="color: #55D142; opacity: 0.65" geometry=""
+              sound="src: #shortclick; on: click"
          event-set__toggled1 = "
                 _event : click;
                 _target : #totemphantom;
@@ -405,6 +410,7 @@ event-set__hoveredoffpistil = "
     <a-entity id="toggle1light" light="type:  point;  color:  #55D142;  decay:  1.5;  distance:  0.075;  intensity:  0"></a-entity>
     </a-cylinder>
   <a-cylinder id="toggle2button" class="dissect" position="" material="color: #F0E442; opacity: 0.65" geometry=""
+              sound="src: #longclick; on: click"
          event-set__toggled2 = "
                 _event : click;
                 _target : #totemphantom;
