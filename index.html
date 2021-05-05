@@ -3,13 +3,21 @@
   <meta charset="utf-8">
   <title>Lily Dissection • A-Frame</title>
   <meta name="description" content="Lily Dissection • A-Frame">
+  
+<!-- AFrame webXR Library   -->
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+<!-- Superhands allows drag and rotation function -->
+<script src="https://unpkg.com/super-hands/dist/super-hands.min.js"></script>  
+<!--Environment Component  -->
   <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
-  <script src="https://unpkg.com/super-hands/dist/super-hands.min.js"></script>
-  <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>  
+<!--Buttons and other event system uses event-set component  -->
+  <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script> 
+<!--   Physics isn't used in a major way but is loaded in to support development -->
   <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
-    <script src="https://unpkg.com/aframe-layout-component@4.3.1/dist/aframe-layout-component.min.js"></script> 
+
+  The layour of buttons utilizes layout compo
+<script src="https://unpkg.com/aframe-layout-component@4.3.1/dist/aframe-layout-component.min.js"></script> 
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script> 
   <script type="module">
     import "./GreenSockThree.js";
@@ -68,8 +76,21 @@
       </a-entity> 
   </a-entity>
   
-  <a-entity id="introScreen">
-  
+  <a-entity id="introScreen" geometry="plane">
+    <a-text id="header"></a-text>
+    <a-image id="logos"></a-image>
+    <a-text id="descriptionText"></a-text>
+    <a-plane id="closeButton"
+             event-set__introbuttonclick= "
+                                _event: click;
+                                _target: #introScreen;
+                                parentNode.removeChild(this.el);
+                                "
+             ></a-plane>
+    <a-plane id="aboutButton"
+             
+             ></a-plane>
+  </a-entity>
   
   <a-entity id="lilywholedissection"
          
