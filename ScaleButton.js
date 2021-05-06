@@ -21,12 +21,13 @@ AFRAME.registerComponent('scalebutton',{
      this.components.scalebutton.resetCounter();
      //apply the scale delta till we hit the min or max
      if(target != null){
-       let nextScale = currentScale + entity.scaleDelta;
-       if(nextScale > entity.scaleMax){
-         nextScale = entity.scaleMax;
+       let nextScale = currentScale + entity.components.scalebutton.data.scaleDelta;
+       console.log("lets see: " + nextScale + " " + this.components.scalebutton.currentScale + " " + entity.components.scalebutton.data.scaleDelta);
+       if(nextScale > entity.components.scalebutton.scaleMax){
+         nextScale = entity.components.scalebutton.scaleMax;
        }
-       if(nextScale < entity.scaleMin){
-         nextScale = entity.scaleMin;
+       if(nextScale < entity.components.scalebutton.scaleMin){
+         nextScale = entity.components.scalebutton.scaleMin;
        }
        TweenMax.to(target.object3D, 0.3, {three:{scaleX:nextScale, scaleY:nextScale, scaleZ:nextScale}, ease:Sine.easeIn});
      }
@@ -43,7 +44,8 @@ AFRAME.registerComponent('scalebutton',{
   whenAssociated: function(event){
     //we're assuming a uniform scale to start but we'll be applying one anyway
     target = event.detail.cloneEntity;
-    currentScale = target.components.scale.x;
+    currentScale = target.object3D.scale.x;
+    console.log("CScale: " + currentScale);
   },
   whenDisassociated: function(event){
     target = null;
