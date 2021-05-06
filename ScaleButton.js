@@ -1,28 +1,50 @@
 var target = null;
+var clickCooldownCounter = 0;
+var currentScale = 0.0;
 
 AFRAME.registerComponent('scalebutton',{
   schema: {
-    clickCooldown: {type: 'float', default: 0.2},
+    clickCooldown:{type: 'float', default: 0.2},
+    startScale: {type: 'vec3', default: {x:0, y:0, z:0}},
+    scaleDelta: {type: 'float', default: 0},
+    scaleMin: {type: 'float', default: -1000},
+    scaleMax: {type: 'float', default: 1000}
   },
  init: function(){
    let examBoxComp = document.querySelector('[ExamBox]');
    examBoxComp.addEventListener('associated', this.whenAssociated);
    examBoxComp.addEventListener('disassociated', this.whenDisassociated);
+   currentScale = this.data.startScale.x;
+   this.el.addEventListener('mousedown', function(evt){
+     if(clickCooldownCounter > 0){
+       return;
+     }
+     this.components.examinable.resetCounter();
+     //apply the scale delta till we hit the min or max
+     if(target != null){
+       let nextScale = currentScale + this.scaleDelta;
+       if(nextScale > this.data.scaleMax){
+         nextScale = this.data.scaleMax;
+       }
+       if(nextScale < this.data.scaleMin){
+         nextScale = this.data.scaleMin;
+       }
+       TweenMax.to(target.object3D, 0.3, {three:{scaleX:nextScale, scaleY:nextScale, scaleZ:nextScale}, ease:Sine.easeIn});
+     }
+   })
  },
   tick: function(time, timeDelta){
+    if(clickCooldownCounter > 0){
+    clickCooldownCounter -= timeDelta/1000;
+    }
+  },
+  resetCounter: function(){
+    clickCooldownCounter = this.data.clickCooldown;
   },
   whenAssociated: function(event){
-    //if the detail entity is this entity we react locally
-    if(event.detail.associatedEntity === this.el){
-      return;
-    }
-    //if not we can use this event to react to a different entity being examined
+    target = event.detail.associatedEntity;
   },
   whenDisassociated: function(event){
-    //if the detail entity is this entity we react locally
-    if(event.detail.disassociatedEntity === this.el){
-      return;
-    }
-    //if not we can use this event to react to a different entity being removed
+    target = null;
   }
 });
