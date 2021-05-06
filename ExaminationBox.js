@@ -33,7 +33,8 @@ AFRAME.registerComponent('exambox',{
     console.log(gltfstring);
     //todo create an empty to make the pivot the center
     var scene = document.querySelector('a-scene');
-    scene.appendChild(newEntity);
+    var attachPoint = document.getElementById('attachPoint');
+    attachPoint.appendChild(newEntity);
     newEntity.appendChild(childEn);
     
     childEn.setAttribute('gltf-model',gltfstring);

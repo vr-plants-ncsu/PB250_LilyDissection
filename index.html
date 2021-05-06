@@ -374,6 +374,7 @@ event-set__hoveredoffpistil = "
                        examinecallout>
                <a-entity id="examinetextheader" text="value: W;" position="0.138 0.166 0.006" scale="1.2 1.2 1.2"></a-entity>
                <a-entity id="examinetextbody" text="value: C;" position="0.008 -0.045 0.004"></a-entity>
+               <a-entity id="attachPoint"></a-entity>
     </a-entity>
   </a-entity>
   
@@ -391,7 +392,7 @@ event-set__hoveredoffpistil = "
          
          event-set__scaled1 = "
                 _event : click;
-                _target : #examModel;
+                _target : #attachPoint;
                 animation.property : scale;
                 animation.to: 0.015 0.015 0.015;"
         
@@ -422,7 +423,7 @@ event-set__hoveredoffpistil = "
          
          event-set__scaled2 = "
                 _event : click;
-                _target : #examModel;
+                _target : #attachPoint;
                 animation.property : scale;
                 animation.to: 0.03 0.03 0.03;"
          
@@ -451,7 +452,7 @@ event-set__hoveredoffpistil = "
          
          event-set__scaled3 = "
                 _event : click;
-                _target : #examModel;
+                _target : #attachPoint;
                 animation.property : scale;
                 animation.to: 0.06 0.06 0.06;"
          
