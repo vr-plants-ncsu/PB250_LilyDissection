@@ -5,7 +5,6 @@ var currentScale = 0.0;
 AFRAME.registerComponent('scalebutton',{
   schema: {
     clickCooldown:{type: 'float', default: 0.2},
-    startScale: {type: 'vec3', default: {x:0, y:0, z:0}},
     scaleDelta: {type: 'float', default: 0},
     scaleMin: {type: 'float', default: -1000},
     scaleMax: {type: 'float', default: 1000}
@@ -14,20 +13,20 @@ AFRAME.registerComponent('scalebutton',{
    let examBoxComp = document.querySelector('[ExamBox]');
    examBoxComp.addEventListener('associated', this.whenAssociated);
    examBoxComp.addEventListener('disassociated', this.whenDisassociated);
-   currentScale = this.data.startScale.x;
+   let entity = this.el;
    this.el.addEventListener('mousedown', function(evt){
      if(clickCooldownCounter > 0){
        return;
      }
-     this.components.examinable.resetCounter();
+     this.components.scalebutton.resetCounter();
      //apply the scale delta till we hit the min or max
      if(target != null){
-       let nextScale = currentScale + this.scaleDelta;
-       if(nextScale > this.data.scaleMax){
-         nextScale = this.data.scaleMax;
+       let nextScale = currentScale + entity.scaleDelta;
+       if(nextScale > entity.scaleMax){
+         nextScale = entity.scaleMax;
        }
-       if(nextScale < this.data.scaleMin){
-         nextScale = this.data.scaleMin;
+       if(nextScale < entity.scaleMin){
+         nextScale = entity.scaleMin;
        }
        TweenMax.to(target.object3D, 0.3, {three:{scaleX:nextScale, scaleY:nextScale, scaleZ:nextScale}, ease:Sine.easeIn});
      }
@@ -42,7 +41,9 @@ AFRAME.registerComponent('scalebutton',{
     clickCooldownCounter = this.data.clickCooldown;
   },
   whenAssociated: function(event){
-    target = event.detail.associatedEntity;
+    //we're assuming a uniform scale to start but we'll be applying one anyway
+    target = event.detail.cloneEntity;
+    currentScale = target.components.scale.x;
   },
   whenDisassociated: function(event){
     target = null;
