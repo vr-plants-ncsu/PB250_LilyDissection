@@ -13,6 +13,7 @@ AFRAME.registerComponent('scalebutton',{
  init: function(){
    let examBoxComp = document.querySelector('[ExamBox]');
    entity = this.el;
+   let scaleDel = this.data.scaleDelta;
    examBoxComp.addEventListener('associated', this.whenAssociated);
    examBoxComp.addEventListener('disassociated', this.whenDisassociated);
    
@@ -23,8 +24,8 @@ AFRAME.registerComponent('scalebutton',{
      this.components.scalebutton.resetCounter();
      //apply the scale delta till we hit the min or max
      if(target != null){
-       let nextScale = entity.components.scalebutton.data.currentScale + entity.components.scalebutton.data.scaleDelta;
-       console.log("lets see: " + nextScale + " " + entity.components.scalebutton.data.currentScale + " " + entity.components.scalebutton.data.scaleDelta);
+       let nextScale = entity.components.scalebutton.data.currentScale + scaleDel;
+       console.log("lets see: " + nextScale + " " + entity.components.scalebutton.data.currentScale + " " + scaleDel);
        if(nextScale > entity.components.scalebutton.scaleMax){
          nextScale = entity.components.scalebutton.scaleMax;
        }
