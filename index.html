@@ -95,9 +95,31 @@
         </a-entity>
       </a-entity> 
     
-    <a-entity id="splashscreen" position="-0.083 0.303 -1.237" gltf-model="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Flilydissectionsplash3.glb?v=1620260330207" scale="0.008 0.008 0.008" rotation="90 0 0"></a-entity>
+
+ 
+    <a-entity id="splashscreencomplex">
+   
+      <a-entity id="splashscreen"  class="dissect" position="-0.083 0.303 -1.237" gltf-model="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Flilydissectionsplash3.glb?v=1620260330207" scale="0.008 0.008 0.008" rotation="90 0 0"
+                
+                 event-set__splash1 = "
+                _event : click;
+                _target : #splashscreen;
+                animation.property : position;
+                animation.to: -0.083 1.303 -1.237;"
+                
+                ></a-entity>
+        <a-entity id="splashscreeninsert"  class="dissect" position="-0.083 0.303 -1.237" gltf-model="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Flilydissectsplashinsert1.glb?v=1620260621205" scale="0.008 0.008 0.008" rotation="90 0 0"
+                  
+                           event-set__splash1 = "
+                _event : click;
+                _target : #splashscreen;
+                animation.property : position;
+                animation.to: -0.083 1.303 -1.237;"
+                  
+                  ></a-entity>
   </a-entity>
-    
+  
+  </a-entity>
 
   
 <!-- Lilywholedisection is a container element for all the draggable anatomy models in the dissection simulation    -->
