@@ -78,7 +78,8 @@
   </a-assets>
 
 <!-- At the minimum we'd also want to setup an environment light, although we might also need to explore background options -->
-<a-sky id="sky" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbackdrop.png?v=1620326766416"></a-sky>
+<a-sky id="sky" phi-start="45" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbackdrop.png?v=1620326766416"></a-sky>
+  <a-light id="sun" angle="60" color="#FFF" intensity="0.8" type="hemisphere"></a-light>
 
          
 <!-- Camera rig serves as user perspective. User cannot pivot camera and raycast emits from this view-->
