@@ -1,5 +1,6 @@
 var target = null;
 var clickCooldownCounter = 0;
+var startingScale = 0.6;
 var entity = null;
 
 AFRAME.registerComponent('scalebutton',{
@@ -16,7 +17,7 @@ AFRAME.registerComponent('scalebutton',{
    let scaleDel = this.data.scaleDelta;
    examBoxComp.addEventListener('associated', this.whenAssociated);
    examBoxComp.addEventListener('disassociated', this.whenDisassociated);
-   
+   startingScale = 
    this.el.addEventListener('mousedown', function(evt){
      if(clickCooldownCounter > 0){
        return;
