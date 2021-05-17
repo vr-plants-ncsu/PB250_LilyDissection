@@ -26,6 +26,8 @@ AFRAME.registerComponent('scalebutton',{
      //apply the scale delta till we hit the min or max
      if(target != null){
        let nextScale = entity.components.scalebutton.data.currentScale + scaleDel;
+       if(scaleDel == 0)
+         nextScale = 0.6;
        console.log("lets see: " + nextScale + " " + entity.components.scalebutton.data.currentScale + " " + scaleDel);
        if(nextScale > entity.components.scalebutton.scaleMax){
          nextScale = entity.components.scalebutton.scaleMax;
