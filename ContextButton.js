@@ -1,25 +1,16 @@
-const examObjectBaseScale = 0.6;
-
 var target = null;
 var clickCooldownCounter = 0;
-var startingScale = 0.6;
 var entity = null;
 
-AFRAME.registerComponent('scalebutton',{
+AFRAME.registerComponent('contextbutton',{
   schema: {
-    clickCooldown:{type: 'float', default: 0.2},
-    scaleDelta: {type: 'float', default: 0},
-    scaleMin: {type: 'float', default: -1000},
-    scaleMax: {type: 'float', default: 1000},
-    currentScale: {type: 'float', default: 0}
+    clickCooldown:{type: 'float', default: 0.2}
   },
  init: function(){
    let examBoxComp = document.querySelector('[ExamBox]');
    entity = this.el;
-   let scaleDel = this.data.scaleDelta;
    examBoxComp.addEventListener('associated', this.whenAssociated);
    examBoxComp.addEventListener('disassociated', this.whenDisassociated);
-   startingScale = 
    this.el.addEventListener('mousedown', function(evt){
      if(clickCooldownCounter > 0){
        return;
@@ -27,18 +18,7 @@ AFRAME.registerComponent('scalebutton',{
      this.components.scalebutton.resetCounter();
      //apply the scale delta till we hit the min or max
      if(target != null){
-       let nextScale = entity.components.scalebutton.data.currentScale + scaleDel;
-       if(scaleDel == 0)
-         nextScale = examObjectBaseScale;
-       console.log("lets see: " + nextScale + " " + entity.components.scalebutton.data.currentScale + " " + scaleDel);
-       if(nextScale > entity.components.scalebutton.scaleMax){
-         nextScale = entity.components.scalebutton.scaleMax;
-       }
-       if(nextScale < entity.components.scalebutton.scaleMin){
-         nextScale = entity.components.scalebutton.scaleMin;
-       }
-       TweenMax.to(target.object3D, 0.3, {three:{scaleX:nextScale, scaleY:nextScale, scaleZ:nextScale}, ease:Sine.easeIn});
-       entity.components.scalebutton.data.currentScale = nextScale;
+       
      }
    })
  },
@@ -53,8 +33,6 @@ AFRAME.registerComponent('scalebutton',{
   whenAssociated: function(event){
     //we're assuming a uniform scale to start but we'll be applying one anyway
     target = event.detail.cloneEntity;
-    entity.components.scalebutton.data.currentScale = examObjectBaseScale;
-    console.log("CScale: " + entity.components.scalebutton.data.currentScale);
   },
   whenDisassociated: function(event){
     target = null;
