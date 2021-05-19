@@ -1,3 +1,6 @@
+var isActive = false;
+var isPlaying = false;
+
 AFRAME.registerComponent('contextAnimPlay',{
   schema: {
     animName:{type: 'string', default: ""}
@@ -10,12 +13,24 @@ AFRAME.registerComponent('contextAnimPlay',{
    examBoxComp.addEventListener('disassociated', this.whenDisassociated);
  },
   onContext: function(){
-    
+    if(isActive){
+      if(!isPlaying){
+      //we assume any entity with this component will also have an animation-mixer from a-frame-extras
+        this.el.components["animation-mixer"].playAction();
+      }
+      if(isPlaying){
+        this.el.components["animation-mixer"].stopAction();
+      }
+    }
   },
-  associated: function(){
-    if()
+  associated: function(event){
+    if(event.detail.associatedEntity === this.el){
+      isActive = true;
+    }
   },
-  disassociated: function(){
-    
+  disassociated: function(event){
+        if(event.detail.associatedEntity === this.el){
+      isActive = false;
+    }
   }
 });
