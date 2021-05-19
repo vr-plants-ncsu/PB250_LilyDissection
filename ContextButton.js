@@ -1,6 +1,7 @@
 var target = null;
 var clickCooldownCounter = 0;
 var entity = null;
+var state = false;
 
 AFRAME.registerComponent('contextbutton',{
   schema: {
@@ -18,7 +19,7 @@ AFRAME.registerComponent('contextbutton',{
      this.components.scalebutton.resetCounter();
      //apply the scale delta till we hit the min or max
      if(target != null){
-       
+       entity.emit('context_activate')
      }
    })
  },
