@@ -10,25 +10,27 @@ AFRAME.registerComponent('contextanimplay',{
    contextButton.addEventListener('context_activate', this.onContext);
    let examBoxComp = document.querySelector('[ExamBox]');
    examBoxComp.addEventListener('associated', this.whenCAnimAssociated);
-   examBoxComp.addEventListener('disassociated', this.whenDisassociated);
+   examBoxComp.addEventListener('disassociated', this.whenCAnimDisassociated);
  },
   onContext: function(){
     if(isActive){
       if(!isPlaying){
       //we assume any entity with this component will also have an animation-mixer from a-frame-extras
         this.el.components["animation-mixer"].playAction();
+        return;
       }
       if(isPlaying){
         this.el.components["animation-mixer"].stopAction();
+        return;
       }
     }
   },
-  associated: function(event){
+  whenCAnimAssociated: function(event){
     if(event.detail.associatedEntity === this.el){
       isActive = true;
     }
   },
-  disassociated: function(event){
+  whenCAnimDisassociated: function(event){
         if(event.detail.associatedEntity === this.el){
       isActive = false;
     }
