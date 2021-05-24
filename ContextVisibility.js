@@ -1,12 +1,14 @@
 var isActive = false;
 var isVisible = false;
 var crossSection = document.createElement('a-entity');
+var cVisEntity;
 
 AFRAME.registerComponent('contextvisible',{
   schema: {
     gltfName:{type: 'string', default: ""}
   },
  init: function(){
+   cVisEntity = this.el; 
    let contextButton = document.querySelector('[ContextButton]');
    contextButton.addEventListener('context_activate', this.onContext);
    let examBoxComp = document.querySelector('[ExamBox]');
@@ -14,10 +16,7 @@ AFRAME.registerComponent('contextvisible',{
    examBoxComp.addEventListener('disassociated', this.whenDisassociated);
    //make the cross section object
    crossSection.setAttribute('gltf-model',this.data.gltfName);
-   //crossSection.setAttribute('visible',false);
-   var scene = document.querySelector('a-scene');
-  scene.appendChild(crossSection);
-   
+   crossSection.setAttribute('visible',false);
  },
   onContext: function(){
     if(isActive){
@@ -33,7 +32,9 @@ AFRAME.registerComponent('contextvisible',{
   },
   whenAssociated: function(event){
     console.log(event.detail.cloneEntity.id)
-    if(event.detail.associatedEntity === this.el){
+    console.log(event.detail.associatedEntity.id)
+    console.log(cVisEntity.id)
+    if(event.detail.associatedEntity === cVisEntity){
       event.detail.cloneEntity.appendChild(crossSection);
       isActive = true;
     }
