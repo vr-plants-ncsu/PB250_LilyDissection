@@ -9,7 +9,7 @@ AFRAME.registerComponent('contextanimplay',{
    let contextButton = document.querySelector('[ContextButton]');
    contextButton.addEventListener('context_activate', this.onContext);
    let examBoxComp = document.querySelector('[ExamBox]');
-   examBoxComp.addEventListener('associated', this.whenAssociated);
+   examBoxComp.addEventListener('associated', this.whenCAnimAssociated);
    examBoxComp.addEventListener('disassociated', this.whenDisassociated);
  },
   onContext: function(){

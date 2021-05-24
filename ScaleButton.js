@@ -17,8 +17,8 @@ AFRAME.registerComponent('scalebutton',{
    let examBoxComp = document.querySelector('[ExamBox]');
    entity = this.el;
    let scaleDel = this.data.scaleDelta;
-   examBoxComp.addEventListener('associated', this.whenAssociated);
-   examBoxComp.addEventListener('disassociated', this.whenDisassociated);
+   examBoxComp.addEventListener('associated', this.whenScaleAssociated);
+   examBoxComp.addEventListener('disassociated', this.whenScaleDisassociated);
    startingScale = 
    this.el.addEventListener('mousedown', function(evt){
      if(clickCooldownCounter > 0){
@@ -50,13 +50,14 @@ AFRAME.registerComponent('scalebutton',{
   resetCounter: function(){
     clickCooldownCounter = this.data.clickCooldown;
   },
-  whenAssociated: function(event){
+  //these names have to be unique!
+  whenScaleAssociated: function(event){
     //we're assuming a uniform scale to start but we'll be applying one anyway
     target = event.detail.cloneEntity;
     entity.components.scalebutton.data.currentScale = examObjectBaseScale;
     console.log("CScale: " + entity.components.scalebutton.data.currentScale);
   },
-  whenDisassociated: function(event){
+  whenScaleDisassociated: function(event){
     target = null;
   }
 });
