@@ -14,27 +14,31 @@ AFRAME.registerComponent('contextvisible',{
    examBoxComp.addEventListener('disassociated', this.whenDisassociated);
    //make the cross section object
    crossSection.setAttribute('gltf-model',this.data.gltfName);
-   crossSection.setAttribute('visible',false);
+   //crossSection.setAttribute('visible',false);
+   var scene = document.querySelector('a-scene');
+  scene.appendChild(crossSection);
    
  },
   onContext: function(){
     if(isActive){
       if(!isVisible){
         crossSection.setAttribute('visible',true);
+        isVisible = true;
       }
       if(isVisible){
         crossSection.setAttribute('visible',false);
+        isVisible = false;
       }
     }
   },
-  associated: function(event){
+  whenAssociated: function(event){
     console.log(event.detail.cloneEntity.id)
     if(event.detail.associatedEntity === this.el){
       event.detail.cloneEntity.appendChild(crossSection);
       isActive = true;
     }
   },
-  disassociated: function(event){
+  whenDisassociated: function(event){
         if(event.detail.associatedEntity === this.el){
       isActive = false;
     }
