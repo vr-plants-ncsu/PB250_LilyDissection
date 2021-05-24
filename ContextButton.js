@@ -5,12 +5,13 @@ AFRAME.registerComponent('contextbutton',{
     clickCooldown:{type: 'float', default: 0.2}
   },
  init: function(){
+   let entity = this.el;
    this.el.addEventListener('mousedown', function(evt){
      if(clickCooldownCounter > 0){
        return;
      }
      this.components.contextbutton.resetCounter();
-     entity.emit('context_activate')
+     entity.emit('context_activate',null,false);
    })
  },
   tick: function(time, timeDelta){

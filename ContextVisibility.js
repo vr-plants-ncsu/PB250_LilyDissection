@@ -19,6 +19,7 @@ AFRAME.registerComponent('contextvisible',{
    crossSection.setAttribute('visible',false);
  },
   onContext: function(){
+    console.log('event go!');
     if(isActive){
       if(!isVisible){
         crossSection.setAttribute('visible',true);
@@ -31,16 +32,13 @@ AFRAME.registerComponent('contextvisible',{
     }
   },
   whenAssociated: function(event){
-    console.log(event.detail.cloneEntity.id)
-    console.log(event.detail.associatedEntity.id)
-    console.log(cVisEntity.id)
     if(event.detail.associatedEntity === cVisEntity){
       event.detail.cloneEntity.appendChild(crossSection);
       isActive = true;
     }
   },
   whenDisassociated: function(event){
-        if(event.detail.associatedEntity === this.el){
+        if(event.detail.associatedEntity === cVisEntity){
       isActive = false;
     }
   }
