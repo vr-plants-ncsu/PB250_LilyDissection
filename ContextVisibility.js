@@ -15,6 +15,7 @@ AFRAME.registerComponent('contextvisible',{
    //make the cross section object
    crossSection.setAttribute('gltf-model',this.data.gltfName);
    crossSection.setAttribute('visible',false);
+   
  },
   onContext: function(){
     if(isActive){
@@ -27,7 +28,9 @@ AFRAME.registerComponent('contextvisible',{
     }
   },
   associated: function(event){
+    console.log(event.detail.cloneEntity.id)
     if(event.detail.associatedEntity === this.el){
+      event.detail.cloneEntity.appendChild(crossSection);
       isActive = true;
     }
   },

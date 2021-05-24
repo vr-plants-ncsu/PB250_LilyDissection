@@ -9,7 +9,7 @@ AFRAME.registerComponent('contextbutton',{
      if(clickCooldownCounter > 0){
        return;
      }
-     this.components.scalebutton.resetCounter();
+     this.components.contextbutton.resetCounter();
      entity.emit('context_activate')
    })
  },
@@ -17,5 +17,8 @@ AFRAME.registerComponent('contextbutton',{
     if(clickCooldownCounter > 0){
     clickCooldownCounter -= timeDelta/1000;
     }
+  },
+    resetCounter: function(){
+    clickCooldownCounter = this.data.clickCooldown;
   }
 });
