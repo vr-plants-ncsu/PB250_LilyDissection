@@ -1,7 +1,7 @@
 var isActive = false;
 var isPlaying = false;
 
-AFRAME.registerComponent('contextAnimPlay',{
+AFRAME.registerComponent('contextanimplay',{
   schema: {
     animName:{type: 'string', default: ""}
   },

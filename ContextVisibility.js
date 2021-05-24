@@ -1,7 +1,7 @@
 var isActive = false;
 var isVisible = false;
 
-AFRAME.registerComponent('contextVisible',{
+AFRAME.registerComponent('contextvisible',{
   schema: {
   },
  init: function(){
