@@ -15,11 +15,10 @@ AFRAME.registerComponent('contextvisible',{
    examBoxComp.addEventListener('associated', this.whenCVisAssociated);
    examBoxComp.addEventListener('disassociated', this.whenCVisDisassociated);
    //make the cross section object
+   crossSection.setAttribute('id', 'crosssection')
    crossSection.setAttribute('gltf-model',this.data.gltfName);
    crossSection.setAttribute('visible',false);
    crossSection.setAttribute('scale',this.el.getAttribute('scale'));
-   var scene = document.querySelector('a-scene');
-    scene.appendChild(newEntity);
  },
   onContext: function(){
     if(isActive){
@@ -44,7 +43,7 @@ AFRAME.registerComponent('contextvisible',{
   },
   whenCVisDisassociated: function(event){
         if(event.detail.associatedEntity === cVisEntity){
-      isActive = false;
+          isActive = false;
     }
   }
 });
