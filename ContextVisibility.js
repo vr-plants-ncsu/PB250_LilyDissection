@@ -18,6 +18,8 @@ AFRAME.registerComponent('contextvisible',{
    crossSection.setAttribute('gltf-model',this.data.gltfName);
    crossSection.setAttribute('visible',false);
    crossSection.setAttribute('scale',this.el.getAttribute('scale'));
+   var scene = document.querySelector('a-scene');
+    scene.appendChild(newEntity);
  },
   onContext: function(){
     if(isActive){
