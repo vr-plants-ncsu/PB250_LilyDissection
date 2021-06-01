@@ -71,6 +71,9 @@ AFRAME.registerComponent('exambox',{
     //TweenMax.to(storedObject.object3D, 0.3, {three:{rotationX:storedRotation.x, rotationY:storedRotation.y, rotationZ:storedRotation.z}, ease:Sine.easeOut});
     //TweenMax.to(storedObject.object3D, 0.3, {three:{positionX: storedPosition.x, positionY: storedPosition.y,positionZ: storedPosition.z}, ease:Sine.easeOut});
     TweenMax.to(storedObject.object3D, 0.3, {three:{scaleX:0, scaleY:0, scaleZ:0}, ease:Sine.easeOut});
+    //todo add this as a scale callout
+    storedObject.parentNode.removeChild(storedObject);
+    
     //TweenMax.to(storedObject.object3D, 0.3, {three:{opacity: 1.0}, ease:Sine.easeIn});
     //storedObject.object3D.rotation.set(0, 0, 0);
     this.el.emit('disassociated',{disassociatedEntity: storedObject},false);
