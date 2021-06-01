@@ -16,12 +16,7 @@ AFRAME.registerComponent('contextvisible',{
    let examBoxComp = document.querySelector('[ExamBox]');
    examBoxComp.addEventListener('associated', this.whenCVisAssociated);
    examBoxComp.addEventListener('disassociated', this.whenCVisDisassociated);
-   //make the cross section object
-   crossSection = document.createElement('a-entity');
-   crossSection.setAttribute('id', 'crosssection')
-   crossSection.setAttribute('gltf-model',this.data.gltfName);
-   crossSection.setAttribute('visible',false);
-   crossSection.setAttribute('scale',this.el.getAttribute('scale'));
+   //this.makeModel();
  },
   onContext: function(){
     if(isActive){
@@ -40,14 +35,26 @@ AFRAME.registerComponent('contextvisible',{
   },
   whenCVisAssociated: function(event){
     if(event.detail.associatedEntity === cVisEntity){
+      cVisEntity.components.contextvisible.makeModel();
       event.detail.cloneEntity.appendChild(crossSection);
       isActive = true;
     }
   },
   whenCVisDisassociated: function(event){
         if(event.detail.associatedEntity === cVisEntity){
-          crossSection.removeAttribute('gltf-model');
+          cVisEntity.components.contextvisible.removeModel();
           isActive = false;
     }
+  },
+  makeModel: function(){
+    //make the cross section object
+   crossSection = document.createElement('a-entity');
+   crossSection.setAttribute('id', 'crosssection')
+   crossSection.setAttribute('gltf-model',this.data.gltfName);
+   crossSection.setAttribute('visible',false);
+   crossSection.setAttribute('scale',this.el.getAttribute('scale'));
+  },
+  removeModel: function(){
+    crossSection.parentNode.removeChild(crossSection);
   }
 });
