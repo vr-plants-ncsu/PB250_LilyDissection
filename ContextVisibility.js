@@ -5,7 +5,9 @@ var cVisEntity;
 
 AFRAME.registerComponent('contextvisible',{
   schema: {
-    gltfName:{type: 'string', default: ""}
+    gltfName:{type: 'string', default: ""},
+    isActive:{type: 'bool', default: false},
+    isVisible:{type: 'bool', default: false}
   },
  init: function(){
    cVisEntity = this.el; 
