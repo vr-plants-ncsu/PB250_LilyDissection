@@ -1,6 +1,6 @@
 var isActive = false;
 var isVisible = false;
-var crossSection = document.createElement('a-entity');
+var crossSection;
 var cVisEntity;
 
 AFRAME.registerComponent('contextvisible',{
@@ -17,6 +17,7 @@ AFRAME.registerComponent('contextvisible',{
    examBoxComp.addEventListener('associated', this.whenCVisAssociated);
    examBoxComp.addEventListener('disassociated', this.whenCVisDisassociated);
    //make the cross section object
+   crossSection = document.createElement('a-entity');
    crossSection.setAttribute('id', 'crosssection')
    crossSection.setAttribute('gltf-model',this.data.gltfName);
    crossSection.setAttribute('visible',false);
@@ -45,6 +46,7 @@ AFRAME.registerComponent('contextvisible',{
   },
   whenCVisDisassociated: function(event){
         if(event.detail.associatedEntity === cVisEntity){
+          crossSection.removeAttribute('gltf-model');
           isActive = false;
     }
   }
