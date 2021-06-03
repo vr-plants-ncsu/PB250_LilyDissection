@@ -35,14 +35,14 @@ AFRAME.registerComponent('contextvisible',{
   },
   whenCVisAssociated: function(event){
     if(event.detail.associatedEntity === cVisEntity){
-      cVisEntity.components.contextvisible.makeModel();
+      event.detail.associatedEntity.components.contextvisible.makeModel();
       event.detail.cloneEntity.appendChild(crossSection);
       isActive = true;
     }
   },
   whenCVisDisassociated: function(event){
         if(event.detail.associatedEntity === cVisEntity){
-          cVisEntity.components.contextvisible.removeModel();
+          event.detail.associatedEntity.components.contextvisible.removeModel();
           isActive = false;
     }
   },
