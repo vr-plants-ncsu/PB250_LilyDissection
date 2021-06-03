@@ -1,4 +1,6 @@
 var crossSection;
+var crossSectionIsVisible = false;
+var crossSectionIsActive = false;
 
 AFRAME.registerComponent('contextvisible',{
   schema: {
@@ -6,8 +8,6 @@ AFRAME.registerComponent('contextvisible',{
     isActive:{type: 'bool', default: false},
     isVisible:{type: 'bool', default: false}
   },
-  isVisible : false,
-  isActive : false,
  init: function(){
    let contextButton = document.querySelector('[ContextButton]');
    contextButton.addEventListener('context_activate', this.onContext);
@@ -17,31 +17,30 @@ AFRAME.registerComponent('contextvisible',{
    //this.makeModel();
  },
   onContext: function(){
-    if(this.isActive){
-      if(!this.isVisible){
-        console.log('event go! ' + this.isActive + this.isVisible);
+    if(crossSectionIsActive){
+      if(!crossSectionIsVisible){
         crossSection.setAttribute('visible',true);
-        this.isVisible = true;
+        crossSectionIsVisible = true;
         return;
       }
-      if(this.isVisible){
+      if(crossSectionIsVisible){
         crossSection.setAttribute('visible',false);
-        this.isVisible = false;
+        crossSectionIsVisible = false;
         return;
       }
     }
   },
   whenCVisAssociated: function(event){
-      if(event.detail.associatedEntity.components.contextvisible !== null){
+      if(event.detail.associatedEntity.components.contextvisible){
       event.detail.associatedEntity.components.contextvisible.makeModel();
       event.detail.cloneEntity.appendChild(crossSection);
-      event.detail.associatedEntity.components.contextvisible.isActive = true;
+      crossSectionIsActive = true;
       }
   },
   whenCVisDisassociated: function(event){
-    if(event.detail.disassociatedEntity.components.contextvisible !== null){
+    if(event.detail.disassociatedEntity.components.contextvisible){
       event.detail.disassociatedEntity.components.contextvisible.removeModel();
-      event.detail.disassociatedEntity.components.contextvisible.isActive = false;
+      crossSectionIsActive = false;
     }
   },
   makeModel: function(){
