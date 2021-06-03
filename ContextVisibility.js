@@ -32,13 +32,17 @@ AFRAME.registerComponent('contextvisible',{
     }
   },
   whenCVisAssociated: function(event){
+      if(event.detail.associatedEntity.components.contextvisible !== null){
       event.detail.associatedEntity.components.contextvisible.makeModel();
       event.detail.cloneEntity.appendChild(crossSection);
       event.detail.associatedEntity.components.contextvisible.isActive = true;
+      }
   },
   whenCVisDisassociated: function(event){
-      event.detail.associatedEntity.components.contextvisible.removeModel();
-      event.detail.associatedEntity.components.contextvisible.isActive = false;
+    if(event.detail.disassociatedEntity.components.contextvisible !== null){
+      event.detail.disassociatedEntity.components.contextvisible.removeModel();
+      event.detail.disassociatedEntity.components.contextvisible.isActive = false;
+    }
   },
   makeModel: function(){
     //make the cross section object
