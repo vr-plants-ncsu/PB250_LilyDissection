@@ -1,7 +1,4 @@
-var isActive = false;
-var isVisible = false;
 var crossSection;
-var cVisEntity;
 
 AFRAME.registerComponent('contextvisible',{
   schema: {
@@ -9,8 +6,9 @@ AFRAME.registerComponent('contextvisible',{
     isActive:{type: 'bool', default: false},
     isVisible:{type: 'bool', default: false}
   },
+  isVisible : false,
+  isActive : false,
  init: function(){
-   cVisEntity = this.el; 
    let contextButton = document.querySelector('[ContextButton]');
    contextButton.addEventListener('context_activate', this.onContext);
    let examBoxComp = document.querySelector('[ExamBox]');
@@ -19,32 +17,28 @@ AFRAME.registerComponent('contextvisible',{
    //this.makeModel();
  },
   onContext: function(){
-    if(isActive){
-      if(!isVisible){
-        console.log('event go! ' + isActive + isVisible);
+    if(this.isActive){
+      if(!this.isVisible){
+        console.log('event go! ' + this.isActive + this.isVisible);
         crossSection.setAttribute('visible',true);
-        isVisible = true;
+        this.isVisible = true;
         return;
       }
-      if(isVisible){
+      if(this.isVisible){
         crossSection.setAttribute('visible',false);
-        isVisible = false;
+        this.isVisible = false;
         return;
       }
     }
   },
   whenCVisAssociated: function(event){
-    if(event.detail.associatedEntity === cVisEntity){
       event.detail.associatedEntity.components.contextvisible.makeModel();
       event.detail.cloneEntity.appendChild(crossSection);
-      isActive = true;
-    }
+      event.detail.associatedEntity.components.contextvisible.isActive = true;
   },
   whenCVisDisassociated: function(event){
-        if(event.detail.associatedEntity === cVisEntity){
-          event.detail.associatedEntity.components.contextvisible.removeModel();
-          isActive = false;
-    }
+      event.detail.associatedEntity.components.contextvisible.removeModel();
+      event.detail.associatedEntity.components.contextvisible.isActive = false;
   },
   makeModel: function(){
     //make the cross section object
