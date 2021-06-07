@@ -3,15 +3,19 @@ AFRAME.registerComponent('examineaudio',{
     defAudioClip: {type:'string', default: "none"}
   },
   init: function(){
-    var audio = this.el.components.audio;
     var entity = this.el;
     let exambox = document.querySelector('[ExamBox]');
     exambox.addEventListener('associated', function(event){
-      entity.component.examineaudio.data.defAudioClip = event.
+      entity.component.examineaudio.data.defAudioClip = event.detail.associatedEntity.components.examinable.data.audioClipUrl;
     });
     exambox.addEventListener('disassociated', function(){
-      header.el.setAttribute('text','value',ref.data.defHeader);
-      content.el.setAttribute('text', 'value', ref.data.defContent);
+      entity.component.examineaudio.data.defAudioClip = event.detail.associatedEntity.components.examinable.data.audioClipUrl;
+    });
+    this.el.addEventListener('mousedown', function(evt){
+      if(entity.data.defAudioClip !== "none"){
+        entity.setAttribute('sound',{src: entity.data.defAudioClip});
+        entity.components.sound.playSound();
+      }
     });
   }
 });
