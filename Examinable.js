@@ -4,7 +4,8 @@ AFRAME.registerComponent('examinable',{
   schema: {
     clickCooldown: {type: 'float', default: 0.2},
     headerText: {type:'string', default: "Topic"},
-    contentText: {type:'string', default: "Examine content"}
+    contentText: {type:'string', default: "Examine content"},
+    audioClipUrl: {type:'string', default: "none"}
   },
  init: function(){
    this.resetCounter();
