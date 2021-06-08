@@ -13,9 +13,9 @@ AFRAME.registerComponent('examineaudio',{
       entity.components.examineaudio.data.defAudioClip = event.detail.associatedEntity.components.examinable.data.audioClipUrl;
     });
     this.el.addEventListener('mousedown', function(evt){
-      if(entity.data.defAudioClip !== "none"){
+      if(entity.components.examineaudio.data.defAudioClip !== "none"){
         console.log('audio playback: ' + entity.components.examineaudio.data.defAudioClip);
-        entity.setAttribute('sound',{src: entity.data.defAudioClip});
+        entity.setAttribute('sound',{src: entity.components.examineaudio.data.defAudioClip});
         entity.components.sound.playSound();
       }
     });
