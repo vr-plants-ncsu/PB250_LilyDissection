@@ -42,7 +42,7 @@ AFRAME.registerComponent('exambox',{
     newEntity.setAttribute('id', "examModel")
     newEntity.setAttribute('class',"dissect");
     newEntity.setAttribute('rotatable',"");
-    newEntity.setAttribute('geometry',{primitive:"sphere"});
+    newEntity.setAttribute('geometry',{primitive:"sphere", radius:0.4});
     newEntity.setAttribute('scale',{x: 0.3, y: 0.3, z: 0.3});
     newEntity.setAttribute('material',{opacity:0});
     entity.object3D.getWorldPosition(newEntity.object3D.position);
