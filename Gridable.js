@@ -13,8 +13,8 @@ AFRAME.registerComponent('gridable',{
   },
   
   init: function(){
-    this.el.data.isGridded = false;
-    this.el.data.firstPosition = this.el.components.position;
+    this.data.isGridded = false;
+    this.data.firstPosition = this.el.components.position;
     
     window.addEventListener('keydown', this.onKeydown);
     
@@ -23,22 +23,25 @@ AFRAME.registerComponent('gridable',{
   },
   toggleGrid: function(){
     if(!this.data.isGridded){
+      var entity = this.el;
     //go row first, column second
     if(lastPlacement.x < (endPoint.x - factorX)){
       //move down
       lastPlacement.y += (factorY * 2);
     }
     lastPlacement.x += (factorX * 2);
-    TweenMax.to(this.el.object3D, 0.4, {three:{positionX: lastPlacement.x, positionY: lastPlacement.y,positionZ: lastPlacement.z}, ease:Sine.easeIn});
+    TweenMax.to(entity.object3D, 0.4, {three:{positionX: lastPlacement.x, positionY: lastPlacement.y,positionZ: lastPlacement.z}, ease:Sine.easeIn});
+    this.data.isGridded = true;
     }
     if(this.data.isGridded){
-      TweenMax.to(this.el.object3D, 0.4, {three:{positionX: this.data.firstPosition.x, positionY: this.data.firstPosition.y,positionZ: this.data.firstPosition.z}, ease:Sine.easeIn});
+      TweenMax.to(entity.object3D, 0.4, {three:{positionX: this.data.firstPosition.x, positionY: this.data.firstPosition.y,positionZ: this.data.firstPosition.z}, ease:Sine.easeIn});
       lastPlacement = {x:0, y:0, z:0};
+      this.data.isGridded = false;
     }
   },
    onKeydown: function (evt) {
     var shortcutPressed = evt.keyCode === 68;
     if (!shortcutPressed) { return; }
-    this.toggleGrid();
+    this.toggleGrid;
   }
 });
