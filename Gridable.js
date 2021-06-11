@@ -15,9 +15,17 @@ AFRAME.registerComponent('examinable',{
   init: function(){
     this.el.data.isGridded = false;
     this.el.data.firstPosition = this.el.components.position;
+    
+    factorX = (1/gridX) * (0.5);
+    factorY = (1/gridY) * (0.5);
   },
   toggleGrid: function(){
-    
-    this.el.setAttribute('position', {});
+    //go row first, column second
+    if(lastPlacement.x < (endPoint.x - factorX)){
+      //move down
+      lastPlacement.y += (factorY * 2);
+    }
+    lastPlacement.x += (factorX * 2);
+    TweenMax.to(newEntity.object3D, 0.3, {three:{positionX: lastPlacement.x, positionY: lastPlacement.y,positionZ: lastPlacement.z}, ease:Sine.easeIn});
   }
 });
