@@ -2,9 +2,9 @@ var lastPlacement = {x:0, y:0, z:0};
 const gridX = 5;
 const gridY = 5;
 const origin = {x:0,y:0,z:0};
-const endPoint = {x: 10, y:10, z:10};
-var factorX = 0;
-var factorY = 0;
+const gridEndPoint = {x: 10, y:10, z:10};
+var gridFactorX = 0;
+var gridFactorY = 0;
 
 AFRAME.registerComponent('gridable',{
   schema: {
@@ -14,7 +14,9 @@ AFRAME.registerComponent('gridable',{
   
   init: function(){
     this.data.isGridded = false;
-    this.data.firstPosition = this.el.components.position;
+    this.data.firstPosition.x = this.el.object3D.position.x;
+    this.data.firstPosition.y = this.el.object3D.position.y;
+    this.data.firstPosition.z = this.el.object3D.position.z;
     var comp = this;
     
     window.addEventListener('keydown', function(evt){
@@ -26,18 +28,18 @@ AFRAME.registerComponent('gridable',{
       comp.toggleGrid();
     });
     
-    factorX = (1/gridX) * (0.5);
+    gridFactorX = (1/gridX) * (0.5);
     factorY = (1/gridY) * (0.5);
   },
   toggleGrid: function(){
     var entity = this.el;
     if(!this.data.isGridded){
     //go row first, column second
-    if(lastPlacement.x < (endPoint.x - factorX)){
+    if(lastPlacement.x < (gridEndPoint.x - gridFactorX)){
       //move down
-      lastPlacement.y += (factorY * 2);
+      lastPlacement.y += (gridFactorY * 2);
     }
-    lastPlacement.x += (factorX * 2);
+    lastPlacement.x += (gridFactorX * 2);
     console.log("Gridding");
     TweenMax.to(entity.object3D, 0.4, {three:{positionX: lastPlacement.x, positionY: lastPlacement.y,positionZ: lastPlacement.z}, ease:Sine.easeIn});
     this.data.isGridded = true;
