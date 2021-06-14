@@ -1,10 +1,11 @@
 var lastPlacement = {x:0, y:0, z:0};
 const gridX = 5;
 const gridY = 5;
-const origin = {x:0,y:0,z:0};
+const gridOrigin = {x:0,y:0,z:0};
 const gridEndPoint = {x: 10, y:10, z:10};
 var gridFactorX = 0;
 var gridFactorY = 0;
+var gridCooldown = 0;
 
 AFRAME.registerComponent('gridable',{
   schema: {
@@ -22,14 +23,19 @@ AFRAME.registerComponent('gridable',{
     window.addEventListener('keydown', function(evt){
       //the D key in decimol ascii
       var shortcutPressed = evt.keyCode === 68;
-      if (!shortcutPressed){
+      if (!shortcutPressed || gridCooldown > 0){
         return;
       }
       comp.toggleGrid();
+      gridCooldown = 5;
     });
     
     gridFactorX = (1/gridX) * (0.5);
-    factorY = (1/gridY) * (0.5);
+    gridFactorY = (1/gridY) * (0.5);
+    lastPlacement = gridOrigin;
+  },
+  tick: function(time, timeDelta){
+    gridCooldown -= timeDelta;
   },
   toggleGrid: function(){
     var entity = this.el;
@@ -50,7 +56,7 @@ AFRAME.registerComponent('gridable',{
                   {three:{positionX: this.data.firstPosition.x,
                           positionY: this.data.firstPosition.y,
                           positionZ: this.data.firstPosition.z}, ease:Sine.easeIn});
-      lastPlacement = {x:0, y:0, z:0};
+      lastPlacement = gridOrigin;
       this.data.isGridded = false;
     }
   }
