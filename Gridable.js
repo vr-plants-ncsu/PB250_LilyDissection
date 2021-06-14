@@ -45,9 +45,9 @@ AFRAME.registerComponent('gridable',{
     if(this.data.isGridded){
       console.log("Ungridding");
       TweenMax.to(entity.object3D, 0.4,
-                  {three:{positionX: entity.components.gridable.data.firstPosition.x,
-                          positionY: entity.components.gridable.data.firstPosition.y,
-                          positionZ: entity.components.gridable.data.firstPosition.z}, ease:Sine.easeIn});
+                  {three:{positionX: this.data.firstPosition.x,
+                          positionY: this.data.firstPosition.y,
+                          positionZ: this.data.firstPosition.z}, ease:Sine.easeIn});
       lastPlacement = {x:0, y:0, z:0};
       this.data.isGridded = false;
     }
