@@ -1,8 +1,7 @@
 var lastPlacement = {x:0, y:0, z:0};
 const gridX = 5;
 const gridY = 5;
-const gridOrigin = {x:0,y:0,z:0};
-const gridEndPoint = {x: 10, y:10, z:10};
+const gridOrigin = {x:-0.6,y:0.7,z:0};
 var gridFactorX = 0;
 var gridFactorY = 0;
 
@@ -39,9 +38,11 @@ AFRAME.registerComponent('gridable',{
     var entity = this.el;
     if(!this.data.isGridded){
     //go row first, column second
-    if(lastPlacement.x < (gridEndPoint.x - gridFactorX)){
+    if(lastPlacement.x / (gridFactorX * 2) >= gridX - 1){
       //move down
-      lastPlacement.y += (gridFactorY * 2);
+      console.log("mv");
+      lastPlacement.y -= (gridFactorY * 2);
+      lastPlacement.x = gridOrigin.x;
     }
     lastPlacement.x += (gridFactorX * 2);
     console.log("Gridding");
