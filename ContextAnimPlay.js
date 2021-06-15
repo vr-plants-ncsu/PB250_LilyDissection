@@ -1,3 +1,4 @@
+//TODO move or specify
 var isActive = false;
 var isPlaying = false;
 
