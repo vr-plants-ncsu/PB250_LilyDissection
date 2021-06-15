@@ -62,9 +62,11 @@ AFRAME.registerComponent('examinecallout',{
       forward = entity.object3D.parent.worldToLocal(forward);
       
       //now setup rotation
-      
+      var rotTarget = new THREE.Vector3(cam.rotation.x,cam.rotation.y,cam.rotation.z);
+      //rotTarget.y = (rotTarget.y + 90) % 360;
       
       TweenMax.to(entity.object3D, 0.4, {three:{positionX: forward.x, positionY: forward.y,positionZ: forward.z}, ease:Sine.easeIn});
+      //TweenMax.to(entity.object3D, 0.4, {three:{rotationX: rotTarget.x, rotationY: rotTarget.y,rotationZ: rotTarget.z}, ease:Sine.easeIn});
       calloutFocused = true;
       console.log("going " + " " + calloutFocused);
       return;
@@ -72,6 +74,7 @@ AFRAME.registerComponent('examinecallout',{
     if(calloutFocused){
       console.log("returning " + " " + calloutStart.x + " " + calloutStart.y + " " + calloutStart.z);
       TweenMax.to(entity.object3D, 0.4, {three:{positionX: calloutStart.x, positionY: calloutStart.y,positionZ: calloutStart.z}, ease:Sine.easeIn});
+      //TweenMax.to(entity.object3D, 0.4, {three:{rotationX: calloutDefRot.x, rotationY: calloutDefRot.y,rotationZ: calloutDefRot.z}, ease:Sine.easeIn});
       calloutFocused = false;
     }
   }
