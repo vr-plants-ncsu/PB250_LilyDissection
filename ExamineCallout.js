@@ -1,7 +1,8 @@
 var header = null;
 var content = null;
 var calloutFocused = false;
-var calloutStart = new THREE.Vector3(0,0,0);
+var calloutStart = new THREE.Vector3();
+var calloutDefRot = new THREE.Vector3();
 
 AFRAME.registerComponent('examinecallout',{
   schema: {
@@ -14,6 +15,7 @@ AFRAME.registerComponent('examinecallout',{
     calloutStart.x = this.el.object3D.position.x;
     calloutStart.y = this.el.object3D.position.y;
     calloutStart.z = this.el.object3D.position.z;
+    calloutDefRot = this.el.object3D.rotation;
     
     var comp = this;
     window.addEventListener('keydown', function(evt){
@@ -42,8 +44,8 @@ AFRAME.registerComponent('examinecallout',{
     });
   },
   tick: function(time, timeDelta){
-    if(calloutStart > 0){
-      calloutStart -= timeDelta;
+    if(this.data.focusCooldown > 0){
+      this.data.focusCooldown -= timeDelta;
     }
   },
   focusScreen: function(comp){
@@ -58,14 +60,18 @@ AFRAME.registerComponent('examinecallout',{
       cam.getWorldPosition(worldCamPos);
       forward.addVectors(forward,worldCamPos);
       forward = entity.object3D.parent.worldToLocal(forward);
+      
+      //now setup rotation
+      
+      
       TweenMax.to(entity.object3D, 0.4, {three:{positionX: forward.x, positionY: forward.y,positionZ: forward.z}, ease:Sine.easeIn});
       calloutFocused = true;
       console.log("going " + " " + calloutFocused);
       return;
     }
     if(calloutFocused){
-      console.log("returning " + " " + comp.data.calloutStart.x + " " + comp.data.calloutStart.y + " " + comp.data.calloutStart.z);
-      TweenMax.to(entity.object3D, 0.4, {three:{positionX: comp.data.calloutStart.x, positionY: comp.data.calloutStart.y,positionZ: comp.data.calloutStart.z}, ease:Sine.easeIn});
+      console.log("returning " + " " + calloutStart.x + " " + calloutStart.y + " " + calloutStart.z);
+      TweenMax.to(entity.object3D, 0.4, {three:{positionX: calloutStart.x, positionY: calloutStart.y,positionZ: calloutStart.z}, ease:Sine.easeIn});
       calloutFocused = false;
     }
   }
