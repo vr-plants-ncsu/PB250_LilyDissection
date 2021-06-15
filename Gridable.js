@@ -32,7 +32,9 @@ AFRAME.registerComponent('gridable',{
     this.resetGrid();
   },
   tick: function(time, timeDelta){
-    this.data.gridCooldown -= timeDelta;
+    if(this.data.gridCooldown > 0){
+      this.data.gridCooldown -= timeDelta;
+    }
   },
   toggleGrid: function(){
     var entity = this.el;

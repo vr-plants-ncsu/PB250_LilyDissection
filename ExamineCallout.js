@@ -20,7 +20,7 @@ AFRAME.registerComponent('examinecallout',{
       if (!shortcutPressed || comp.data.focusCooldown > 0){
         return;
       }
-      comp.focusScreen();
+      comp.focusScreen(comp);
       comp.data.focusCooldown = 2;
     });
     
@@ -41,22 +41,24 @@ AFRAME.registerComponent('examinecallout',{
   },
   tick: function(time, timeDelta){
     if(calloutStart > 0){
-    calloutStart -= timeDelta;
+      calloutStart -= timeDelta;
     }
   },
-  focusScreen: function(){
+  focusScreen: function(comp){
+    var entity = comp.el;
     if(!calloutFocused){
       //lerp the callout to be just in front of the viewer's camera
-      var cam = this.el.sceneEL.camera;
+      var cam = entity.sceneEl.camera;
       //the fourth column contains the forward direction of the matrix
       var forward = new THREE.Vector3( cam.matrix.elements[13], cam.matrix.elements[14], cam.matrix.elements[15]);
       forward.multiplyScalar(this.data.focusDepth);
-      TweenMax.to(this.el.object3D, 0.4, {three:{positionX: forward.x, positionY: forward.y,positionZ: forward.z}, ease:Sine.easeIn});
+      TweenMax.to(entity.object3D, 0.4, {three:{positionX: forward.x, positionY: forward.y,positionZ: forward.z}, ease:Sine.easeIn});
       calloutFocused = true;
       return;
     }
     if(calloutFocused){
-      TweenMax.to(this.el.object3D, 0.4, {three:{positionX: this.data.calloutStart.x, positionY: this.data.calloutStart.y,positionZ: this.data.calloutStart.z}, ease:Sine.easeIn});
+      TweenMax.to(entity.object3D, 0.4, {three:{positionX: comp.data.calloutStart.x, positionY: comp.data.calloutStart.y,positionZ: comp.data.calloutStart.z}, ease:Sine.easeIn});
+      calloutFocused = false;
     }
   }
 });
