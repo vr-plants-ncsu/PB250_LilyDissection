@@ -49,9 +49,10 @@ AFRAME.registerComponent('examinecallout',{
     if(!calloutFocused){
       //lerp the callout to be just in front of the viewer's camera
       var cam = entity.sceneEl.camera;
-      //the fourth column contains the forward direction of the matrix
-      var forward = new THREE.Vector3( cam.matrix.elements[13], cam.matrix.elements[14], cam.matrix.elements[15]);
+      //the fourth row contains the forward direction of the matrix, negative because openGL https://gamedev.net/forums/topic/319213-direction-vector-from-rotation-matrix/3053474/
+      var forward = new THREE.Vector3( -cam.matrix.elements[7], -cam.matrix.elements[11], cam.matrix.elements[15]);
       forward.multiplyScalar(this.data.focusDepth);
+      forward.
       TweenMax.to(entity.object3D, 0.4, {three:{positionX: forward.x, positionY: forward.y,positionZ: forward.z}, ease:Sine.easeIn});
       calloutFocused = true;
       return;
