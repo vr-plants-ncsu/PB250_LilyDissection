@@ -7,7 +7,7 @@ AFRAME.registerComponent('examinecallout',{
   schema: {
     defHeader: {type:'string', default: "Welcome"},
     defContent: {type:'string', default:"Click on a part of the plant for more information\n test test"},
-    focusDepth: {type:'float', default:3},
+    focusDepth: {type:'float', default:0.3},
     focusCooldown: {type:'float', default:0}
   },
   init: function(){
@@ -52,15 +52,15 @@ AFRAME.registerComponent('examinecallout',{
       //lerp the callout to be just in front of the viewer's camera
       var cam = entity.sceneEl.camera;
       //the fourth row contains the forward direction of the matrix, negative because openGL https://gamedev.net/forums/topic/319213-direction-vector-from-rotation-matrix/3053474/
-      var forward = new THREE.Vector3( -cam.matrix.elements[7], -cam.matrix.elements[11], cam.matrix.elements[15]);
-      forward.multiplyScalar(this.data.focusDepth);
+      var forward = new THREE.Vector3( cam.matrixWorld.elements[7], cam.matrixWorld.elements[11], cam.matrixWorld.elements[15]);
+      forward.multiplyScalar(-this.data.focusDepth);
       var worldCamPos = new THREE.Vector3();
       cam.getWorldPosition(worldCamPos);
-      
       forward.addVectors(forward,worldCamPos);
-      forward = entity.object3D.worldToLocal(forward);
+      forward = entity.object3D.parent.worldToLocal(forward);
       TweenMax.to(entity.object3D, 0.4, {three:{positionX: forward.x, positionY: forward.y,positionZ: forward.z}, ease:Sine.easeIn});
       calloutFocused = true;
+      console.log("going " + " " + calloutFocused);
       return;
     }
     if(calloutFocused){
