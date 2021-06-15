@@ -24,5 +24,7 @@ AFRAME.registerComponent('examinecallout',{
   },
   focusScreen: function(){
     //lerp the callout to be just in front of the viewer's camera
+    var cam = this.el.sceneEL.camera;
+    
   }
 });
