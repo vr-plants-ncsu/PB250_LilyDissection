@@ -56,7 +56,7 @@ AFRAME.registerComponent('examinecallout',{
       forward.multiplyScalar(this.data.focusDepth);
       var worldCamPos = new THREE.Vector3();
       cam.getWorldPosition(worldCamPos);
-      forward.addVectors(forward,worldCamPos);
+      //forward.addVectors(forward,worldCamPos);
       TweenMax.to(entity.object3D, 0.4, {three:{positionX: forward.x, positionY: forward.y,positionZ: forward.z}, ease:Sine.easeIn});
       calloutFocused = true;
       return;
