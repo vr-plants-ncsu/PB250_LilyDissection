@@ -56,12 +56,15 @@ AFRAME.registerComponent('examinecallout',{
       forward.multiplyScalar(this.data.focusDepth);
       var worldCamPos = new THREE.Vector3();
       cam.getWorldPosition(worldCamPos);
-      //forward.addVectors(forward,worldCamPos);
+      
+      forward.addVectors(forward,worldCamPos);
+      forward = entity.object3D.worldToLocal(forward);
       TweenMax.to(entity.object3D, 0.4, {three:{positionX: forward.x, positionY: forward.y,positionZ: forward.z}, ease:Sine.easeIn});
       calloutFocused = true;
       return;
     }
     if(calloutFocused){
+      console.log("returning " + " " + comp.data.calloutStart.x + " " + comp.data.calloutStart.y + " " + comp.data.calloutStart.z);
       TweenMax.to(entity.object3D, 0.4, {three:{positionX: comp.data.calloutStart.x, positionY: comp.data.calloutStart.y,positionZ: comp.data.calloutStart.z}, ease:Sine.easeIn});
       calloutFocused = false;
     }
