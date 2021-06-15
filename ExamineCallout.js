@@ -25,6 +25,7 @@ AFRAME.registerComponent('examinecallout',{
   focusScreen: function(){
     //lerp the callout to be just in front of the viewer's camera
     var cam = this.el.sceneEL.camera;
-    
+    //the fourth column contains the forward direction of the matrix
+    var forward = { x:cam.matrix.elements[13], y:
   }
 });
