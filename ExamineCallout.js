@@ -21,5 +21,8 @@ AFRAME.registerComponent('examinecallout',{
       header.el.setAttribute('text','value',ref.data.defHeader);
       content.el.setAttribute('text', 'value', ref.data.defContent);
     });
+  },
+  focusScreen: function(){
+    //lerp the callout to be just in front of the viewer's camera
   }
 });
