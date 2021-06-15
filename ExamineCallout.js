@@ -11,7 +11,9 @@ AFRAME.registerComponent('examinecallout',{
     focusCooldown: {type:'float', default:0}
   },
   init: function(){
-    calloutStart = this.el.object3D.position;
+    calloutStart.x = this.el.object3D.position.x;
+    calloutStart.y = this.el.object3D.position.y;
+    calloutStart.z = this.el.object3D.position.z;
     
     var comp = this;
     window.addEventListener('keydown', function(evt){
@@ -52,7 +54,9 @@ AFRAME.registerComponent('examinecallout',{
       //the fourth row contains the forward direction of the matrix, negative because openGL https://gamedev.net/forums/topic/319213-direction-vector-from-rotation-matrix/3053474/
       var forward = new THREE.Vector3( -cam.matrix.elements[7], -cam.matrix.elements[11], cam.matrix.elements[15]);
       forward.multiplyScalar(this.data.focusDepth);
-      forward.
+      var worldCamPos = new THREE.Vector3();
+      cam.getWorldPosition(worldCamPos);
+      forward.addVectors(forward,worldCamPos);
       TweenMax.to(entity.object3D, 0.4, {three:{positionX: forward.x, positionY: forward.y,positionZ: forward.z}, ease:Sine.easeIn});
       calloutFocused = true;
       return;
