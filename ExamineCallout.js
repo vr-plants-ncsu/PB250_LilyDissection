@@ -8,20 +8,20 @@ AFRAME.registerComponent('examinecallout',{
     defHeader: {type:'string', default: "Welcome"},
     defContent: {type:'string', default:"Click on a part of the plant for more information\n test test"},
     focusDepth: {type:'float', default:3},
-    focusCooldown: {type:'float', default:2}
+    focusCooldown: {type:'float', default:0}
   },
   init: function(){
     calloutStart = this.el.object3D.position;
     
     var comp = this;
     window.addEventListener('keydown', function(evt){
-      //the D key in decimol ascii
-      var shortcutPressed = evt.keyCode === 68;
+      //the F key in decimol ascii
+      var shortcutPressed = evt.keyCode === 71;
       if (!shortcutPressed || comp.data.focusCooldown > 0){
         return;
       }
-      comp.toggleGrid();
-      comp.data.gridCooldown = 2;
+      comp.focusScreen();
+      comp.data.focusCooldown = 2;
     });
     
     header = document.querySelector('#examinetextheader').components.text;
@@ -38,6 +38,11 @@ AFRAME.registerComponent('examinecallout',{
       header.el.setAttribute('text','value',ref.data.defHeader);
       content.el.setAttribute('text', 'value', ref.data.defContent);
     });
+  },
+  tick: function(time, timeDelta){
+    if(calloutStart > 0){
+    calloutStart -= timeDelta;
+    }
   },
   focusScreen: function(){
     if(!calloutFocused){
