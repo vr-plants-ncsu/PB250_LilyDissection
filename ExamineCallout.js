@@ -65,11 +65,14 @@ AFRAME.registerComponent('examinecallout',{
       
       //now setup rotation
       var rotTarget = new THREE.Euler(cam.rotation.x,cam.rotation.y,cam.rotation.z, 'XYZ');
+      rotTarget.x -= entity.object3D.parent.rotation.x;
+      rotTarget.y -= entity.object3D.parent.rotation.y;
+      rotTarget.z -= entity.object3D.parent.rotation.z;
       //rotTarget.y = (rotTarget.y + 180) % 360;
-      entity.object3D.lookAt(worldCamPos);
+      //entity.object3D.lookAt(worldCamPos);
       
       TweenMax.to(entity.object3D, 0.4, {three:{positionX: forward.x, positionY: forward.y,positionZ: forward.z}, ease:Sine.easeIn});
-      //TweenMax.to(entity.object3D, 0.4, {three:{rotationX: rotTarget.x, rotationY: rotTarget.y,rotationZ: rotTarget.z}, ease:Sine.easeIn});
+      TweenMax.to(entity.object3D, 0.4, {three:{rotationX: rotTarget.x, rotationY: rotTarget.y,rotationZ: rotTarget.z}, ease:Sine.easeIn});
       calloutFocused = true;
       console.log("going " + " " + calloutFocused);
       return;
@@ -77,7 +80,9 @@ AFRAME.registerComponent('examinecallout',{
     if(calloutFocused){
       console.log("returning " + " " + calloutStart.x + " " + calloutStart.y + " " + calloutStart.z);
       TweenMax.to(entity.object3D, 0.4, {three:{positionX: calloutStart.x, positionY: calloutStart.y,positionZ: calloutStart.z}, ease:Sine.easeIn});
-      TweenMax.to(entity.object3D, 0.4, {three:{rotationX: calloutDefRot.x, rotationY: calloutDefRot.y,rotationZ: calloutDefRot.z}, ease:Sine.easeIn});
+      TweenMax.to(entity.object3D, 0.4, {three:{rotationX: calloutDefRot.x + entity.object3D.parent.rotation.x,
+                                                rotationY: calloutDefRot.y + entity.object3D.parent.rotation.y,
+                                                rotationZ: calloutDefRot.z + entity.object3D.parent.rotation.z}, ease:Sine.easeIn});
       calloutFocused = false;
     }
   }
