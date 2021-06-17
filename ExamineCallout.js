@@ -64,11 +64,11 @@ AFRAME.registerComponent('examinecallout',{
       forward = entity.object3D.parent.worldToLocal(forward);
       
       //now setup rotation
-      var rotTarget = new THREE.Vector3(cam.rotation.x,cam.rotation.y,cam.rotation.z);
-      //rotTarget.y = (rotTarget.y + 90) % 360;
+      var rotTarget = new THREE.Euler(cam.rotation.x,cam.rotation.y,cam.rotation.z, 'XYZ');
+      //rotTarget.y = (rotTarget.y + 180) % 360;
+      
       
       TweenMax.to(entity.object3D, 0.4, {three:{positionX: forward.x, positionY: forward.y,positionZ: forward.z}, ease:Sine.easeIn});
-      entity.object3D.look
       //TweenMax.to(entity.object3D, 0.4, {three:{rotationX: rotTarget.x, rotationY: rotTarget.y,rotationZ: rotTarget.z}, ease:Sine.easeIn});
       calloutFocused = true;
       console.log("going " + " " + calloutFocused);
