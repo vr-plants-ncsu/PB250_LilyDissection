@@ -70,9 +70,9 @@ AFRAME.registerComponent('examinecallout',{
       rotTarget.y -= entity.object3D.parent.rotation.y;
       rotTarget.z -= entity.object3D.parent.rotation.z;
       console.log(rotTarget.y);
-      rotTarget.x = parseFloat(rotTarget.x) * 180.0 / Math.PI;
-      rotTarget.y *= parseFloat(rotTarget.y) * 180.0 / Math.PI;
-      rotTarget.z *= parseFloat(rotTarget.z) * 180.0 / Math.PI;
+      rotTarget.x *= 180.0 / Math.PI;
+      rotTarget.y *= 180.0 / Math.PI;
+      rotTarget.z *= 180.0 / Math.PI;
       console.log(rotTarget.y);
       //rotTarget.y = (rotTarget.y + 180) % 360;
       //entity.object3D.lookAt(worldCamPos);
