@@ -15,9 +15,9 @@ AFRAME.registerComponent('examinecallout',{
     calloutStart.x = this.el.object3D.position.x;
     calloutStart.y = this.el.object3D.position.y;
     calloutStart.z = this.el.object3D.position.z;
-    calloutDefRot.x = this.el.object3D.rotation.x * 180 / Math.Pi;
-    calloutDefRot.y = this.el.object3D.rotation.y * 180 / Math.Pi;
-    calloutDefRot.z = this.el.object3D.rotation.z * 180 / Math.Pi;
+    calloutDefRot.x = this.el.object3D.rotation.x * 180 / Math.PI;
+    calloutDefRot.y = this.el.object3D.rotation.y * 180 / Math.PI;
+    calloutDefRot.z = this.el.object3D.rotation.z * 180 / Math.PI;
     
     var comp = this;
     window.addEventListener('keydown', function(evt){
@@ -70,9 +70,9 @@ AFRAME.registerComponent('examinecallout',{
       rotTarget.y -= entity.object3D.parent.rotation.y;
       rotTarget.z -= entity.object3D.parent.rotation.z;
       console.log(rotTarget.y);
-      rotTarget.x = parseFloat(rotTarget.x) * 180.0 / Math.Pi;
-      rotTarget.y *= parseFloat(rotTarget.y) * 180.0 / Math.Pi;
-      rotTarget.z *= parseFloat(rotTarget.z) * 180.0 / Math.Pi;
+      rotTarget.x = parseFloat(rotTarget.x) * 180.0 / Math.PI;
+      rotTarget.y *= parseFloat(rotTarget.y) * 180.0 / Math.PI;
+      rotTarget.z *= parseFloat(rotTarget.z) * 180.0 / Math.PI;
       console.log(rotTarget.y);
       //rotTarget.y = (rotTarget.y + 180) % 360;
       //entity.object3D.lookAt(worldCamPos);
