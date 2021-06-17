@@ -15,9 +15,9 @@ AFRAME.registerComponent('examinecallout',{
     calloutStart.x = this.el.object3D.position.x;
     calloutStart.y = this.el.object3D.position.y;
     calloutStart.z = this.el.object3D.position.z;
-    calloutDefRot.x = this.el.object3D.rotation.x;
-    calloutDefRot.y = this.el.object3D.rotation.y;
-    calloutDefRot.z = this.el.object3D.rotation.z;
+    calloutDefRot.x = this.el.object3D.rotation.x * (Math.Pi / 180);
+    calloutDefRot.y = this.el.object3D.rotation.y * (Math.Pi / 180);
+    calloutDefRot.z = this.el.object3D.rotation.z * (Math.Pi / 180);
     
     var comp = this;
     window.addEventListener('keydown', function(evt){
@@ -65,9 +65,13 @@ AFRAME.registerComponent('examinecallout',{
       
       //now setup rotation
       var rotTarget = new THREE.Euler(cam.rotation.x,cam.rotation.y,cam.rotation.z, 'XYZ');
+      console.log(cam.rotation.y);
       rotTarget.x -= entity.object3D.parent.rotation.x;
       rotTarget.y -= entity.object3D.parent.rotation.y;
       rotTarget.z -= entity.object3D.parent.rotation.z;
+      rotTarget.x *= (180 / Math.Pi);
+      rotTarget.x *= (180 / Math.Pi);
+      rotTarget.x *= (Math.Pi / 180);
       //rotTarget.y = (rotTarget.y + 180) % 360;
       //entity.object3D.lookAt(worldCamPos);
       
@@ -80,9 +84,9 @@ AFRAME.registerComponent('examinecallout',{
     if(calloutFocused){
       console.log("returning " + " " + calloutStart.x + " " + calloutStart.y + " " + calloutStart.z);
       TweenMax.to(entity.object3D, 0.4, {three:{positionX: calloutStart.x, positionY: calloutStart.y,positionZ: calloutStart.z}, ease:Sine.easeIn});
-      TweenMax.to(entity.object3D, 0.4, {three:{rotationX: calloutDefRot.x + entity.object3D.parent.rotation.x,
-                                                rotationY: calloutDefRot.y + entity.object3D.parent.rotation.y,
-                                                rotationZ: calloutDefRot.z + entity.object3D.parent.rotation.z}, ease:Sine.easeIn});
+      TweenMax.to(entity.object3D, 0.4, {three:{rotationX: calloutDefRot.x,
+                                                rotationY: calloutDefRot.y,
+                                                rotationZ: calloutDefRot.z}, ease:Sine.easeIn});
       calloutFocused = false;
     }
   }
