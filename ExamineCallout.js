@@ -15,7 +15,9 @@ AFRAME.registerComponent('examinecallout',{
     calloutStart.x = this.el.object3D.position.x;
     calloutStart.y = this.el.object3D.position.y;
     calloutStart.z = this.el.object3D.position.z;
-    calloutDefRot = this.el.object3D.rotation;
+    calloutDefRot.x = this.el.object3D.rotation.x;
+    calloutDefRot.y = this.el.object3D.rotation.y;
+    calloutDefRot.z = this.el.object3D.rotation.z;
     
     var comp = this;
     window.addEventListener('keydown', function(evt){
@@ -66,6 +68,7 @@ AFRAME.registerComponent('examinecallout',{
       //rotTarget.y = (rotTarget.y + 90) % 360;
       
       TweenMax.to(entity.object3D, 0.4, {three:{positionX: forward.x, positionY: forward.y,positionZ: forward.z}, ease:Sine.easeIn});
+      entity.object3D.look
       //TweenMax.to(entity.object3D, 0.4, {three:{rotationX: rotTarget.x, rotationY: rotTarget.y,rotationZ: rotTarget.z}, ease:Sine.easeIn});
       calloutFocused = true;
       console.log("going " + " " + calloutFocused);
@@ -74,7 +77,7 @@ AFRAME.registerComponent('examinecallout',{
     if(calloutFocused){
       console.log("returning " + " " + calloutStart.x + " " + calloutStart.y + " " + calloutStart.z);
       TweenMax.to(entity.object3D, 0.4, {three:{positionX: calloutStart.x, positionY: calloutStart.y,positionZ: calloutStart.z}, ease:Sine.easeIn});
-      //TweenMax.to(entity.object3D, 0.4, {three:{rotationX: calloutDefRot.x, rotationY: calloutDefRot.y,rotationZ: calloutDefRot.z}, ease:Sine.easeIn});
+      TweenMax.to(entity.object3D, 0.4, {three:{rotationX: calloutDefRot.x, rotationY: calloutDefRot.y,rotationZ: calloutDefRot.z}, ease:Sine.easeIn});
       calloutFocused = false;
     }
   }
