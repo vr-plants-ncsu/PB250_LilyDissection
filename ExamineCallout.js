@@ -15,9 +15,9 @@ AFRAME.registerComponent('examinecallout',{
     calloutStart.x = this.el.object3D.position.x;
     calloutStart.y = this.el.object3D.position.y;
     calloutStart.z = this.el.object3D.position.z;
-    calloutDefRot.x = this.el.object3D.rotation.x * (Math.Pi / 180);
-    calloutDefRot.y = this.el.object3D.rotation.y * (Math.Pi / 180);
-    calloutDefRot.z = this.el.object3D.rotation.z * (Math.Pi / 180);
+    calloutDefRot.x = this.el.object3D.rotation.x * 180 / Math.Pi;
+    calloutDefRot.y = this.el.object3D.rotation.y * 180 / Math.Pi;
+    calloutDefRot.z = this.el.object3D.rotation.z * 180 / Math.Pi;
     
     var comp = this;
     window.addEventListener('keydown', function(evt){
@@ -64,14 +64,16 @@ AFRAME.registerComponent('examinecallout',{
       forward = entity.object3D.parent.worldToLocal(forward);
       
       //now setup rotation
-      var rotTarget = new THREE.Euler(cam.rotation.x,cam.rotation.y,cam.rotation.z, 'XYZ');
-      console.log(cam.rotation.y);
+      var rotTarget = new THREE.Vector3(cam.rotation.x,cam.rotation.y,cam.rotation.z);
+
       rotTarget.x -= entity.object3D.parent.rotation.x;
       rotTarget.y -= entity.object3D.parent.rotation.y;
       rotTarget.z -= entity.object3D.parent.rotation.z;
-      rotTarget.x *= (180 / Math.Pi);
-      rotTarget.x *= (180 / Math.Pi);
-      rotTarget.x *= (Math.Pi / 180);
+      console.log(rotTarget.y);
+      rotTarget.x = parseFloat(rotTarget.x) * 180.0 / Math.Pi;
+      rotTarget.y *= parseFloat(rotTarget.y) * 180.0 / Math.Pi;
+      rotTarget.z *= parseFloat(rotTarget.z) * 180.0 / Math.Pi;
+      console.log(rotTarget.y);
       //rotTarget.y = (rotTarget.y + 180) % 360;
       //entity.object3D.lookAt(worldCamPos);
       
