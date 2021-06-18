@@ -6,55 +6,25 @@ AFRAME.registerComponent('tabselect',{
   },
   
   init: function(){
-    
+    var listOfExaminable = document.querySelectorAll('div.dissect examinable');
     window.addEventListener('keydown', function(evt){
       //the D key in decimol ascii
-      var shortcutPressed = evt.keyCode === 68;
-      if (!shortcutPressed || comp.data.gridCooldown > 0){
+      var shortcutPressed = evt.keyCode === 9;
+      if (!shortcutPressed){
         return;
+        listOfExaminable.forEach(
+        function(currentValue, currentIndex, listObj){
+          console.log(currentValue + " " + currentIndex + " " + listObj);
+        }
+        )
       }
-      comp.toggleGrid();
-      comp.data.gridCooldown = 2;
+      
     });
     
-    this.resetGrid();
+    //todo setup tab button
+    
   },
   tick: function(time, timeDelta){
-    if(this.data.gridCooldown > 0){
-      this.data.gridCooldown -= timeDelta;
     }
   },
-  toggleGrid: function(){
-    var entity = this.el;
-    if(!this.data.isGridded){
-    //go row first, column second
-    if(lastPlacement.x / (gridFactorX * 2) >= gridX - 1){
-      //move down
-      console.log("mv");
-      lastPlacement.y -= (gridFactorY * 2);
-      lastPlacement.x = gridOrigin.x;
-    }
-    lastPlacement.x += (gridFactorX * 2);
-    console.log("Gridding");
-    TweenMax.to(entity.object3D, 0.4, {three:{positionX: lastPlacement.x, positionY: lastPlacement.y,positionZ: lastPlacement.z}, ease:Sine.easeIn});
-    this.data.isGridded = true;
-      return;
-    }
-    if(this.data.isGridded){
-      console.log("Ungridding");
-      TweenMax.to(entity.object3D, 0.4,
-                  {three:{positionX: this.data.firstPosition.x,
-                          positionY: this.data.firstPosition.y,
-                          positionZ: this.data.firstPosition.z}, ease:Sine.easeIn});
-      this.resetGrid();
-      this.data.isGridded = false;
-    }
-  },
-  resetGrid : function(){
-    gridFactorX = (1/gridX) * (0.5);
-    gridFactorY = (1/gridY) * (0.5);
-    lastPlacement.x = gridOrigin.x;
-    lastPlacement.y = gridOrigin.y;
-    lastPlacement.z = gridOrigin.z;
-  }
 });
