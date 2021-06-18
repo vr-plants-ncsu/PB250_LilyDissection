@@ -6,7 +6,7 @@ AFRAME.registerComponent('tabselector',{
   },
   
   init: function(){
-    var listOfExaminable = document.querySelectorAll('examinable');
+    var listOfExaminable = document.querySelectorAll('[examinable]');
     window.addEventListener('keydown', function(evt){
       //the Q key in decimol ascii
       var shortcutPressed = evt.keyCode === 81;
