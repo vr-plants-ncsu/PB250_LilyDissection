@@ -67,14 +67,14 @@ AFRAME.registerComponent('examinecallout',{
       var rotTarget = new THREE.Vector3(cam.rotation.x,cam.rotation.y,cam.rotation.z);
 
       rotTarget.x -= entity.object3D.rotation.x;
-      rotTarget.y -= entity.object3D.parent.rotation.y;
-      rotTarget.z -= entity.object3D.parent.rotation.z;
+      rotTarget.y -= entity.object3D.rotation.y;
+      rotTarget.z -= entity.object3D.rotation.z;
       console.log(rotTarget.y);
       rotTarget.x *= 180.0 / Math.PI;
       rotTarget.y *= 180.0 / Math.PI;
       rotTarget.z *= 180.0 / Math.PI;
       console.log(rotTarget.y);
-      //rotTarget.y = (rotTarget.y + 180) % 360;
+      rotTarget.y = (rotTarget.y - 90) % 360;
       //entity.object3D.lookAt(worldCamPos);
       
       TweenMax.to(entity.object3D, 0.4, {three:{positionX: forward.x, positionY: forward.y,positionZ: forward.z}, ease:Sine.easeIn});
