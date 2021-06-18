@@ -66,7 +66,7 @@ AFRAME.registerComponent('examinecallout',{
       //now setup rotation
       var rotTarget = new THREE.Vector3(cam.rotation.x,cam.rotation.y,cam.rotation.z);
 
-      rotTarget.x -= entity.object3D.parent.rotation.x;
+      rotTarget.x -= entity.object3D.rotation.x;
       rotTarget.y -= entity.object3D.parent.rotation.y;
       rotTarget.z -= entity.object3D.parent.rotation.z;
       console.log(rotTarget.y);
