@@ -1,4 +1,4 @@
-AFRAME.registerComponent('tabselect',{
+AFRAME.registerComponent('tabselector',{
   schema: {
     firstPosition : {type: 'vec3',default:{x:0, y:0, z:0}},
     isGridded: {type: 'bool', default:false},
@@ -8,10 +8,11 @@ AFRAME.registerComponent('tabselect',{
   init: function(){
     var listOfExaminable = document.querySelectorAll('div.dissect examinable');
     window.addEventListener('keydown', function(evt){
-      //the D key in decimol ascii
-      var shortcutPressed = evt.keyCode === 9;
+      //the Q key in decimol ascii
+      var shortcutPressed = evt.keyCode === 81;
       if (!shortcutPressed){
         return;
+        console.log("Tabity");
         listOfExaminable.forEach(
         function(currentValue, currentIndex, listObj){
           console.log(currentValue + " " + currentIndex + " " + listObj);
