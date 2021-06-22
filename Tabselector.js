@@ -20,9 +20,13 @@ AFRAME.registerComponent('tabselector',{
         console.log("Tabity");
         
       selectedExaminable = listOfExaminable[selectedExaminableId];
-      selectedExaminableId++;
-      console.log("Selected exam is " + selectedExaminable);
-      entity.setAttribute('position', selectedExaminable.el.getAttribute('position'));
+      selectedExaminableId = (selectedExaminableId + 1) % listOfExaminable.length;
+      
+      var examPos = new THREE.Vector3();
+      selectedExaminable.object3D.getWorldPosition(examPos);
+      
+      console.log("Selected exam is " + examPos);
+      entity.setAttribute('position', examPos);
       
       });
       
