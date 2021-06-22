@@ -10,6 +10,7 @@ AFRAME.registerComponent('tabselector',{
   
   init: function(){
     var listOfExaminable = document.querySelectorAll('[examinable]');
+    var entity = this.el;
     window.addEventListener('keydown', function(evt){
       //the Q key in decimol ascii
       var shortcutPressed = evt.keyCode === 81;
@@ -20,8 +21,8 @@ AFRAME.registerComponent('tabselector',{
         
       selectedExaminable = listOfExaminable[selectedExaminableId];
       selectedExaminableId++;
-      
-      this.el.setAttribute('position', { x: 1, y: 2, z: 3 });
+      console.log("Selected exam is " + selectedExaminable);
+      entity.setAttribute('position', selectedExaminable.el.getAttribute('position'));
       
       });
       
