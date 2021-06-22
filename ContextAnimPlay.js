@@ -12,6 +12,7 @@ AFRAME.registerComponent('contextanimplay',{
    let examBoxComp = document.querySelector('[ExamBox]');
    examBoxComp.addEventListener('associated', this.whenCAnimAssociated);
    examBoxComp.addEventListener('disassociated', this.whenCAnimDisassociated);
+   this.el.components["animation-mixer"].stopAction();
  },
   onContext: function(){
     if(isActive){
