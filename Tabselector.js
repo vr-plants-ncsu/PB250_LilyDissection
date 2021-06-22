@@ -1,3 +1,6 @@
+var selectedExaminable;
+var selectedExaminableId = 0;
+
 AFRAME.registerComponent('tabselector',{
   schema: {
     firstPosition : {type: 'vec3',default:{x:0, y:0, z:0}},
@@ -14,11 +17,12 @@ AFRAME.registerComponent('tabselector',{
         return;
       }
         console.log("Tabity");
-        listOfExaminable.forEach(
-        function(currentValue, currentIndex, listObj){
-          console.log(currentValue + " " + currentIndex + " " + listObj);
-        }
-        )
+        
+      selectedExaminable = listOfExaminable[selectedExaminableId];
+      selectedExaminableId++;
+      
+      this.el.setAttribute('position', { x: 1, y: 2, z: 3 });
+      
       });
       
     },
