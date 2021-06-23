@@ -17,7 +17,6 @@ AFRAME.registerComponent('tabselector',{
       if (!shortcutPressed){
         return;
       }
-        console.log("Tabity");
         
       selectedExaminable = listOfExaminable[selectedExaminableId];
       selectedExaminableId = (selectedExaminableId + 1) % listOfExaminable.length;
@@ -25,10 +24,25 @@ AFRAME.registerComponent('tabselector',{
       var examPos = new THREE.Vector3();
       selectedExaminable.object3D.getWorldPosition(examPos);
       
-      console.log("Selected exam is " + examPos);
       entity.setAttribute('position', examPos);
       
+      
+      
       });
+    
+    window.addEventListener('keydown', function(evt){
+      //the enter key in decimol ascii
+      var shortcutPressed = evt.keyCode === 13;
+      if (!shortcutPressed){
+        return;
+      }
+      
+      if(selectedExaminable !== null){
+        let examBoxComp = document.querySelector('[ExamBox]').components.exambox;
+       examBoxComp.associate(selectedExaminable);
+      }
+      
+    });
       
     },
     
