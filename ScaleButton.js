@@ -40,7 +40,23 @@ AFRAME.registerComponent('scalebutton',{
        TweenMax.to(target.object3D, 0.3, {three:{scaleX:nextScale, scaleY:nextScale, scaleZ:nextScale}, ease:Sine.easeIn});
        entity.components.scalebutton.data.currentScale = nextScale;
      }
-   })
+   });
+   
+   window.addEventListener('keydown', function(evt){
+      //the R or E key in decimol ascii
+     if(scaleDel > 0){
+      var shortcutPressed = evt.keyCode === 82;
+     }
+     if(scaleDel < 0){
+       var shortcutPressed = evt.keyCode === 69;
+     }
+      if (!shortcutPressed){
+        return;
+      }
+        
+      }
+      });
+   
  },
   tick: function(time, timeDelta){
     if(clickCooldownCounter > 0){
