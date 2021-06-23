@@ -50,6 +50,7 @@ AFRAME.registerComponent('gridable',{
     console.log("Gridding");
     TweenMax.to(entity.object3D, 0.4, {three:{positionX: lastPlacement.x, positionY: lastPlacement.y,positionZ: lastPlacement.z}, ease:Sine.easeIn});
     this.data.isGridded = true;
+      canTabSelect = true;
       return;
     }
     if(this.data.isGridded){
@@ -60,6 +61,7 @@ AFRAME.registerComponent('gridable',{
                           positionZ: this.data.firstPosition.z}, ease:Sine.easeIn});
       this.resetGrid();
       this.data.isGridded = false;
+      canTabSelect = false;
     }
   },
   resetGrid : function(){

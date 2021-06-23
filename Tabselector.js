@@ -1,5 +1,6 @@
 var selectedExaminable;
 var selectedExaminableId = 0;
+var canTabSelect = false;
 
 AFRAME.registerComponent('tabselector',{
   schema: {
@@ -14,7 +15,7 @@ AFRAME.registerComponent('tabselector',{
     window.addEventListener('keydown', function(evt){
       //the Q key in decimol ascii
       var shortcutPressed = evt.keyCode === 81;
-      if (!shortcutPressed){
+      if (!shortcutPressed || !canTabSelect){
         return;
       }
         
@@ -33,7 +34,7 @@ AFRAME.registerComponent('tabselector',{
     window.addEventListener('keydown', function(evt){
       //the enter key in decimol ascii
       var shortcutPressed = evt.keyCode === 13;
-      if (!shortcutPressed){
+      if (!shortcutPressed || !canTabSelect){
         return;
       }
       
@@ -48,5 +49,11 @@ AFRAME.registerComponent('tabselector',{
     
     //todo setup tab button
   tick: function(time, timeDelta){
+    if(canTabSelect && this.el.getAttribute('visible') == false){
+      this.el.setAttribute('visible', true);
+    }
+    if(!canTabSelect && this.el.getAttribute('visible') == true){
+      this.el.setAttribute('visible', false);
+    }
     }
 });
