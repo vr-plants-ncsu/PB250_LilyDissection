@@ -16,15 +16,15 @@ AFRAME.registerComponent('contextbutton',{
    
    window.addEventListener('keydown', function(evt){
       //the V key in decimol ascii
-      var shortcutPressed = evt.keyCode === 86;
+      var shortcutPressed = evt.keyCode === 83;
       if (!shortcutPressed){
         return;
       }
-        if(entity.components.examineaudio.data.defAudioClip !== "none"){
-        console.log('audio playback: ' + entity.components.examineaudio.data.defAudioClip);
-        entity.setAttribute('sound',{src: entity.components.examineaudio.data.defAudioClip});
-        entity.components.sound.playSound();
-      }
+        if(clickCooldownCounter > 0){
+       return;
+     }
+     this.components.contextbutton.resetCounter();
+     entity.emit('context_activate',null,false);
       });
  },
   tick: function(time, timeDelta){
