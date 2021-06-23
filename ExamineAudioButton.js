@@ -19,5 +19,18 @@ AFRAME.registerComponent('examineaudio',{
         entity.components.sound.playSound();
       }
     });
+    window.addEventListener('keydown', function(evt){
+      //the V key in decimol ascii
+      var shortcutPressed = evt.keyCode === 86;
+      if (!shortcutPressed){
+        return;
+        
+        if(entity.components.examineaudio.data.defAudioClip !== "none"){
+        console.log('audio playback: ' + entity.components.examineaudio.data.defAudioClip);
+        entity.setAttribute('sound',{src: entity.components.examineaudio.data.defAudioClip});
+        entity.components.sound.playSound();
+      }
+      }
+    });
   }
 });
