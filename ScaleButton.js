@@ -44,6 +44,9 @@ AFRAME.registerComponent('scalebutton',{
    
    window.addEventListener('keydown', function(evt){
       //the R or E key in decimol ascii
+     if(scaleDel == 0){
+       var shortcutPressed = evt.keyCode === 87;
+     }
      if(scaleDel > 0){
       var shortcutPressed = evt.keyCode === 82;
      }
@@ -53,7 +56,25 @@ AFRAME.registerComponent('scalebutton',{
       if (!shortcutPressed){
         return;
       }
-        
+     
+     if(clickCooldownCounter > 0){
+       return;
+     }
+     entity.components.scalebutton.resetCounter();
+     //apply the scale delta till we hit the min or max
+     if(target != null){
+       let nextScale = entity.components.scalebutton.data.currentScale + scaleDel;
+       if(scaleDel == 0)
+         nextScale = examObjectBaseScale;
+       console.log("lets see: " + nextScale + " " + entity.components.scalebutton.data.currentScale + " " + scaleDel);
+       if(nextScale > entity.components.scalebutton.scaleMax){
+         nextScale = entity.components.scalebutton.scaleMax;
+       }
+       if(nextScale < entity.components.scalebutton.scaleMin){
+         nextScale = entity.components.scalebutton.scaleMin;
+       }
+       TweenMax.to(target.object3D, 0.3, {three:{scaleX:nextScale, scaleY:nextScale, scaleZ:nextScale}, ease:Sine.easeIn});
+       entity.components.scalebutton.data.currentScale = nextScale;
       }
       });
    
