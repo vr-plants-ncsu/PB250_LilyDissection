@@ -9,7 +9,9 @@ AFRAME.registerComponent('examinecallout',{
     defHeader: {type:'string', default: "Welcome"},
     defContent: {type:'string', default:"Click on a part of the plant for more information\n test test"},
     focusDepth: {type:'float', default:0.3},
-    focusCooldown: {type:'float', default:0}
+    focusCooldown: {type:'float', default:0},
+    contentPage: {type:'int', default:0},
+    numPages: {type: 'int', default:0}
   },
   init: function(){
     calloutStart.x = this.el.object3D.position.x;
@@ -18,6 +20,11 @@ AFRAME.registerComponent('examinecallout',{
     calloutDefRot.x = this.el.object3D.rotation.x * 180 / Math.PI;
     calloutDefRot.y = this.el.object3D.rotation.y * 180 / Math.PI;
     calloutDefRot.z = this.el.object3D.rotation.z * 180 / Math.PI;
+    
+    this.data.numPages = defContent.length / 80;
+    if(this.data.numPages > 3){
+      console.Log("Size of pages excedes three, consider reducing copy");
+    }
     
     var comp = this;
     window.addEventListener('keydown', function(evt){
