@@ -50,6 +50,14 @@ AFRAME.registerComponent('examinecallout',{
       header.el.setAttribute('text','value',ref.data.defHeader);
       content.el.setAttribute('text', 'value', ref.data.defContent);
     });
+    
+    //find page buttons and setup events
+    let leftCalloutButton = document.querySelector('#LeftCalloutButton');
+    
+    leftCalloutButton.addEventListener('mousedown', function(){
+      //
+                                       });
+    
   },
   tick: function(time, timeDelta){
     if(this.data.focusCooldown > 0){
