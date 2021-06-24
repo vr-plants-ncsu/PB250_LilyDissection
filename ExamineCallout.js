@@ -12,7 +12,8 @@ AFRAME.registerComponent('examinecallout',{
     focusDepth: {type:'float', default:0.3},
     focusCooldown: {type:'float', default:0},
     contentPage: {type:'int', default:0},
-    numPages: {type: 'int', default:0}
+    numPages: {type: 'int', default:0},
+    buttonDown: {type: 'bool', default: false}
   },
   init: function(){
     calloutStart.x = this.el.object3D.position.x;
@@ -67,6 +68,10 @@ AFRAME.registerComponent('examinecallout',{
     });
     
     leftCalloutButton.addEventListener('mousedown', function(){
+      if(comp.data.contentPage == 0 || comp.data.buttonDown){
+        return;
+      }
+      comp.data.buttonDown = true;
       comp.data.contentPage--;
       let pageString = comp.data.fullContent.substring(comp.data.contentPage * 80, (comp.data.contentPage * 80) + 79);
       content.el.setAttribute('text','value',pageString);
@@ -79,13 +84,19 @@ AFRAME.registerComponent('examinecallout',{
                                        });
     
     rightCalloutButton.addEventListener('mousedown', function(){
+      if(comp.data.contentPage >= comp.data.numPages || comp.data.buttonDown){
+        return;
+      }
+      comp.data.buttonDown = true;
       comp.data.contentPage++;
       let pageString = "";
       if(comp.data.contentPage * 80 <= comp.data.fullContent.length){
         pageString = comp.data.fullContent.substring(comp.data.contentPage * 80, (comp.data.contentPage * 80) + 79);
+        console.log(pageString + " wac");
       }
       if(comp.data.contentPage * 80 > comp.data.fullContent.length){
         pageString = comp.data.fullContent.substring(comp.data.contentPage * 80, comp.data.fullContent.length - 1);
+        console.log(pageString + " wac");
       }
       content.el.setAttribute('text','value',pageString);
       if(comp.data.contentPage >= comp.data.numPages){
@@ -95,6 +106,7 @@ AFRAME.registerComponent('examinecallout',{
         leftCalloutButton.setAttribute('visible', true);
       }
                                        });
+    
     
   },
   tick: function(time, timeDelta){
