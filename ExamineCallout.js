@@ -32,6 +32,13 @@ AFRAME.registerComponent('examinecallout',{
       comp.data.focusCooldown = 2;
     });
     
+    //find page buttons and setup events
+    let leftCalloutButton = document.querySelector('#LeftCalloutButton');
+    let rightCalloutButton = document.querySelector('#RightCalloutButton');
+    //set visibility to false by default
+    leftCalloutButton.setAttribute('visible', false);
+    rightCalloutButton.setAttribute('visible', false);
+    
     header = document.querySelector('#examinetextheader').components.text;
     content = document.querySelector('#examinetextbody').components.text;
     let ref = this.el.components.examinecallout;
@@ -40,9 +47,13 @@ AFRAME.registerComponent('examinecallout',{
     let exambox = document.querySelector('[ExamBox]');
     exambox.addEventListener('associated', function(event){
       header.el.setAttribute('text','value',event.detail.associatedEntity.components.examinable.data.headerText);
-      content.el.setAttribute('text','value',event.detail.associatedEntity.components.examinable.data.contentText);
-      event.detail.associatedEntity.components.examinable.data.numPages = event.detail.associatedEntity.components.examinable.data.contentText.length / 80;
-    if(event.detail.associatedEntity.components.examinable.data.numPages > 3){
+      
+      let pageString = event.detail.associatedEntity.components.examinable.data.contentText.substring(0, 79);
+      comp.data.contentPage = 0;
+      content.el.setAttribute('text','value',pageString);
+      
+      comp.data.numPages = event.detail.associatedEntity.components.examinable.data.contentText.length / 80;
+    if(comp.data.numPages > 3){
       console.Log("Size of pages excedes three, consider reducing text length");
     }
     });
@@ -51,8 +62,7 @@ AFRAME.registerComponent('examinecallout',{
       content.el.setAttribute('text', 'value', ref.data.defContent);
     });
     
-    //find page buttons and setup events
-    let leftCalloutButton = document.querySelector('#LeftCalloutButton');
+    
     
     leftCalloutButton.addEventListener('mousedown', function(){
       //
