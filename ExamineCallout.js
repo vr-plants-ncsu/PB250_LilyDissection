@@ -56,16 +56,31 @@ AFRAME.registerComponent('examinecallout',{
     if(comp.data.numPages > 3){
       console.Log("Size of pages excedes three, consider reducing text length");
     }
+      if(comp.data.numPages > 0){
+        rightCalloutButton.setAttribute('visible', false);
+      }
     });
     exambox.addEventListener('disassociated', function(){
       header.el.setAttribute('text','value',ref.data.defHeader);
       content.el.setAttribute('text', 'value', ref.data.defContent);
     });
     
-    
-    
     leftCalloutButton.addEventListener('mousedown', function(){
-      //
+      comp.data.contentPage--;
+      let pageString = event.detail.associatedEntity.components.examinable.data.contentText.substring(comp.data.contentPage * 80, (comp.data.contentPage * 80) + 79);
+      content.el.setAttribute('text','value',pageString);
+      if(comp.data.contentPage == 0){
+        leftCalloutButton.setAttribute('visible', false);
+      }
+                                       });
+    
+    rightCalloutButton.addEventListener('mousedown', function(){
+      comp.data.contentPage++;
+      let pageString = event.detail.associatedEntity.components.examinable.data.contentText.substring(comp.data.contentPage * 80, (comp.data.contentPage * 80) + 79);
+      content.el.setAttribute('text','value',pageString);
+      if(comp.data.contentPage == comp.data.){
+        leftCalloutButton.setAttribute('visible', false);
+      }
                                        });
     
   },
