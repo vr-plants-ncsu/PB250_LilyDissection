@@ -72,14 +72,20 @@ AFRAME.registerComponent('examinecallout',{
       if(comp.data.contentPage == 0){
         leftCalloutButton.setAttribute('visible', false);
       }
+      if(comp.data.contentPage < comp.data.numPages){
+        rightCalloutButton.setAttribute('visible', false);
+      }
                                        });
     
     rightCalloutButton.addEventListener('mousedown', function(){
       comp.data.contentPage++;
       let pageString = event.detail.associatedEntity.components.examinable.data.contentText.substring(comp.data.contentPage * 80, (comp.data.contentPage * 80) + 79);
       content.el.setAttribute('text','value',pageString);
-      if(comp.data.contentPage == comp.data.){
-        leftCalloutButton.setAttribute('visible', false);
+      if(comp.data.contentPage == comp.data.numPages){
+        rightCalloutButton.setAttribute('visible', false);
+      }
+      if(comp.data.contentPage != 0){
+        leftCalloutButton.setAttribute('visible', true);
       }
                                        });
     
