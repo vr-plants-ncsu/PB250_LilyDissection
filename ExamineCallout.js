@@ -8,6 +8,7 @@ AFRAME.registerComponent('examinecallout',{
   schema: {
     defHeader: {type:'string', default: "Welcome"},
     defContent: {type:'string', default:"Click on a part of the plant for more information\n test test"},
+    fullContent:{type: 'string', default:""},
     focusDepth: {type:'float', default:0.3},
     focusCooldown: {type:'float', default:0},
     contentPage: {type:'int', default:0},
@@ -47,8 +48,8 @@ AFRAME.registerComponent('examinecallout',{
     let exambox = document.querySelector('[ExamBox]');
     exambox.addEventListener('associated', function(event){
       header.el.setAttribute('text','value',event.detail.associatedEntity.components.examinable.data.headerText);
-      
-      let pageString = event.detail.associatedEntity.components.examinable.data.contentText.substring(0, 79);
+      comp.data.fullContent = event.detail.associatedEntity.components.examinable.data.contentText;
+      let pageString = comp.data.fullContent.substring(0, 79);
       comp.data.contentPage = 0;
       content.el.setAttribute('text','value',pageString);
       
@@ -67,21 +68,27 @@ AFRAME.registerComponent('examinecallout',{
     
     leftCalloutButton.addEventListener('mousedown', function(){
       comp.data.contentPage--;
-      let pageString = event.detail.associatedEntity.components.examinable.data.contentText.substring(comp.data.contentPage * 80, (comp.data.contentPage * 80) + 79);
+      let pageString = comp.data.fullContent.substring(comp.data.contentPage * 80, (comp.data.contentPage * 80) + 79);
       content.el.setAttribute('text','value',pageString);
       if(comp.data.contentPage == 0){
         leftCalloutButton.setAttribute('visible', false);
       }
       if(comp.data.contentPage < comp.data.numPages){
-        rightCalloutButton.setAttribute('visible', false);
+        rightCalloutButton.setAttribute('visible', true);
       }
                                        });
     
     rightCalloutButton.addEventListener('mousedown', function(){
       comp.data.contentPage++;
-      let pageString = event.detail.associatedEntity.components.examinable.data.contentText.substring(comp.data.contentPage * 80, (comp.data.contentPage * 80) + 79);
+      let pageString = "";
+      if(comp.data.contentPage * 80 <= comp.data.fullContent.length){
+        pageString = comp.data.fullContent.substring(comp.data.contentPage * 80, (comp.data.contentPage * 80) + 79);
+      }
+      if(comp.data.contentPage * 80 > comp.data.fullContent.length){
+        pageString = comp.data.fullContent.substring(comp.data.contentPage * 80, comp.data.fullContent.length - 1);
+      }
       content.el.setAttribute('text','value',pageString);
-      if(comp.data.contentPage == comp.data.numPages){
+      if(comp.data.contentPage >= comp.data.numPages){
         rightCalloutButton.setAttribute('visible', false);
       }
       if(comp.data.contentPage != 0){
