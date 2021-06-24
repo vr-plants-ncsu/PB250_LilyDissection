@@ -13,7 +13,7 @@ AFRAME.registerComponent('examinecallout',{
     focusCooldown: {type:'float', default:0},
     contentPage: {type:'int', default:0},
     numPages: {type: 'int', default:0},
-    buttonDown: {type: 'bool', default: false}
+    buttonDown: {type: 'float', default: 3}
   },
   init: function(){
     calloutStart.x = this.el.object3D.position.x;
@@ -68,10 +68,10 @@ AFRAME.registerComponent('examinecallout',{
     });
     
     leftCalloutButton.addEventListener('mousedown', function(){
-      if(comp.data.contentPage == 0 || comp.data.buttonDown){
+      if(comp.data.contentPage == 0 || comp.data.buttonDown > 0){
         return;
       }
-      comp.data.buttonDown = true;
+      comp.data.buttonDown = 3;
       comp.data.contentPage--;
       let pageString = comp.data.fullContent.substring(comp.data.contentPage * 80, (comp.data.contentPage * 80) + 79);
       content.el.setAttribute('text','value',pageString);
@@ -84,10 +84,10 @@ AFRAME.registerComponent('examinecallout',{
                                        });
     
     rightCalloutButton.addEventListener('mousedown', function(){
-      if(comp.data.contentPage >= comp.data.numPages || comp.data.buttonDown){
+      if(comp.data.contentPage >= comp.data.numPages || comp.data.buttonDown > 0){
         return;
       }
-      comp.data.buttonDown = true;
+      comp.data.buttonDown = 3;
       comp.data.contentPage++;
       let pageString = "";
       if(comp.data.contentPage * 80 <= comp.data.fullContent.length){
@@ -112,6 +112,9 @@ AFRAME.registerComponent('examinecallout',{
   tick: function(time, timeDelta){
     if(this.data.focusCooldown > 0){
       this.data.focusCooldown -= timeDelta;
+    }
+    if(this.data.buttonDown > 0){
+      this.data.buttonDown -= timeDelta;
     }
   },
   focusScreen: function(comp){
