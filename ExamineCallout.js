@@ -21,11 +21,6 @@ AFRAME.registerComponent('examinecallout',{
     calloutDefRot.y = this.el.object3D.rotation.y * 180 / Math.PI;
     calloutDefRot.z = this.el.object3D.rotation.z * 180 / Math.PI;
     
-    this.data.numPages = defContent.length / 80;
-    if(this.data.numPages > 3){
-      console.Log("Size of pages excedes three, consider reducing copy");
-    }
-    
     var comp = this;
     window.addEventListener('keydown', function(evt){
       //the F key in decimol ascii
@@ -46,6 +41,10 @@ AFRAME.registerComponent('examinecallout',{
     exambox.addEventListener('associated', function(event){
       header.el.setAttribute('text','value',event.detail.associatedEntity.components.examinable.data.headerText);
       content.el.setAttribute('text','value',event.detail.associatedEntity.components.examinable.data.contentText);
+      event.detail.associatedEntity.components.examinable.data.numPages = event.detail.associatedEntity.components.examinable.data.contentText.length / 80;
+    if(event.detail.associatedEntity.components.examinable.data.numPages > 3){
+      console.Log("Size of pages excedes three, consider reducing text length");
+    }
     });
     exambox.addEventListener('disassociated', function(){
       header.el.setAttribute('text','value',ref.data.defHeader);
