@@ -57,7 +57,7 @@ AFRAME.registerComponent('examinecallout',{
       console.Log("Size of pages excedes three, consider reducing text length");
     }
       if(comp.data.numPages > 0){
-        rightCalloutButton.setAttribute('visible', false);
+        rightCalloutButton.setAttribute('visible', true);
       }
     });
     exambox.addEventListener('disassociated', function(){
