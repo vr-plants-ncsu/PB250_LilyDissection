@@ -76,13 +76,13 @@
     
     <a-asset-item id="skyHDRI" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fnoon_grass_1k.hdr?v=1620244111743"></a-asset-item>
     <a-asset-item id="speakerIcon" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FSpeakerIcon.glb?v=1623181542019"></a-asset-item>
-    <a-asset-item id="buttonLeft" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_left.glb?v=1624891070702"></a-asset-item>
-    <a-asset-item id="buttonRight" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_right.glb?v=1624891070842"></a-asset-item> 
-    <a-asset-item id="buttonIn" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_plus.glb?v=1624891070894"></a-asset-item>
-    <a-asset-item id="buttonOut" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_minus.glb?v=1624891070739"></a-asset-item>
-    <a-asset-item id="buttonReset" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_reset.glb?v=1624891070867"></a-asset-item>
-    <a-asset-item id="buttonSpecOff" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_spec_off.glb?v=1624891070570"></a-asset-item>
-    <a-asset-item id="buttonSpecOn" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_spec_on.glb?v=1624891070631"></a-asset-item>
+    <a-asset-item id="buttonLeft" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_left.glb?v=1624901069410"></a-asset-item>
+    <a-asset-item id="buttonRight" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_right.glb?v=1624901069515"></a-asset-item> 
+    <a-asset-item id="buttonIn" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_plus.glb?v=1624901069540"></a-asset-item>
+    <a-asset-item id="buttonOut" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_minus.glb?v=1624901069410"></a-asset-item>
+    <a-asset-item id="buttonReset" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_reset.glb?v=1624901069472"></a-asset-item>
+    <a-asset-item id="buttonSpecOff" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_spec_off.glb?v=1624901069575"></a-asset-item>
+    <a-asset-item id="buttonSpecOn" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_spec_on.glb?v=1624901069597"></a-asset-item>
     
 <!-- Sounds used within the interaction system-->
 <a-sound id="click1" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fclick1dry.mp3?v=1620252061034"></a-sound>
@@ -416,8 +416,8 @@ event-set__hoveredoffpistil = "
 
   <!--   UI system buttons to emit proxy events -->
  
-  <a-entity id="ExaminationScaleUI" layout="margin: 1.35; angle: NaN; columns: 3" scale="0.075 0.05 0.05" position="0.610 1.17 -1.139" rotation="0 -55 0">
-  <a-box id="scale1button" scale="0.9 0.9 0.9" class="dissect" position="" scalebutton="scaleDelta: -0.05; scaleMin: 0.1" gltf-model="#buttonOut"
+  <a-entity id="ExaminationScaleUI" layout="margin: 1.35; angle: NaN; columns: 3" scale="0.75 0.05 0.05" position="0.610 1.195 -1.139" rotation="0 -55 0">
+  <a-box id="scale1button" scale="0.3 0.3 0.3" class="dissect" position="" scalebutton="scaleDelta: -0.05; scaleMin: 0.1" gltf-model="#buttonOut"
          sound="src: #click1; on: click"
 
         
@@ -442,7 +442,7 @@ event-set__hoveredoffpistil = "
     
     </a-box>
   
-  <a-box id="scale2button" class="dissect" position="2 0 0" material="color: #56b4e9; opacity: 0.65" scalebutton="scaleDelta: 0; scaleMax: 0.6" geometry=""
+  <a-box id="scale2button" class="dissect" position="2 0 0" material="color: #56b4e9; opacity: 0.65" scalebutton="scaleDelta: 0; scaleMax: 0.6" gltf-model="#buttonReset"
          sound="src: #click2; on: click"
          
          event-set__scaled2 = "
