@@ -80,7 +80,7 @@
     <a-asset-item id="buttonRight" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_right.glb?v=1624901069515"></a-asset-item> 
     <a-asset-item id="buttonIn" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_plus.glb?v=1624901069540"></a-asset-item>
     <a-asset-item id="buttonOut" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_minus.glb?v=1624901069410"></a-asset-item>
-    <a-asset-item id="buttonReset" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_reset.glb?v=1624901069472"></a-asset-item>
+    <a-asset-item id="buttonReset" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_reset.glb?v=1624902523893"></a-asset-item>
     <a-asset-item id="buttonSpecOff" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_spec_off.glb?v=1624901069575"></a-asset-item>
     <a-asset-item id="buttonSpecOn" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_spec_on.glb?v=1624901069597"></a-asset-item>
     
@@ -410,13 +410,13 @@ event-set__hoveredoffpistil = "
   
   
   
-<!--   UI system test object-->
+<!--   UI system test object
       <a-entity  id="totem" class="dissect" rotatable gltf-model="#totemhalf" position="0.91 1.303 -0.838" scale="0.03 0.03 0.03" rotation="0 125 0">
-  <a-entity  id="totemphantom" rotatable class="dissect" gltf-model="#totemfull" visible="false"></a-entity></a-entity>
+  <a-entity  id="totemphantom" rotatable class="dissect" gltf-model="#totemfull" visible="false"></a-entity></a-entity>-->
 
   <!--   UI system buttons to emit proxy events -->
  
-  <a-entity id="ExaminationScaleUI" layout="margin: 1.35; angle: NaN; columns: 3" scale="0.75 0.05 0.05" position="0.610 1.195 -1.139" rotation="0 -55 0">
+  <a-entity id="ExaminationScaleUI" layout="margin: 1.35; angle: NaN; columns: 3" scale="0.075 0.075 0.05" position="0.624 1.204 -1.120" rotation="0 -55 0">
   <a-box id="scale1button" scale="0.3 0.3 0.3" class="dissect" position="" scalebutton="scaleDelta: -0.05; scaleMin: 0.1" gltf-model="#buttonOut"
          sound="src: #click1; on: click"
 
@@ -504,13 +504,13 @@ event-set__hoveredoffpistil = "
 </a-entity>
   
 <a-entity id="ExaminationToggleUI" layout="margin: 3; angle: NaN; columns: 2" scale="0.025 0.05 0.025" position="0.908 1.17 -0.88" rotation="0 130.5 0">
-  <a-cylinder id="ContextButton" class="dissect" position="" material="color: #55D142; opacity: 0.65" contextbutton geometry=""
+  <a-cylinder id="ContextButton" class="dissect" position="" material="color: #55D142; opacity: 0.65" contextbutton gltf-model="#buttonSpecOff"
               sound="src: #clickyes; on: click; poolSize: 20;"
          event-set__toggled1 = "
                 _event : click;
-                _target : #totemphantom;
-                animation.property : visible;
-                animation.to: true;"
+                _target : #ContextButton;
+                gltf-model.property : url;
+                animation.to: #buttonSpecOff;"
         
          event-set__lighttoggle1light = "
                 _event : click;
@@ -525,7 +525,7 @@ event-set__hoveredoffpistil = "
                 animation.to: 0;">
     <a-entity id="toggle1light" light="type:  point;  color:  #55D142;  decay:  1.5;  distance:  0.075;  intensity:  0"></a-entity>
     </a-cylinder>
-  <a-cylinder id="ContextButton2" class="dissect" position="" material="color: #F0E442; opacity: 0.65" contextbutton geometry=""
+  <!--<a-cylinder id="ContextButton2" class="dissect" position="" material="color: #F0E442; opacity: 0.65" contextbutton geometry=""
               sound="src: #clickno; on: click"
          event-set__toggled2 = "
                 _event : click;
@@ -545,7 +545,7 @@ event-set__hoveredoffpistil = "
                 animation.property : light.intensity;
                 animation.to: 0;">
     <a-entity id="toggle2light" position="0 0.5 0" light="type:  point;  color:  #F0E442;  decay:  1.5;  distance:  0.075;  intensity:  20"></a-entity>
-    </a-cylinder>
+    </a-cylinder>-->
   </a-entity> 
   
    
