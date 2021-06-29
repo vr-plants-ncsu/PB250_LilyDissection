@@ -158,5 +158,8 @@ AFRAME.registerComponent('examinecallout',{
                                                 rotationZ: calloutDefRot.z}, ease:Sine.easeIn});
       calloutFocused = false;
     }
-  }
+  },
+  findSpaceBefore: function(word, index){
+      
+}
 });
