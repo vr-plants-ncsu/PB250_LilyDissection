@@ -52,7 +52,7 @@ AFRAME.registerComponent('examinecallout',{
       comp.data.fullContent = event.detail.associatedEntity.components.examinable.data.contentText;
       
       //setup to seperate around the 80 char mark while splitting at a space
-      let pageString = comp.data.fullContent.substring(0, comp.findSpaceBefore(comp.data.fullContent, 79));
+      let pageString = comp.data.fullContent.substring(0, comp.findSpaceBefore(comp.data.fullContent, 80));
       comp.data.contentPage = 0;
       content.el.setAttribute('text','value',pageString);
       
@@ -75,7 +75,8 @@ AFRAME.registerComponent('examinecallout',{
       }
       comp.data.buttonDown = 3;
       comp.data.contentPage--;
-      let pageString = comp.data.fullContent.substring(comp.data.contentPage * 80, (comp.data.contentPage * 80) + 79);
+      let pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 80),
+                                                     comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 80 + 80));
       content.el.setAttribute('text','value',pageString);
       if(comp.data.contentPage == 0){
         leftCalloutButton.setAttribute('visible', false);
@@ -95,10 +96,10 @@ AFRAME.registerComponent('examinecallout',{
       if(comp.data.contentPage * 80 <= comp.data.fullContent.length){
         //set this up to split at spaces
         pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 80),
-                                                     comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 80 + 79));
+                                                     comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 80 + 80));
       }
       if(comp.data.contentPage * 80 > comp.data.fullContent.length){
-        pageString = comp.data.fullContent.substring(comp.data.contentPage * 80, comp.data.fullContent.length - 1);
+        pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 80), comp.data.fullContent.length - 1);
       }
       content.el.setAttribute('text','value',pageString);
       if(comp.data.contentPage >= comp.data.numPages){
