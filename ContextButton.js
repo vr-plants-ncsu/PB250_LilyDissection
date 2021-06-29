@@ -2,9 +2,9 @@ var clickCooldownCounter = 0;
 
 AFRAME.registerComponent('contextbutton',{
   schema: {
-    clickCooldown:{type: 'float', default: 0.2},
-    onGltfUrl:{type:'float', default: ""},
-    offGltfUrl:{type:'float', default: ""},
+    clickCooldown:{type: 'float', default: 1},
+    onGltfUrl:{type:'string', default: ""},
+    offGltfUrl:{type:'string', default: ""},
     state:{type:'bool', default: false}
   },
  init: function(){
@@ -18,18 +18,20 @@ AFRAME.registerComponent('contextbutton',{
      entity.emit('context_activate',null,false);
      if(comp.data.state == false){
        //set the model to the alt
-       entity.setAttribute('gltf-model',this.data.onGltfUrl);
-       this.data.state = true;
+       entity.setAttribute('gltf-model',comp.data.onGltfUrl);
+       comp.data.state = true;
+       return;
      }
-     if(this.data.state == true){
+     if(comp.data.state == true){
        //set the model to the alt
-       this.el.setAttribute('gltf-model',this.data.offGltfUrl);
-       this.data.state = false;
+       entity.setAttribute('gltf-model',comp.data.offGltfUrl);
+       comp.data.state = false;
+       return;
      }
    });
    
    window.addEventListener('keydown', function(evt){
-      //the V key in decimol ascii
+      //the S key in decimol ascii
       var shortcutPressed = evt.keyCode === 83;
       if (!shortcutPressed){
         return;
@@ -37,9 +39,22 @@ AFRAME.registerComponent('contextbutton',{
         if(clickCooldownCounter > 0){
        return;
      }
-     this.components.contextbutton.resetCounter();
+     entity.components.contextbutton.resetCounter();
      entity.emit('context_activate',null,false);
-      });
+      
+   if(comp.data.state == false){
+       //set the model to the alt
+       entity.setAttribute('gltf-model',comp.data.onGltfUrl);
+       comp.data.state = true;
+       return;
+     }
+     if(comp.data.state == true){
+       //set the model to the alt
+       entity.setAttribute('gltf-model',comp.data.offGltfUrl);
+       comp.data.state = false;
+       return;
+     }
+     });
  },
   tick: function(time, timeDelta){
     if(clickCooldownCounter > 0){
