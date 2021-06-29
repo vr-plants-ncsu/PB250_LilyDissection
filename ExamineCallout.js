@@ -159,7 +159,10 @@ AFRAME.registerComponent('examinecallout',{
       calloutFocused = false;
     }
   },
-  findSpaceBefore: function(word, index){
-      
+  findSpaceBefore: function(word){
+      return word.lastIndexOf(' ');
+},
+  findSpaceAfter: function(word){
+      return word.indexOf(' ');
 }
 });
