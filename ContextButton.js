@@ -8,6 +8,7 @@ AFRAME.registerComponent('contextbutton',{
     state:{type:'bool', default: false}
   },
  init: function(){
+   let comp = this;
    let entity = this.el;
    this.el.addEventListener('mousedown', function(evt){
      if(clickCooldownCounter > 0){
@@ -15,9 +16,9 @@ AFRAME.registerComponent('contextbutton',{
      }
      this.components.contextbutton.resetCounter();
      entity.emit('context_activate',null,false);
-     if(this.data.state == false){
+     if(comp.data.state == false){
        //set the model to the alt
-       this.el.setAttribute('gltf-model',this.data.onGltfUrl);
+       entity.setAttribute('gltf-model',this.data.onGltfUrl);
        this.data.state = true;
      }
      if(this.data.state == true){
