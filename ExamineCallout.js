@@ -93,12 +93,12 @@ AFRAME.registerComponent('examinecallout',{
       comp.data.buttonDown = 3;
       comp.data.contentPage++;
       let pageString = "";
-      if(comp.data.contentPage * 80 <= comp.data.fullContent.length){
+      if(comp.data.contentPage * 80 < comp.data.fullContent.length){
         //set this up to split at spaces
         pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 80),
                                                      comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 80 + 80));
       }
-      if(comp.data.contentPage * 80 > comp.data.fullContent.length){
+      if(comp.data.contentPage * 80 >= comp.data.fullContent.length){
         pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 80), comp.data.fullContent.length - 1);
       }
       content.el.setAttribute('text','value',pageString);
