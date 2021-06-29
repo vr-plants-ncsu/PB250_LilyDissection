@@ -50,6 +50,8 @@ AFRAME.registerComponent('examinecallout',{
     exambox.addEventListener('associated', function(event){
       header.el.setAttribute('text','value',event.detail.associatedEntity.components.examinable.data.headerText);
       comp.data.fullContent = event.detail.associatedEntity.components.examinable.data.contentText;
+      
+      
       let pageString = comp.data.fullContent.substring(0, 79);
       comp.data.contentPage = 0;
       content.el.setAttribute('text','value',pageString);
@@ -159,10 +161,12 @@ AFRAME.registerComponent('examinecallout',{
       calloutFocused = false;
     }
   },
-  findSpaceBefore: function(word){
-      return word.lastIndexOf(' ');
-},
-  findSpaceAfter: function(word){
-      return word.indexOf(' ');
+  findSpaceBefore: function(word, index){
+      for(let i = index;i > 0; i--){
+        if(word.charAt(i) === " "){
+          return(i);
+        }
+      }
+    return(0);
 }
 });
