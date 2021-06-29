@@ -2,7 +2,10 @@ var clickCooldownCounter = 0;
 
 AFRAME.registerComponent('contextbutton',{
   schema: {
-    clickCooldown:{type: 'float', default: 0.2}
+    clickCooldown:{type: 'float', default: 0.2},
+    onGltfUrl:{type:'float', default: ""},
+    offGltfUrl:{type:'float', default: ""},
+    state:{type:'bool', default: false}
   },
  init: function(){
    let entity = this.el;
@@ -12,6 +15,16 @@ AFRAME.registerComponent('contextbutton',{
      }
      this.components.contextbutton.resetCounter();
      entity.emit('context_activate',null,false);
+     if(this.data.state == false){
+       //set the model to the alt
+       this.el.setAttribute('gltf-model',this.data.onGltfUrl);
+       this.data.state = true;
+     }
+     if(this.data.state == true){
+       //set the model to the alt
+       this.el.setAttribute('gltf-model',this.data.offGltfUrl);
+       this.data.state = false;
+     }
    });
    
    window.addEventListener('keydown', function(evt){
