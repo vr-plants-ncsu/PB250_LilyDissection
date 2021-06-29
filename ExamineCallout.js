@@ -51,8 +51,8 @@ AFRAME.registerComponent('examinecallout',{
       header.el.setAttribute('text','value',event.detail.associatedEntity.components.examinable.data.headerText);
       comp.data.fullContent = event.detail.associatedEntity.components.examinable.data.contentText;
       
-      
-      let pageString = comp.data.fullContent.substring(0, 79);
+      //setup to seperate around the 80 char mark while splitting at a space
+      let pageString = comp.data.fullContent.substring(0, comp.findSpaceBefore(comp.data.fullContent, 79));
       comp.data.contentPage = 0;
       content.el.setAttribute('text','value',pageString);
       
@@ -93,12 +93,12 @@ AFRAME.registerComponent('examinecallout',{
       comp.data.contentPage++;
       let pageString = "";
       if(comp.data.contentPage * 80 <= comp.data.fullContent.length){
-        pageString = comp.data.fullContent.substring(comp.data.contentPage * 80, (comp.data.contentPage * 80) + 79);
-        console.log(pageString + " wac");
+        //set this up to split at spaces
+        pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 80),
+                                                     comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 80 + 79));
       }
       if(comp.data.contentPage * 80 > comp.data.fullContent.length){
         pageString = comp.data.fullContent.substring(comp.data.contentPage * 80, comp.data.fullContent.length - 1);
-        console.log(pageString + " wac");
       }
       content.el.setAttribute('text','value',pageString);
       if(comp.data.contentPage >= comp.data.numPages){
