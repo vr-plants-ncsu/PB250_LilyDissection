@@ -69,7 +69,7 @@
       src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Full_Half.gltf?v=1615965211555"
       response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
 <!-- Template image for text field beneath observation container -->
-    <a-image id="calloutBg" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FCallout_BG.png?v=1618246490561"></a-image>
+    <a-image id="calloutBg" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FCallout_BG.png?v=1624979055448"></a-image>
 <!-- Placeholder models to test button interaction system -->    
     <a-asset-item id="totemfull" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full.gltf?v=1620104063136"></a-asset-item>
     <a-asset-item id="totemhalf" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLily_Full_Half.gltf?v=1620104064377"></a-asset-item>
@@ -503,14 +503,9 @@ event-set__hoveredoffpistil = "
     </a-box>
 </a-entity>
   
-<a-entity id="ExaminationToggleUI" layout="margin: 3; angle: NaN; columns: 2" scale="0.05 0.05 0.05" position="0.922 1.273 -0.864" rotation="0 130.5 0">
+<a-entity id="ExaminationToggleUI" layout="margin: 3; angle: NaN; columns: 2" scale="0.035 0.05 0.05" position="0.922 1.273 -0.864" rotation="0 130.5 0">
   <a-cylinder id="ContextButton" class="dissect" position="" scale="-0.5 0.5 -0.5" material="color: #55D142; opacity: 0.65" contextbutton gltf-model="#buttonSpecOff"
               sound="src: #clickyes; on: click; poolSize: 20;"
-         event-set__toggled1 = "
-                _event : click;
-                _target : #ContextButton;
-                gltf-model.property : url;
-                animation.to: #buttonSpecOn;"
         
          event-set__lighttoggle1light = "
                 _event : click;
