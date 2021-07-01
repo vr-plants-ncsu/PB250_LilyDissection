@@ -81,7 +81,7 @@
     <a-asset-item id="buttonIn" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_plus.glb?v=1624901069540"></a-asset-item>
     <a-asset-item id="buttonOut" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_minus.glb?v=1624901069410"></a-asset-item>
     <a-asset-item id="buttonReset" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_reset.glb?v=1624902523893"></a-asset-item>
-    <a-asset-item id="buttonSpecOff" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_spec_off.glb?v=1624903611863"></a-asset-item>
+    <a-asset-item id="buttonSpecOff" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_spec_off.glb?v=1625180003479"></a-asset-item>
     <a-asset-item id="buttonSpecOn" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_spec_on.glb?v=1624903611959"></a-asset-item>
     
 <!-- Sounds used within the interaction system-->
@@ -506,7 +506,7 @@ event-set__hoveredoffpistil = "
 <a-entity id="ExaminationToggleUI" layout="margin: 3; angle: NaN; columns: 2" scale="0.05 0.05 0.05" position="0.922 1.273 -0.864" rotation="0 130.5 0">
   <a-cylinder id="ContextButton" class="dissect" position="" scale="-0.5 0.5 -0.5" material="color: #55D142; opacity: 0.65" 
               contextbutton="onGltfUrl: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_spec_on.glb?v=1624903611959;
-                             offGltfUrl: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_spec_off.glb?v=1624903611863" gltf-model="#buttonSpecOff"
+                             offGltfUrl: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_spec_off.glb?v=1625180155588" gltf-model="#buttonSpecOff"
               sound="src: #clickyes; on: click; poolSize: 20;"
         
          event-set__lighttoggle1light = "
@@ -520,7 +520,7 @@ event-set__hoveredoffpistil = "
                 _target : #toggle2light;
                 animation.property : light.intensity;
                 animation.to: 0;">
-    <a-entity id="toggle1light" light="type:  point;  color:  #55D142;  decay:  1.5;  distance:  0.075;  intensity:  0"></a-entity>
+    <a-entity id="toggle1light" light="type:  point;  color:  #FFFFFF  decay:  1.5;  distance:  0.075;  intensity:  0"></a-entity>
     </a-cylinder>
   <!--<a-cylinder id="ContextButton2" class="dissect" position="" material="color: #F0E442; opacity: 0.65" contextbutton geometry=""
               sound="src: #clickno; on: click"
