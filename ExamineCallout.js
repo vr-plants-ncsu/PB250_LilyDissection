@@ -35,6 +35,10 @@ AFRAME.registerComponent('examinecallout',{
     });
     
     let expandButton = document.querySelector('#ExpandButton');
+    expandButton.addEventListener('mousedown', function(){
+      comp.focusScreen(comp);
+      comp.data.focusCooldown = 2;
+    });
     
     //find page buttons and setup events
     let leftCalloutButton = document.querySelector('#LeftCalloutButton');
