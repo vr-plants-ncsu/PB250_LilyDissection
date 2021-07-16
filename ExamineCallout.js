@@ -34,6 +34,8 @@ AFRAME.registerComponent('examinecallout',{
       comp.data.focusCooldown = 2;
     });
     
+    let expandButton = document.querySelector('#ExpandButton');
+    
     //find page buttons and setup events
     let leftCalloutButton = document.querySelector('#LeftCalloutButton');
     let rightCalloutButton = document.querySelector('#RightCalloutButton');
