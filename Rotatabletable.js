@@ -1,4 +1,4 @@
-var isRotatingtable = false;
+var isRotating = false;
 var element;
 
 AFRAME.registerComponent('rotatabletable',{
@@ -13,17 +13,17 @@ AFRAME.registerComponent('rotatabletable',{
     element = this.el;
   },
   startRotation: function(){
-    isRotatingtable = true;
+    isRotating = true;
   },
   onMouseDown: function (evt) {
     this.oldClientX = evt.clientX;
     this.oldClientY = evt.clientY;
   },
   onMouseUp: function(){
-    isRotatingtable = false;
+    isRotating = false;
   },
   onMouseMove: function(evt){
-    if(isRotatingtable){
+    if(isRotating){
       var dX;
     var dY;
     //TODO find our pivot
