@@ -182,20 +182,13 @@
   </a-entity>
   
 <!-- Lilywholedisection is a container element for all the draggable anatomy models in the dissection simulation    -->
-<a-entity id="wholespecimencontrol" 
-          position="-0.089 1.116 -1.3" rotation="-90 -90 90" 
-          geometry="primitive: ring; radiusInner: 0.1; radiusOuter: 0.2"
-           mixin="frame" 
-                 class="dissect" 
-                rotatable>
+<a-entity id="wholespecimencontrol" position="-0.089 1.116 -1.54509" rotation="-90 -457.8389044739884 -28.888742489645793" geometry="primitive: ring; radiusInner: 0.1; radiusOuter: 0.2" mixin="frame" class="dissect" rotatable="">
    
-    <a-entity id="lilywholedissection"
-         
-         position= "-0.089 1.24 -1.7"
-          rotation="0 0 0" >
+    <a-entity id="lilywholedissection" position="0 0 0.25" rotation="90 0 0">
+      
    
 <!--   Stamens have a text field for when they're hovered. Each stamen is then defined as an entity with raycast collision and events.-->
-    <a-text id="stamentext" text="color: #000000; value: Stamen; opacity: 0" position="-0.731 3 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
+    <a-text id="stamentext" text="color: #000000; value: Stamen; opacity: 0" position="-0.731 3 -4" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
     
       <a-entity id="stamens"
 event-set__hoveredstamen = "
