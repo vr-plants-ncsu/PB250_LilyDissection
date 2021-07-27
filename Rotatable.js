@@ -7,8 +7,8 @@ AFRAME.registerComponent('rotatable',{
     let comp = this;
     let entity = this.el;
     
-    if(targetId === ''){
-      
+    if(this.data.targetId !== ''){
+      let entity = document.querySelector('['+ this.data.targetId +']');
     }
     
     this.el.addEventListener('mousedown', function(){
