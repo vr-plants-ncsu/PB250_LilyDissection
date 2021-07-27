@@ -1,12 +1,19 @@
 AFRAME.registerComponent('rotatable',{
   schema: {
-    isRotating:{type:'bool', default: false}
+    isRotating:{type:'bool', default: false},
+    targetId:{type:'string', default:""}
   },
   init: function(){
     let comp = this;
     let entity = this.el;
     
-    this.el.addEventListener('mousedown', this.startRotation);
+    if(targetId === ''){
+      
+    }
+    
+    this.el.addEventListener('mousedown', function(){
+      comp.data.isRotating = true;
+    });
     document.addEventListener('mousedown', function(evt){
       this.oldClientX = evt.clientX;
       this.oldClientY = evt.clientY;
@@ -35,15 +42,5 @@ AFRAME.registerComponent('rotatable',{
     this.oldClientY = evt.clientY;
     }});
     
-  },
-  startRotation: function(){
-    this.data.isRotating = true;
-  },
-  onMouseDown: function (evt) {
-    this.oldClientX = evt.clientX;
-    this.oldClientY = evt.clientY;
-  },
-  onMouseUp: function(){
-    this.data.isRotating = false;
   }
 });
