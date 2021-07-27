@@ -3,13 +3,19 @@ AFRAME.registerComponent('rotatable',{
     isRotating:{type:'bool', default: false}
   },
   init: function(){
+    let comp = this;
     let entity = this.el;
     
     this.el.addEventListener('mousedown', this.startRotation);
-    document.addEventListener('mousedown', this.onMouseDown)
-    document.addEventListener('mouseup', this.onMouseUp);
+    document.addEventListener('mousedown', function(evt){
+      this.oldClientX = evt.clientX;
+      this.oldClientY = evt.clientY;
+    });
+    document.addEventListener('mouseup', function(){
+      comp.data.isRotating = false;
+    });
     document.addEventListener('mousemove', function(evt){
-      if(this.data.isRotating){
+      if(comp.data.isRotating){
       var dX;
     var dY;
     //TODO find our pivot
