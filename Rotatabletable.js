@@ -1,5 +1,5 @@
 var isRotating = false;
-var element;
+var elementable;
 
 AFRAME.registerComponent('rotatabletable',{
   schema: {
@@ -10,7 +10,7 @@ AFRAME.registerComponent('rotatabletable',{
     document.addEventListener('mouseup', this.onMouseUp);
     document.addEventListener('mousemove', this.onMouseMove);
     
-    element = this.el;
+    elementable = this.el;
   },
   startRotation: function(){
     isRotating = true;
@@ -33,11 +33,11 @@ AFRAME.registerComponent('rotatabletable',{
     dX = this.oldClientX - evt.clientX;
     dY = this.oldClientY - evt.clientY;
     //we can tweak these as speeds
-    element.object3D.rotation.y -= dX / 100;
-    element.object3D.rotation.z -= dY / 200;
+    elementable.object3D.rotation.y -= dX / 100;
+    elementable.object3D.rotation.z -= dY / 200;
 
     // Clamp x rotation to [-90,90]
-    element.object3D.rotation.z = Math.min(Math.max(-Math.PI / 2, element.object3D.rotation.z), Math.PI / 2);
+    elementable.object3D.rotation.z = Math.min(Math.max(-Math.PI / 2, elementable.object3D.rotation.z), Math.PI / 2);
 
     this.oldClientX = evt.clientX;
     this.oldClientY = evt.clientY;
