@@ -44,8 +44,11 @@ AFRAME.registerComponent('clickdrag',{
     //get this distance between this object and the camera
     //apply the delta to the scrren space position, then unproject that
     //lerp the object to the screen space offset world position
-    var camera = document.
-
+    var camera = document.querySelector('[camera]');
+        //todo use world positions here
+    var camDist = camera.object3D.position.distanceTo(entity.object3D.position);
+    
+        
     this.oldClientX = evt.clientX;
     this.oldClientY = evt.clientY;
     }});
