@@ -51,16 +51,17 @@ AFRAME.registerComponent('clickdrag',{
     var screenPos = comp.el.object3D.position.clone();
     comp.el.object3D.getWorldPosition(screenPos);
     screenPos.project(camera.getObject3D('camera'));
-    screenPos.x = dX * 0.001;
-    screenPos.y = dY * 0.001;
+    screenPos.x -= dX * 0.01;
+    screenPos.y += dY * 0.01;
     //target the local position after unprojecting
     screenPos.unproject(camera.getObject3D('camera'));
     screenPos = comp.el.object3D.parent.worldToLocal(screenPos);
     console.log("pos " + screenPos.x + " " + screenPos.y + " " + screenPos.z + " " + dX);
-    //TweenMax.to(comp.el.object3D, 0.4, {three:{positionX: screenPos.x, positionY: screenPos.y,positionZ: screenPos.z}, ease:Sine.easeIn});
+    TweenMax.to(comp.el.object3D, 0.1, {three:{positionX: screenPos.x, positionY: screenPos.y,positionZ: screenPos.z}, ease:Sine.easeIn});
         
     this.oldClientX = evt.clientX;
     this.oldClientY = evt.clientY;
+        //todo this is working alright but we should use the mouse position instead of the position delta...
     }});
     
   }
