@@ -57,12 +57,12 @@ AFRAME.registerComponent('examinecallout',{
       header.el.setAttribute('text','value',event.detail.associatedEntity.components.examinable.data.headerText);
       comp.data.fullContent = event.detail.associatedEntity.components.examinable.data.contentText;
       
-      //setup to seperate around the 80 char mark while splitting at a space
-      let pageString = comp.data.fullContent.substring(0, comp.findSpaceBefore(comp.data.fullContent, 80));
+      //setup to seperate around the 140 char mark while splitting at a space
+      let pageString = comp.data.fullContent.substring(0, comp.findSpaceBefore(comp.data.fullContent, 141));
       comp.data.contentPage = 0;
       content.el.setAttribute('text','value',pageString);
       
-      comp.data.numPages = event.detail.associatedEntity.components.examinable.data.contentText.length / 80;
+      comp.data.numPages = event.detail.associatedEntity.components.examinable.data.contentText.length / 141;
     if(comp.data.numPages > 3){
       console.Log("Size of pages excedes three, consider reducing text length");
     }
@@ -75,14 +75,15 @@ AFRAME.registerComponent('examinecallout',{
       content.el.setAttribute('text', 'value', ref.data.defContent);
     });
     
+    
     leftCalloutButton.addEventListener('mousedown', function(){
       if(comp.data.contentPage == 0 || comp.data.buttonDown > 0){
         return;
       }
       comp.data.buttonDown = 3;
       comp.data.contentPage--;
-      let pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 80),
-                                                     comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 80 + 80));
+      let pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 141),
+                                                     comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 141 + 141));
       content.el.setAttribute('text','value',pageString);
       if(comp.data.contentPage == 0){
         leftCalloutButton.setAttribute('visible', false);
@@ -99,13 +100,13 @@ AFRAME.registerComponent('examinecallout',{
       comp.data.buttonDown = 3;
       comp.data.contentPage++;
       let pageString = "";
-      if(comp.data.contentPage * 80 < (comp.data.fullContent.length - 80)){
+      if(comp.data.contentPage * 141 < (comp.data.fullContent.length - 141)){
         //set this up to split at spaces
-        pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 80),
-                                                     comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 80 + 80));
+        pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 141),
+                                                     comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 141 + 141));
       }
-      if(comp.data.contentPage * 80 >= (comp.data.fullContent.length - 80)){
-        pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 80), comp.data.fullContent.length);
+      if(comp.data.contentPage * 141 >= (comp.data.fullContent.length - 141)){
+        pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 141), comp.data.fullContent.length);
       }
       content.el.setAttribute('text','value',pageString);
       if(comp.data.contentPage >= comp.data.numPages - 1){
@@ -115,6 +116,7 @@ AFRAME.registerComponent('examinecallout',{
         leftCalloutButton.setAttribute('visible', true);
       }
                                        });
+                                       
     
     
   },
