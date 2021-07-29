@@ -47,6 +47,14 @@ AFRAME.registerComponent('clickdrag',{
     var camera = document.querySelector('[camera]');
         //todo use world positions here
     var camDist = camera.object3D.position.distanceTo(entity.object3D.position);
+    //find the screen position of the object
+    var screenPos = entity.object3D.position.clone;
+    screenPos.project(camera.GetObject3D('camera'));
+    screenPos.x += dX * 2;
+    screenPos.Y += dY *2;
+    //target the local position after unprojecting
+    screenPos.unproject(camera.GetObject3D('camera'));
+    
     
         
     this.oldClientX = evt.clientX;
