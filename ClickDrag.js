@@ -32,16 +32,6 @@ AFRAME.registerComponent("clickdrag", {
         }
         dX = this.oldClientX - evt.clientX;
         dY = this.oldClientY - evt.clientY;
-        //we can tweak these as speeds
-        //if(comp.data.rotateY){
-        //entity.object3D.rotation.y -= dX / 100;
-        //}
-        //if(comp.data.rotateZ){
-        //entity.object3D.rotation.z -= dY / 200;
-
-        // Clamp x rotation to [-90,90]
-        //entity.object3D.rotation.z = Math.min(Math.max(-Math.PI / 2, entity.object3D.rotation.z), Math.PI / 2);
-        //}
 
         //get this distance between this object and the camera
         //apply the delta to the scrren space position, then unproject that
