@@ -1,7 +1,9 @@
 AFRAME.registerComponent('rotatable',{
   schema: {
     isRotating:{type:'bool', default: false},
-    targetId:{type:'string', default:""}
+    targetId:{type:'string', default:""},
+    rotateY:{type:'bool', default: true},
+    rotateZ:{type:'bool',default:true}
   },
   init: function(){
     let comp = this;
@@ -32,11 +34,15 @@ AFRAME.registerComponent('rotatable',{
     dX = this.oldClientX - evt.clientX;
     dY = this.oldClientY - evt.clientY;
     //we can tweak these as speeds
+    if(comp.data.rotateY){
     entity.object3D.rotation.y -= dX / 100;
+    }
+    if(comp.data.rotateZ){
     entity.object3D.rotation.z -= dY / 200;
 
     // Clamp x rotation to [-90,90]
     entity.object3D.rotation.z = Math.min(Math.max(-Math.PI / 2, entity.object3D.rotation.z), Math.PI / 2);
+    }
 
     this.oldClientX = evt.clientX;
     this.oldClientY = evt.clientY;
