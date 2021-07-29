@@ -46,16 +46,17 @@ AFRAME.registerComponent('clickdrag',{
     //lerp the object to the screen space offset world position
     var camera = document.querySelector('[camera]');
         //todo use world positions here
-    var camDist = camera.object3D.position.distanceTo(entity.object3D.position);
+    //var camDist = camera.object3D.position.distanceTo(entity.object3D.position);
     //find the screen position of the object
-    var screenPos = entity.object3D.position.clone;
-    screenPos.project(camera.GetObject3D('camera'));
+    var screenPos = comp.el.object3D.position.clone();
+    screenPos.project(camera.getObject3D('camera'));
     screenPos.x += dX * 2;
-    screenPos.Y += dY *2;
+    screenPos.y += dY * 2;
     //target the local position after unprojecting
-    screenPos.unproject(camera.GetObject3D('camera'));
+    screenPos.unproject(camera.getObject3D('camera'));
+    screenPos = comp.el.object3D.worldToLocal(screenPos);
     
-    
+    TweenMax.to(comp.el.object3D, 0.4, {three:{positionX: screenPos.x, positionY: screenPos.y,positionZ: screenPos.z}, ease:Sine.easeIn});
         
     this.oldClientX = evt.clientX;
     this.oldClientY = evt.clientY;
