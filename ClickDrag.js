@@ -53,21 +53,13 @@ AFRAME.registerComponent("clickdrag", {
         var screenPos = comp.el.object3D.position.clone();
         comp.el.object3D.getWorldPosition(screenPos);
         screenPos.project(camera.getObject3D("camera"));
-        //screenPos.x = evt.clientX;
-        //screenPos.y = evt.clientY;
+        //multiply by 2 and subtract 1 to remap from 0/1 to -1/1
+        screenPos.x = ((evt.clientX/document.body.clientWidth) * 2 - 1);
+        screenPos.y = -((evt.clientY/document.body.clientHeight) * 2 - 1);
         //target the local position after unprojecting
         screenPos.unproject(camera.getObject3D("camera"));
         screenPos = comp.el.object3D.parent.worldToLocal(screenPos);
-        console.log(
-          "pos " +
-            screenPos.x +
-            " " +
-            screenPos.y +
-            " " +
-            screenPos.z +
-            " " +
-            evt.screenX
-        );
+
         TweenMax.to(comp.el.object3D, 0.1, {
           three: {
             positionX: screenPos.x,
