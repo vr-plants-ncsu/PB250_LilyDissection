@@ -14,6 +14,7 @@ AFRAME.registerComponent("hovercallout", {
     this.el.addEventListener('mouseleave', function(evt){
       var calloutTextComp = document.querySelector('#callouttext');
       //TweenMax.to(comp.el.object3D, 0.4, {three:{visible: 0}, ease:Sine.easeIn});
+      //todo seems like GSP isn't helping here so we'll have to do this manually
       calloutTextComp.setAttribute('text','value','');
     });
   }
