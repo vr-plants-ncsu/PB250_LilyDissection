@@ -8,13 +8,13 @@ AFRAME.registerComponent("hovercallout", {
     
     this.el.addEventListener('mouseenter', function(evt){
       var calloutTextComp = document.querySelector('#callouttext');
-      TweenMax.to(comp.el, 0.4, {three:{opacity: 1}, ease:Sine.easeIn});
+      //TweenMax.to(comp.el.object3D, 0.4, {three:{visible: 1}, ease:Sine.easeIn});
       calloutTextComp.setAttribute('text','value',comp.data.hoverText);
     });
     this.el.addEventListener('mouseleave', function(evt){
       var calloutTextComp = document.querySelector('#callouttext');
-      TweenMax.to(comp.el, 0.4, {three:{opacity: 0}, ease:Sine.easeIn});
-      //calloutTextComp.setAttribute('text','value','');
+      //TweenMax.to(comp.el.object3D, 0.4, {three:{visible: 0}, ease:Sine.easeIn});
+      calloutTextComp.setAttribute('text','value','');
     });
   }
 });
