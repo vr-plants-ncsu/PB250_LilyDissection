@@ -99,14 +99,14 @@
   </a-assets>
 
 <!-- At the minimum we'd also want to setup an environment light, although we might also need to explore background options -->
-<a-sky id="sky" phi-start="45" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbackdrop.png?v=1620327729799"></a-sky>
+<a-sky id="sky" phi-start="45" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbackdrop.png?v=1620327729799" opacity="0"></a-sky>
   <a-light id="sun" angle="60" color="#FFF" intensity="0.8" type="ambient"></a-light>
 
          
 <!-- Camera rig serves as user perspective. User cannot pivot camera and raycast emits from this view-->
   <a-entity id="rig" position="0 1.55 0.115" rotation="0 -19.1 0" >
     <a-entity id="eyes"
-              camera="far:  0.45"
+              camera=""
               look-controls="mouseEnabled: false"
               position="-0.11 0 -0.66"
               rotation="0 -23.4 0"
@@ -164,10 +164,10 @@
           
           event-set__eyeopen = "
                 _event : click;
-                 _target : #eyes;
-                 animation.property : camera.far;
-                 animation.to: 10000;
-                animation.dur: 10000"
+                 _target : #sky;
+                 animation.property : opacity;
+                 animation.to: 1;
+                animation.dur: 1000"
           
                   >  </a-entity>
 <a-entity  id="splashscreen"
@@ -203,11 +203,10 @@
           
           event-set__eyeopen = "
                 _event : click;
-                 _target : #eyes;
-                 animation.property : camera.far;
-                 animation.to: 10000;
-                animation.dur: 10000"
-          
+                 _target : #sky;
+                 animation.property : opacity;
+                 animation.to: 1;
+                animation.dur: 1000"         
                   >  </a-entity>
              </a-entity>
 
