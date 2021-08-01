@@ -106,7 +106,7 @@
 <!-- Camera rig serves as user perspective. User cannot pivot camera and raycast emits from this view-->
   <a-entity id="rig" position="0 1.55 0.115" rotation="0 -19.1 0" >
     <a-entity id="eyes"
-              camera=""
+              camera="far : 1"
               look-controls="mouseEnabled: false"
               position="-0.11 0 -0.66"
               rotation="0 -23.4 0"
@@ -169,7 +169,13 @@
                  animation.to: 1;
                 animation.dur: 1000"
           
-                  >  </a-entity>
+           event-set__eyeopen = "
+                _event : click;
+                 _target : #sky;
+                 animation.property : opacity;
+                 animation.to: 1;
+                animation.dur: 1000"
+                          >  </a-entity>
 <a-entity  id="splashscreen"
 
   
