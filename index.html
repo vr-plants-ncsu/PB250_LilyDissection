@@ -151,7 +151,7 @@ position="0.28726 1.49265 -0.91243"
                 _target : #splashscreeninsert;
                 animation.property : position;
                 animation.to: -0.083 3.303 -1.237;
-                animation.dur: 9900"
+                animation.dur: 500"
                   
                event-set__splash2 = "
                 _delay : 1200;
@@ -167,9 +167,13 @@ position="0.28726 1.49265 -0.91243"
                 animation.property : light.intensity;
                 animation.to: 0.2;"
           
-          event-set__splashdim = "
+          event-set__eyeopen = "
+                _event : click;
                  _target : #eyes;
-                 animation.property : camera.far="
+                 animation.property : camera.far;
+                 animation.to: 10000;
+                animation.dur: 10000"
+          
                   >  </a-entity>
   <a-entity  id="splashscreeninsert"
 class="dissect"
@@ -188,7 +192,7 @@ position="0.28726 1.49265 -0.91243"
                 _target : #splashscreeninsert;
                 animation.property : position;
                 animation.to:-0.083 5.303 -1.237; 
-                animation.dur: 9900"
+                animation.dur: 500"
                 
                event-set__splash2 = "
                 _delay : 1200;
@@ -203,6 +207,14 @@ position="0.28726 1.49265 -0.91243"
                 _target : #splashlight;
                 animation.property : light.intensity;
                 animation.to: 0.2;"
+            
+            event-set__eyeopen = "
+                 _event : click;
+                _target : #eyes;
+                 animation.property : camera.far;
+                 animation.to: 10000;
+                animation.dur: 10000"
+
                   >  </a-entity>
              </a-entity>
 
