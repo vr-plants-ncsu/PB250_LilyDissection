@@ -227,7 +227,6 @@
       
    
 <!--   Stamens have a text field for when they're hovered. Each stamen is then defined as an entity with raycast collision and events.-->
-    <a-text id="stamentext" text="color: #000000; value: Stamen; opacity: 0" position="-0.731 3 -4" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
     
       <a-entity id="stamens">    
       
@@ -301,11 +300,10 @@
   
 </a-entity>
     
-<!--   Petals/Tepals have a text field for when they're hovered. Each is then defined as an entity with raycast collision and events.-->
-    <a-text id="tepaltext" text="color: #000000; value: Tepal; opacity: 0" position="-0.731 3.2 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
-    
+
    
     <a-entity id="petals" 
+                hovercallout="hoverText: Tepal;"
                 event-set__hoveredtepal = "
                 _event : hover-start;
                 _target : #tepaltext;
@@ -382,14 +380,14 @@ event-set__hoveredofftepal = "
                 scale="0.14 0.14 0.14"
                 gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_PetalB_3.gltf?v=1616117869899"
                  >
-          </a-entity>
+          </a-entity> </a-entity>
     
 
       
 <!--   Pistil a text field for when they're hovered. Pistil is then defined as an entity with raycast collision and events.-->
-        <a-text id="pistiltext" text="color: #000000; value: Pistil; opacity: 0" position="-0.731 2.8 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
     
        <a-entity id="lilypistil"
+                                  hovercallout="hoverText: Pistil;"
 event-set__hoveredpistil = "
                 _event : hover-start;
                 _target : #pistiltext;
@@ -413,7 +411,7 @@ event-set__hoveredoffpistil = "
                  >
           </a-entity>
       </a-entity>
-   </a-entity>
+   
                 </a-entity>
 
   
