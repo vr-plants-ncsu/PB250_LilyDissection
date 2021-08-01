@@ -134,9 +134,9 @@
 <a-entity  id="splashscreen"
 geometry="" 
 class="dissect"
-rotation="90 -0.9671527581808296 0"
-scale="1.559 0.009 1"
-position="-0.174 0 -1.11"
+rotation="89.99963750135457 -18.740303563138966 0"
+          scale="1.559 0.009 1"
+position="0.28726 1.49265 -0.91243"
  material="transparent: true;
  normalMap: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FPB250-TitleScreenOutside-LilyNormalMap.png?v=1627792355036;
  src: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FPB250-TitleScreenOutside-Lily.png?v=1627792354903"
@@ -144,17 +144,17 @@ position="-0.174 0 -1.11"
                 
         
         event-set__splash1 = "
-                _event : click;
+                _delay : 100; _event : click;
                 _target : #splashscreeninsert;
                 animation.property : position;
-                animation.to: -0.083 1.303 -1.237;"
+                animation.to: -0.083 5.303 -1.237; dur: 500"
                   
                event-set__splash2 = "
                 _delay : 1200;
                 _event : click;
                 _target : #splashscreen;
                 animation.property : position;
-                animation.to: -0.083 5.303 -1.237;"
+                animation.to: -0.083 5.303 -1.237; dur: 500"
                 
               event-set__splashdim = "
                 _delay : 600;
@@ -166,9 +166,9 @@ position="-0.174 0 -1.11"
   <a-entity  id="splashscreeninsert"
 class="dissect"
             geometry="" 
-rotation="90 -0.9671527581808296 0"
-scale="1.559 0.009 1"
-position="-0.174 0 -1.11"
+rotation="89.99963750135457 -18.740303563138966 0"
+            scale="1.559 0.009 1"
+position="0.28726 1.49265 -0.91243"
  material="transparent: true;
  normalMap: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FPB250-TitleScreenInside-LilyNormalMap.png?v=1627792355036;
  src: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FPB250-TitleScreenInside-Lily.png?v=1627792354903"
@@ -176,17 +176,17 @@ position="-0.174 0 -1.11"
                 
         
         event-set__splash1 = "
-                _event : click;
+                _delay : 100; _event : click;
                 _target : #splashscreeninsert;
                 animation.property : position;
-                animation.to: -0.083 1.303 -1.237;"
+                animation.to:-0.083 5.303 -1.237; dur: 500"
                   
                event-set__splash2 = "
                 _delay : 1200;
                 _event : click;
                 _target : #splashscreen;
                 animation.property : position;
-                animation.to: -0.083 5.303 -1.237;"
+                animation.to:-0.083 5.303 -1.237; dur: 500"
                 
               event-set__splashdim = "
                 _delay : 600;
