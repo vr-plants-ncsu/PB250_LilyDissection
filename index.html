@@ -107,7 +107,8 @@
          
 <!-- Camera rig serves as user perspective. User cannot pivot camera and raycast emits from this view-->
   <a-entity id="rig" position="0 1.55 0.115" rotation="0 -19.1 0" >
-    <a-entity camera
+    <a-entity id="eyes"
+              camera="far:  0.45"
               look-controls="mouseEnabled: false"
               position="-0.11 0 -0.66"
               rotation="0 -23.4 0"
@@ -165,6 +166,10 @@ position="0.28726 1.49265 -0.91243"
                 _target : #splashlight;
                 animation.property : light.intensity;
                 animation.to: 0.2;"
+          
+          event-set__splashdim = "
+                 _target : #eyes;
+                 animation.property : camera.far="
                   >  </a-entity>
   <a-entity  id="splashscreeninsert"
 class="dissect"
