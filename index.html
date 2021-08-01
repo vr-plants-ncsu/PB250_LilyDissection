@@ -61,7 +61,7 @@
 <!--     This html document feeds the 'info' popup in the corner, it can have images and links embedded -->
             <a-asset-item id="messageText" src="message.html"></a-asset-item>
 <!--   These are the models for the splash screen marquee -->
-        <a-asset-item id="splash" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLilySplashModel_exterior.gltf?v=1627844802666"></a-asset-item>
+        <a-asset-item id="splash" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLilySplashModel_exterior.gltf?v=1627847031369"></a-asset-item>
         <a-asset-item id="splashinsert" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FLilySplashModel_interior.gltf?v=1627839847108"></a-asset-item>
    
 <!-- White table seen beneath interactions      -->
@@ -100,7 +100,7 @@
 
 <!-- At the minimum we'd also want to setup an environment light, although we might also need to explore background options -->
 <a-sky id="sky" phi-start="45" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbackdrop.png?v=1620327729799"></a-sky>
-  <a-light id="sun" angle="60" color="#FFF" intensity="0.8" type="hemisphere"></a-light>
+  <a-light id="sun" angle="60" color="#FFF" intensity="0.8" type="ambient"></a-light>
 
          
 <!-- Camera rig serves as user perspective. User cannot pivot camera and raycast emits from this view-->
@@ -129,7 +129,7 @@
       
       <!--This is a random light that looks good on the splash   -->
           <a-entity id="splashscreencomplex" position="0.38808 -3.82898 0.34188">
-  <a-entity id="splashlight" light="type: hemisphere; intensity: 0.01; castShadow: false"></a-entity>   
+  <a-entity id="splashlight" light="type: point; intensity: 0.01; castShadow: false"></a-entity>   
 
 <a-entity  id="splashscreeninsert"
 
