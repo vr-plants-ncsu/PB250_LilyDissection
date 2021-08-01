@@ -130,6 +130,7 @@
       
       <!--This is a random light that looks good on the splash   -->
           <a-entity id="splashscreencomplex" position="0.017 0.01 -0.006">
+  <a-entity id="splashlight" light="type: hemisphere; intensity: 0.1; castShadow: false"></a-entity>   
 
 <a-entity  id="splashscreen"
 geometry="" 
@@ -144,10 +145,12 @@ position="0.28726 1.49265 -0.91243"
                 
         
         event-set__splash1 = "
-                _delay : 100; _event : click;
+                _delay : 100; 
+                _event : click;
                 _target : #splashscreeninsert;
                 animation.property : position;
-                animation.to: -0.083 5.303 -1.237; _dur: 500"
+                animation.to: -0.083 3.303 -1.237;
+                animation.dur: 9900"
                   
                event-set__splash2 = "
                 _delay : 1200;
@@ -161,7 +164,7 @@ position="0.28726 1.49265 -0.91243"
                 _event : click;
                 _target : #splashlight;
                 animation.property : light.intensity;
-                animation.to: 0.5;"
+                animation.to: 0.2;"
                   >  </a-entity>
   <a-entity  id="splashscreeninsert"
 class="dissect"
@@ -179,8 +182,9 @@ position="0.28726 1.49265 -0.91243"
                 _delay : 100; _event : click;
                 _target : #splashscreeninsert;
                 animation.property : position;
-                animation.to:-0.083 5.303 -1.237; _dur: 500"
-                  
+                animation.to:-0.083 5.303 -1.237; 
+                animation.dur: 9900"
+                
                event-set__splash2 = "
                 _delay : 1200;
                 _event : click;
@@ -193,7 +197,7 @@ position="0.28726 1.49265 -0.91243"
                 _event : click;
                 _target : #splashlight;
                 animation.property : light.intensity;
-                animation.to: 0.5;"
+                animation.to: 0.2;"
                   >  </a-entity>
              </a-entity>
 
