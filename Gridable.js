@@ -19,8 +19,15 @@ AFRAME.registerComponent('gridable',{
     this.data.firstPosition.z = this.el.object3D.position.z;
     var comp = this;
     
-    var gridButton = document.queryselector("#gridbutton");
-    
+    var gridButton = document.querySelector("#gridbutton");
+    gridButton.addEventListener('mousedown', function(){
+      if(comp.data.gridCooldown > 0){
+        return;
+      }
+      
+      comp.toggleGrid();
+      comp.data.gridCooldown = 2;
+    });
     
     window.addEventListener('keydown', function(evt){
       //the D key in decimol ascii
