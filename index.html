@@ -93,6 +93,7 @@
     <a-asset-item id="buttonSpecOff" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_spec_off.glb?v=1625180387523" preload="auto"></a-asset-item>
     <a-asset-item id="buttonSpecOn" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_spec_on.glb?v=1624903611959" preload="auto"></a-asset-item>
     <a-asset-item id="buttonExpand" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_expand.glb?v=1626447560812" preload="auto"></a-asset-item>
+    <a-asset-item id="buttonGrid" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_grid.glb?v=1627935846982" preload="auto"></a-asset-item>
     
 <!--     Text for the various anatomical callouts are supplied via mixin -->
     
@@ -616,6 +617,8 @@
     </a-cylinder>
    </a-entity> 
   
+  <a-box id="gridbutton" scale="0.3 0.3 0.3" class="dissect" position="0 0 0" material="color: #56b4e9; opacity: 0.65" scalebutton="scaleDelta: 0; scaleMax: 0.6" gltf-model="#buttonGrid"
+         sound="src: #click2; on: click"></a-box>
    
 <!-- <a-entity id="linkbuttonui" scale="0.025 0.025 0.025" position="0.62 1.17 -1.28" rotation="0 49.5 0">
   <a-entity id="linkbutton" class="dissect" position="-5.95081 0.34945 21.11389" material="color: #D55E00; opacity: 0.65" geometry="" sound="src: clickno; on: click" href="https://plants.ces.ncsu.edu/plants/zephyranthes-atamasco/" target="_blank"></a-entity>
