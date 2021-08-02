@@ -171,7 +171,7 @@
           
            event-set__eyeopen = "
                 _event : click;
-                 _target : #examinecallout;
+                 _target : #examinetextheader;
                  animation.property : opacity;
                  animation.to: 1;
                 animation.dur: 2000"
@@ -230,7 +230,13 @@
   </a-entity>
   
 <!-- Lilywholedisection is a container element for all the draggable anatomy models in the dissection simulation    -->
-<a-entity id="wholespecimencontrol" position="-0.15 1.116 -1.69" rotation="-90 -457.8389044739884 -28.888742489645793" geometry="primitive: ring; radiusInner: 0.1; radiusOuter: 0.2" mixin="frame" class="dissect" rotatable="targetId: lilywholedissection; rotateZ: false">
+<a-entity id="wholespecimencontrol" 
+          position="-0.15 1.116 -1.69" 
+          rotation="-90 -457.8389044739884 -28.888742489645793" 
+          geometry="primitive: ring; radiusInner: 0.1; radiusOuter: 0.2" 
+          mixin="frame" 
+          class="dissect" 
+          rotatable="targetId: lilywholedissection; rotateZ: false">
   </a-entity>
   
   <a-text id="callouttext" text="color: #000000; value: " position="-0.731 3.2 -3.818" scale="" rotation="23.218105811951983 14.442172100685982 0"></a-text>
@@ -442,9 +448,10 @@ event-set__hoveredoffpistil = "
                        position="-0.5 0.5 0.2"
                        rotation="0 -66 0"
                        material="src: #calloutBg"
+                       opacity="0"
                        examinecallout>
-               <a-entity id="examinetextheader" text="value: W;" position="0.138 0.166 0.006" scale="1.2 1.2 1.2"></a-entity>
-               <a-entity id="examinetextbody" text="value: C;" position="0.008 -0.008 0.004"></a-entity>
+               <a-entity id="examinetextheader" text="value: Welcome; opacity: 0" position="0.138 0.166 0.006" scale="1.2 1.2 1.2"></a-entity>
+               <a-entity id="examinetextbody" text="value: C; opacity: 0" position="0.008 -0.008 0.004"></a-entity>
                <a-entity id="examineAudioButton" class="dissect" gltf-model="#speakerIcon" examineaudio position="0.26 -0.153 0.073" scale="0.025 0.025 0.025"></a-entity>
                <a-entity id="LeftCalloutButton" class="dissect" gltf-model="#buttonLeft" position="-0.380 -0.153 0.073" scale="0.025 0.025 0.025"></a-entity>
                <a-entity id="RightCalloutButton" class="dissect" gltf-model="#buttonRight" position="0.403 -0.153 0.073" scale="0.025 0.025 0.025"></a-entity>
