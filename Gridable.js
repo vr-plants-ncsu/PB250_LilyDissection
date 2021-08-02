@@ -19,6 +19,8 @@ AFRAME.registerComponent('gridable',{
     this.data.firstPosition.z = this.el.object3D.position.z;
     var comp = this;
     
+    var gridButton = document.queryselector("");
+    
     window.addEventListener('keydown', function(evt){
       //the D key in decimol ascii
       var shortcutPressed = evt.keyCode === 68;
