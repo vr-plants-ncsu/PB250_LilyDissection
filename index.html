@@ -118,7 +118,19 @@
 <!--     Anatomical Models -->
         <a-asset-item id="tepalmodel" 
                       src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_PetalA_1.gltf?v=1616117871787"></a-asset-item>
-        <a-asset-item id="stamenmodel" 
+        <a-asset-item id="stamenmodel1" 
+                      src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_1.gltf?v=1615974819978"></a-asset-item>
+    <a-asset-item id="stamenmodel2" 
+                      src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_1.gltf?v=1615974819978"></a-asset-item>
+    <a-asset-item id="stamenmodel3" 
+                      src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_1.gltf?v=1615974819978"></a-asset-item>
+    <a-asset-item id="stamenmodel4" 
+                      src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_1.gltf?v=1615974819978"></a-asset-item>
+    <a-asset-item id="stamenmodel5" 
+                      src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_1.gltf?v=1615974819978"></a-asset-item>
+    <a-asset-item id="stamenmodel6" 
+                      src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_1.gltf?v=1615974819978"></a-asset-item>
+    <a-asset-item id="stamenmodel1" 
                       src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_1.gltf?v=1615974819978"></a-asset-item>
     <a-asset-item id="pistilmodel" 
                       src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Center_Longitudinal.gltf?v=1616119609612"></a-asset-item>
@@ -313,12 +325,11 @@
              <a-entity id="lilystamen2" 
                 mixin="frame stamenSpec" 
                  class="dissect" 
-                hoverable clickdrag gridable
+                 hoverable clickdrag gridable
                  shadow 
                 scale="0.14 0.14 0.14"
                        hovercallout="hoverText: Stamen;"
-                 gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_2.gltf?v=1616117308966"
-                       
+                 gltf-model="#stamenmodel"  
                  >
           </a-entity>
 
@@ -326,39 +337,42 @@
              <a-entity id="lilystamen3" 
                 mixin="frame stamenSpec" 
                  class="dissect" 
-                hoverable clickdrag gridable hovercallout="hoverText: Stamen;"
+                 hoverable clickdrag gridable
                  shadow 
                 scale="0.14 0.14 0.14"
-               gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_3.gltf?v=1615974821270"
-                       
+                       hovercallout="hoverText: Stamen;"
+                 gltf-model="#stamenmodel"        
                  >
           </a-entity>
 
                    <a-entity id="lilystamen4" 
                 mixin="frame stamenSpec" 
                  class="dissect" 
-                hoverable clickdrag gridable hovercallout="hoverText: Stamen;"
-                 shadow scale="0.14 0.14 0.14"
-                gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_4.gltf?v=1615974818446"
-                 >
+                 hoverable clickdrag gridable
+                 shadow 
+                scale="0.14 0.14 0.14"
+                       hovercallout="hoverText: Stamen;"
+                 gltf-model="#stamenmodel"  >
           </a-entity>
       
                    <a-entity id="lilystamen5" 
                 mixin="frame stamenSpec" 
                  class="dissect" 
-                hoverable clickdrag gridable hovercallout="hoverText: Stamen;"
-                 shadow scale="0.14 0.14 0.14"
-              gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_5.gltf?v=1615974819486"
-                 >
+                 hoverable clickdrag gridable
+                 shadow 
+                scale="0.14 0.14 0.14"
+                       hovercallout="hoverText: Stamen;"
+                 gltf-model="#stamenmodel"  >
           </a-entity> 
         
         <a-entity id="lilystamen6" 
                 mixin="frame stamenSpec" 
                  class="dissect" 
-                hoverable clickdrag gridable hovercallout="hoverText: Stamen;"
-                 shadow scale="0.14 0.14 0.14"
-                gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_6.gltf?v=1615974820176"
-                 >
+                 hoverable clickdrag gridable
+                 shadow 
+                scale="0.14 0.14 0.14"
+                       hovercallout="hoverText: Stamen;"
+                 gltf-model="#stamenmodel"  >
           </a-entity>
   
 </a-entity>
@@ -366,18 +380,7 @@
 
    
     <a-entity id="petals" 
-                hovercallout="hoverText: Tepal;"
-                event-set__hoveredtepal = "
-                _event : hover-start;
-                _target : #tepaltext;
-                animation.property : text.opacity;
-                animation.to: 1"
-
-event-set__hoveredofftepal = "
-                _event : hover-end;
-                _target : #tepaltext;
-                animation.property : text.opacity;
-                animation.to: 0">
+                hovercallout="hoverText: Tepal;">
       
              <a-entity id="lilypetalA1" 
                 mixin="frame" 
