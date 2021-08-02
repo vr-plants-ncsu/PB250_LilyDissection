@@ -171,7 +171,7 @@
           
            event-set__eyeopen = "
                 _event : click;
-                 _target : #examinetextheader;
+                 _target : #examinecallout;
                  animation.property : opacity;
                  animation.to: 1;
                 animation.dur: 2000"
@@ -214,11 +214,11 @@
                  animation.to: 1;
                 animation.dur: 1000" 
           
-                     event-set__eyeopen = "
+                     event-set__hidetext1 = "
                 _event : click;
-                 _target : #examinecallout;
-                 animation.property : opacity;
-                 animation.to: 1;
+                 _target : #examinetextheader;
+                 animation.property : transparent;
+                 animation.to: false;
                 animation.dur: 2000"
                   >  </a-entity>
              </a-entity>
@@ -450,8 +450,8 @@ event-set__hoveredoffpistil = "
                        material="src: #calloutBg"
                        opacity="0"
                        examinecallout>
-               <a-entity id="examinetextheader" text="value: Welcome; opacity: 0" position="0.138 0.166 0.006" scale="1.2 1.2 1.2"></a-entity>
-               <a-entity id="examinetextbody" text="value: C; opacity: 0" position="0.008 -0.008 0.004"></a-entity>
+               <a-entity id="examinetextheader" text="value: Welcome" transparent="true" position="0.138 0.166 0.006" scale="1.2 1.2 1.2"></a-entity>
+               <a-entity id="examinetextbody" text="value: C; opacity: " position="0.008 -0.008 0.004"></a-entity>
                <a-entity id="examineAudioButton" class="dissect" gltf-model="#speakerIcon" examineaudio position="0.26 -0.153 0.073" scale="0.025 0.025 0.025"></a-entity>
                <a-entity id="LeftCalloutButton" class="dissect" gltf-model="#buttonLeft" position="-0.380 -0.153 0.073" scale="0.025 0.025 0.025"></a-entity>
                <a-entity id="RightCalloutButton" class="dissect" gltf-model="#buttonRight" position="0.403 -0.153 0.073" scale="0.025 0.025 0.025"></a-entity>
