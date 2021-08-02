@@ -5,7 +5,7 @@
   <meta name="description" content="Lily Dissection • A-Frame">
   
 <!--   This is a series of components and plugins used -->
-<!-- AFrame webXR Library   -->
+<!-- AFrame webXR Library  ver 1.2.0 -->
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 <!-- Superhands allows drag and rotation function -->
 <script src="./superhands.js"></script>  
@@ -117,13 +117,12 @@
        
 <!--     Anatomical Models -->
         <a-asset-item id="tepalmodel" 
-                      src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FTableOpenSlate.glb?v=1624977869033"></a-asset-item>
+                      src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_PetalA_1.gltf?v=1616117871787"></a-asset-item>
         <a-asset-item id="stamenmodel" 
-                      src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FTableOpenSlate.glb?v=1624977869033"></a-asset-item>
-    <a-asset-item id="stamenmodel" 
-                      src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FTableOpenSlate.glb?v=1624977869033"></a-asset-item>
-    <a-asset-item id="stamenmodel" 
-                      src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FTableOpenSlate.glb?v=1624977869033"></a-asset-item>
+                      src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_1.gltf?v=1615974819978"></a-asset-item>
+    <a-asset-item id="pistilmodel" 
+                      src="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Center_Longitudinal.gltf?v=1616119609612"></a-asset-item>
+
 
 
     
@@ -163,6 +162,8 @@
     
 
  
+  
+  
       
       <!--This is a random light that looks good on the splash   -->
           <a-entity id="splashscreencomplex" position="0.38808 -3.82898 0.34188">
@@ -247,8 +248,18 @@
              </a-entity>
   
   
+  
+  
+  
+  
+  
+  
 <a-sky id="sky" phi-start="45" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbackdrop.png?v=1620327729799" opacity="0"></a-sky>
 
+  
+  
+  
+  
   
   
   <a-entity id="tabselection"
@@ -257,6 +268,15 @@
             scale="0.1, 0.1, 0.1"
             >
   </a-entity>
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
 <!-- Lilywholedisection is a container element for all the draggable anatomy models in the dissection simulation    -->
 <a-entity id="wholespecimencontrol" 
@@ -284,7 +304,7 @@
                  shadow 
                 scale="0.14 0.14 0.14"
                        hovercallout="hoverText: Stamen;"
-                 gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Stamen_1.gltf?v=1615974819978"
+                 gltf-model="#stamenmodel"
                  >
                  
           
@@ -366,7 +386,7 @@ event-set__hoveredofftepal = "
                  shadow 
                 examinable="headerText: Lily Tepal; contentText: In the strictest sense, the petal and sepal whorls of the lily are not differentiated in appearance so they are called tepals. The tepals collectively make up the perianth of this flower.;"
                 scale="0.14 0.14 0.14"
-                gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_PetalA_1.gltf?v=1616117871787"
+                gltf-model="#tepalmodel"
                  >
           </a-entity>
       
@@ -450,7 +470,7 @@ event-set__hoveredoffpistil = "
                 shadow                 
                 examinable="headerText: Pistil; contentText: The pistil consists of an ovary, style, and stigma. Ovules are produced inside the ovary and mature into seeds following fertilization. The stigma functions as a landing pad to catch pollen while the style is a stalk to project the stigma outward."
                 scale="0.14 0.14 0.14"
-               gltf-model="https://cdn.glitch.com/3352fbd4-6698-4bc9-b59c-f1399bb316e5%2FLily_Center_Longitudinal.gltf?v=1616119609612"
+               gltf-model="#pistilmodel"
                  >
           </a-entity>
       </a-entity>
