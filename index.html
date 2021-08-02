@@ -89,6 +89,14 @@
     <a-asset-item id="buttonSpecOn" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_spec_on.glb?v=1624903611959"></a-asset-item>
     <a-asset-item id="buttonExpand" src="https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2Fbuttons_expand.glb?v=1626447560812"></a-asset-item>
     
+<!--     Text for the various anatomical callouts -->
+    
+    <a-mixin id="stamenSpec" material="color: red"></a-mixin><!--     <a-asset-item id="tepaltext" ="Each stamen consists of a stalk called the filament and an anther. Pollen is produced inside the chambers of the anther."></a-asset-item>
+    <a-asset-item id="pistiltext" src="Each stamen consists of a stalk called the filament and an anther. Pollen is produced inside the chambers of the anther."></a-asset-item>
+    <a-asset-item id="ovarytext" src="Each stamen consists of a stalk called the filament and an anther. Pollen is produced inside the chambers of the anther."></a-asset-item>
+    <a-asset-item id="overviewtext" src="Each stamen consists of a stalk called the filament and an anther. Pollen is produced inside the chambers of the anther."></a-asset-item>
+    <a-asset-item id="stamentext" src="Each stamen consists of a stalk called the filament and an anther. Pollen is produced inside the chambers of the anther."></a-asset-item> -->
+    
     
 <!--     Sounds Clips for each Anatomical Part Callout -->
     
@@ -254,7 +262,7 @@
                  class="dissect" 
                 hoverable clickdrag gridable
                  shadow examinable="headerText: Lily Stamen;
-                                    contentText: Each stamen consists of a stalk called the filament and an anther. Pollen is produced inside the chambers of the anther.;
+                                    contentText: #stamentext;
                                     audioClipUrl: https://cdn.glitch.com/9e3ddbc0-bfb3-4240-8716-a793e4bd6483%2FtestRecording.mp3?v=1623182471997;"
                 scale="0.14 0.14 0.14"
                  hovercallout="hoverText: Stamen;"
