@@ -58,15 +58,15 @@ AFRAME.registerComponent('examinecallout',{
       comp.data.fullContent = event.detail.associatedEntity.components.examinable.data.contentText;
       
       //setup to seperate around the 140 char mark while splitting at a space
-      let pageString = comp.data.fullContent.substring(0, comp.findSpaceBefore(comp.data.fullContent, 141));
+      let pageString = comp.data.fullContent.substring(0, comp.findSpaceBefore(comp.data.fullContent, 145));
       comp.data.contentPage = 0;
       content.el.setAttribute('text','value',pageString);
       
-      comp.data.numPages = event.detail.associatedEntity.components.examinable.data.contentText.length / 141;
+      comp.data.numPages = event.detail.associatedEntity.components.examinable.data.contentText.length / 145;
     if(comp.data.numPages > 3){
       console.Log("Size of pages excedes three, consider reducing text length");
     }
-      if(comp.data.numPages > 0){
+      if(comp.data.numPages > 1){
         rightCalloutButton.setAttribute('visible', true);
       }
     });
@@ -82,8 +82,8 @@ AFRAME.registerComponent('examinecallout',{
       }
       comp.data.buttonDown = 3;
       comp.data.contentPage--;
-      let pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 141),
-                                                     comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 141 + 141));
+      let pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 145),
+                                                     comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 145 + 145));
       content.el.setAttribute('text','value',pageString);
       if(comp.data.contentPage == 0){
         leftCalloutButton.setAttribute('visible', false);
@@ -100,13 +100,13 @@ AFRAME.registerComponent('examinecallout',{
       comp.data.buttonDown = 3;
       comp.data.contentPage++;
       let pageString = "";
-      if(comp.data.contentPage * 141 < (comp.data.fullContent.length - 141)){
+      if(comp.data.contentPage * 145 < (comp.data.fullContent.length - 145)){
         //set this up to split at spaces
-        pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 141),
-                                                     comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 141 + 141));
+        pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 145),
+                                                     comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 145 + 145));
       }
-      if(comp.data.contentPage * 141 >= (comp.data.fullContent.length - 141)){
-        pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 141), comp.data.fullContent.length);
+      if(comp.data.contentPage * 145 >= (comp.data.fullContent.length - 145)){
+        pageString = comp.data.fullContent.substring(comp.findSpaceBefore(comp.data.fullContent,comp.data.contentPage * 145), comp.data.fullContent.length);
       }
       content.el.setAttribute('text','value',pageString);
       if(comp.data.contentPage >= comp.data.numPages - 1){
@@ -171,6 +171,9 @@ AFRAME.registerComponent('examinecallout',{
     }
   },
   findSpaceBefore: function(word, index){
+    if(index > word.length){
+      return(index);
+    }
       for(let i = index;i > 0; i--){
         if(word.charAt(i) === " "){
           return(i);
