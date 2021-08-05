@@ -6,8 +6,8 @@ var calloutDefRot = new THREE.Vector3();
 
 AFRAME.registerComponent('examinecallout',{
   schema: {
-    defHeader: {type:'string', default: "Welcome"},
-    defContent: {type:'string', default:"Click on a part of the plant for more information\n test test"},
+    defHeader: {type:'string', default: ""},
+    defContent: {type:'string', default:""},
     fullContent:{type: 'string', default:""},
     focusDepth: {type:'float', default:0.3},
     focusCooldown: {type:'float', default:0},
