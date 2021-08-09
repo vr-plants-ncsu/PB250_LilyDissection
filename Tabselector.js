@@ -14,18 +14,17 @@ AFRAME.registerComponent('tabselector',{
     var entity = this.el;
     var listOfExaminable = document.querySelectorAll('[examinable]');;
     window.addEventListener('keydown', function(evt){ 
-      if(listOfExaminable[selectedExaminableId].object3D === undefined){
+      //make sure we skip any elements that don't have valid 3d objects
+      while(listOfExaminable[selectedExaminableId].object3D === undefined){
         listOfExaminable = document.querySelectorAll('[examinable]');
         selectedExaminable = listOfExaminable[selectedExaminableId];
-      selectedExaminableId = (selectedExaminableId + 1) % listOfExaminable.length;
-        return;
+        selectedExaminableId = (selectedExaminableId + 1) % listOfExaminable.length;
       }
       //the Q key in decimol ascii
       var shortcutPressed = evt.keyCode === 81;
       if (!shortcutPressed || !canTabSelect){
         return;
       }
-        console.log("q test " + listOfExaminable.length);
       selectedExaminable = listOfExaminable[selectedExaminableId];
       selectedExaminableId = (selectedExaminableId + 1) % listOfExaminable.length;
       
