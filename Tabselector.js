@@ -10,15 +10,16 @@ AFRAME.registerComponent('tabselector',{
   },
   
   init: function(){
-    var listOfExaminable = document.querySelectorAll('[examinable]');
+    //var listOfExaminable = document.querySelectorAll('[examinable]');
     var entity = this.el;
-    window.addEventListener('keydown', function(evt){
+    window.addEventListener('keydown', function(evt){ 
+      var listOfExaminable = document.querySelectorAll('[examinable]');
       //the Q key in decimol ascii
       var shortcutPressed = evt.keyCode === 81;
       if (!shortcutPressed || !canTabSelect){
         return;
       }
-        
+        console.log("q test");
       selectedExaminable = listOfExaminable[selectedExaminableId];
       selectedExaminableId = (selectedExaminableId + 1) % listOfExaminable.length;
       
