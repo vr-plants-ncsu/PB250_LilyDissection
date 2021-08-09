@@ -12,14 +12,20 @@ AFRAME.registerComponent('tabselector',{
   init: function(){
     //var listOfExaminable = document.querySelectorAll('[examinable]');
     var entity = this.el;
+    var listOfExaminable = document.querySelectorAll('[examinable]');;
     window.addEventListener('keydown', function(evt){ 
-      var listOfExaminable = document.querySelectorAll('[examinable]');
+      if(listOfExaminable[selectedExaminableId].object3D === undefined){
+        listOfExaminable = document.querySelectorAll('[examinable]');
+        selectedExaminable = listOfExaminable[selectedExaminableId];
+      selectedExaminableId = (selectedExaminableId + 1) % listOfExaminable.length;
+        return;
+      }
       //the Q key in decimol ascii
       var shortcutPressed = evt.keyCode === 81;
       if (!shortcutPressed || !canTabSelect){
         return;
       }
-        console.log("q test");
+        console.log("q test " + listOfExaminable.length);
       selectedExaminable = listOfExaminable[selectedExaminableId];
       selectedExaminableId = (selectedExaminableId + 1) % listOfExaminable.length;
       
