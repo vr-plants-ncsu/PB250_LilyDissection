@@ -1,7 +1,7 @@
 var lastPlacement = {x:0, y:0, z:0};
 const gridX = 5;
 const gridY = 5;
-const gridOrigin = {x:-0.6,y:0.7,z:0};
+const gridOrigin = {x:-0.6,y:0.3,z:0};
 var gridFactorX = 0;
 var gridFactorY = 0;
 
