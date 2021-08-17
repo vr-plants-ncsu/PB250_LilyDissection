@@ -91,26 +91,31 @@
     <a-asset-item id="buttonSpecOn" src="./assets/buttons_spec_on.glb" preload="auto"></a-asset-item>
     <a-asset-item id="buttonExpand" src="./assets/buttons_expand.glb" preload="auto"></a-asset-item>
     <a-asset-item id="buttonGrid" src="./assets/buttons_grid.glb" preload="auto"></a-asset-item>
+
+    <a-asset-item id="tepalVO" src="./assets/FTallis_Lily_01.wav" preload="auto"></a-asset-item>
+    <a-asset-item id="stamenVO" src="./assets/FTallis_Lily_02.wav" preload="auto"></a-asset-item>
+    <a-asset-item id="pistilVO" src="./assets/FTallis_Lily_03.wav" preload="auto"></a-asset-item>
+    <a-asset-item id="ovaryVO" src="./assets/FTallis_Lily_04.wav" preload="auto"></a-asset-item>
     
 <!--     Text for the various anatomical callouts are supplied via mixin -->
     
      <a-mixin id="tepalSpec" 
               examinable="headerText: Lily Tepal;
                           contentText: The petal and sepal whorls are not differentiated in appearance so they are called tepals. The tepals collectively make up the perianth.;
-                          audioClipUrl: ./assets/FTallis_Lily_01.wav;"></a-mixin>
+                          audioClipUrl: #tepalVO;"></a-mixin>
     <a-mixin id="stamenSpec" 
               examinable="headerText: Lily Stamen;
                           contentText: Each stamen consists of a stalk called the filament and an anther. Pollen is produced inside the chambers of the anther.;
-                          audioClipUrl: ./assets/FTallis_Lily_02.wav;"></a-mixin>
+                          audioClipUrl: #stamenVO;"></a-mixin>
        
         <a-mixin id="pistilSpec" 
               examinable="headerText: Lily Pistil;
                           contentText: The pistil consists of an ovary, style, and stigma. The ovary produces ovules and nourishes them as they develop into seeds.;
-                          audioClipUrl: ./assets/FTallis_Lily_03.wav;"></a-mixin>
+                          audioClipUrl: #pistilVO;"></a-mixin>
         <a-mixin id="ovarySpec" 
               examinable="headerText: Lily Ovary;
                           contentText: The ovary has three chambers called locules separated by walls called septa. Each locule contains two rows of ovules that will mature into seeds.;
-                          audioClipUrl: ./assets/FTallis_Lily_04.wav;"></a-mixin>
+                          audioClipUrl: #ovaryVO;"></a-mixin>
         
        
 <!--     Anatomical Models -->
