@@ -10,7 +10,7 @@
     font-size: large;
     font-weight: bold;
     font-style: oblique;
-    border-radius: 5px;
+    border-radius: 25px;
     background: linear-gradient(315deg, #ea1500, #3e0000);
     box-shadow: -5px -5px 10px #808080, 5px 5px 10px #6a6a6a;
     color: white;
@@ -62,5 +62,4 @@ body {
     background: #000000;
     color: white;
     zoom: 90%;
-    font-size: 1%;
 }
