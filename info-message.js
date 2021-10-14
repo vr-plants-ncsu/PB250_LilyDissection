@@ -4,7 +4,7 @@ AFRAME.registerComponent('info-message', {
     htmlSrc: {type: 'selector'},
     startOpened: {default: false},
     width: {default: 600},
-    height: {default: 600}
+    height: {default: 900}
   },
   init: function () {
     var sceneEl = this.el.sceneEl;
