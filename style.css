@@ -1,6 +1,46 @@
-/* CSS files add styling rules to your content */
+.row div{
+				display: inline-block;
+				border: 1px solid white;
+				padding: 0.5em;
+				margin: 0.5em;
+				border-radius: 5px;
+				width:6em;
+				height:6em;
+				font-family: "universal";
+				font-size: large;
+				font-weight: bold;
+				font-style: oblique;
+				border-radius: 25px;
+				background: linear-gradient(315deg, #ea1500, #3e0000);
+				box-shadow:  -5px -5px 10px #808080, 5px 5px 10px #6a6a6a;
+				color: white;
+				vertical-align: top;
+			}
+			.row div span{
+				font-size: large;
+				font-style: normal;
+				color: #FFFFFF;
+			}
+			.row .wide0{width: 8em;}
+			.row .wide1{width: 10em;}
+			.row .wide2{width: 14em}
+			.row .wide3{width: 14em}
+			.row .wide4{width: 17.9em}
+			.row .spacebar{width: 49em}
+			.kb{
+				border: 1px solid black;
+				border-radius: 5px;
+				padding: 2em;
+				margin: 1em;
+				background-color: #606060;
+				width: 140em;
 
-h1 {
-  font-style: italic;
-  color: #373fff;
-}
+				background: #000000;
+				box-shadow: 20px 20px 60px #525252, 
+				inset -20px -20px 60px #6e6e6e;
+			}
+			body{
+				background: #000000;
+				color: white;
+				zoom: 90%;
+			}
