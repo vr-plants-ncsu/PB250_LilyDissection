@@ -3,8 +3,8 @@ AFRAME.registerComponent('info-message', {
   schema: {
     htmlSrc: {type: 'selector'},
     startOpened: {default: false},
-    width: {default: 600},
-    height: {default: 480}
+    width: {default: 1800},
+    height: {default: 1440}
   },
   init: function () {
     var sceneEl = this.el.sceneEl;
